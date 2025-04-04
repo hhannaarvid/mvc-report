@@ -29,8 +29,10 @@ class LuckyControllerJson
     public function jsonNumber(): Response
     {
         $number = random_int(1, 5);
+        date_default_timezone_set("Europe/Stockholm");
+        $date = date("Y-m-d H:i:s");
 
-        $data = [
+        $quote = [
             1 => 'Köper man en stor creme fraiche till tacon så räcker den till mer än en liten förpackning.',
             2 => 'Jag är klar med min personliga utveckling men ni andra kan gärna fortsätta ett tag till. ',
             3 => 'När livet går åt skogen, börja räkna kantareller.',
@@ -38,7 +40,12 @@ class LuckyControllerJson
             5 => 'Sommaren är kort, men våren också. Även hösten. Och vintern, även om ingen vill erkänna det.'
         ];
 
-        $response = new JsonResponse($data[$number]);
+        $data = [
+            'quote' => $quote[$number],
+            'date' => $date
+        ];
+
+        $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
