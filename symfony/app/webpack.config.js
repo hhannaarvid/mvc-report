@@ -63,6 +63,9 @@ Encore
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
+    // processes files ending in .less
+    .enableLessLoader()
+
     // uncomment if you use React
     //.enableReactPreset()
 

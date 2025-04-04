@@ -2,10 +2,31 @@
 
 {% block title %}About{% endblock %}
 
+{# 
+Text om kursen, bild som passar kursen
+länk till sidans github
+länk till min github
+sidan ska ha två kolumner 
+#}
+
 {% block body %}
-    <h1>About</h1>
-    <p>An image which can be clicked on.</p>
-    <a href="{{ asset('img/glider.svg') }}">
-        <img src="{{ asset('img/glider.svg') }}" alt="">
-    </a>
+<h1 class="article-h1">Om kursen</h1>
+    <div class="article">
+        <p class="article-column">Om kursen enligt <a href="https://dbwebb.se/kurser/mvc-v2" class="article-a">dbwebbs kurssida:</a> <br>
+        <br>
+        "Kursen Objektorienterade webbteknologier, a.k.a. mvc, fokuserar på objektorienterade programmeringstekniker i programmeringsspråket PHP. Klassiska objektorienterade konstruktioner hanteras tillsammans med objektorienterad programmering i webbaserat ramverk tillsammans med databaser samt enhetstestning."<br>
+        <br>
+        Syftet med kursen är att man ska kunna redogöra för utveckling med objektorienterad programmering och databaser i webbmiljö. 
+        <br>
+        <br>
+        I kursen så arbetar vi med ramverket Symfony, där man använder en rad olika teknologier. Bland annat PHP, twig, js.<br>
+        <br> 
+
+        <a href="https://github.com/dbwebb-se/mvc/tree/main" class="big-a">Kursens github</a><br>
+        <br>
+        <a href="https://github.com/hhannaarvid" class="big-a">Min egen github</a></p>
+
+        <img src="{{ asset('img/symfony.png') }}" alt="symfony logo" class="symfony">
+
+    </div>
 {% endblock %}
