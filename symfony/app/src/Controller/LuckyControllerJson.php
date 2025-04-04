@@ -8,17 +8,37 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyControllerJson
 {
-    #[Route("/api/lucky/number")]
-    public function jsonNumber(): Response
+    #[Route("/api")]
+    public function view(): Response
     {
-        $number = random_int(0, 100);
 
-        $data = [
-            'lucky-number' => $number,
-            'lucky-message' => 'Hi there!',
+        $jsonroutes = [
+            '/api' => 'view of all json routes',
+            '/api/quote' => 'Quote of the day',
         ];
 
-        $response = new JsonResponse($data);
+        $response = new JsonResponse($jsonroutes);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+
+    }
+
+    #[Route("/api/quote")]
+    public function jsonNumber(): Response
+    {
+        $number = random_int(1, 5);
+
+        $data = [
+            1 => 'Köper man en stor creme fraiche till tacon så räcker den till mer än en liten förpackning.',
+            2 => 'Jag är klar med min personliga utveckling men ni andra kan gärna fortsätta ett tag till. ',
+            3 => 'När livet går åt skogen, börja räkna kantareller.',
+            4 => 'Jag vill vara snäll men alla irriterar mig',
+            5 => 'Sommaren är kort, men våren också. Även hösten. Och vintern, även om ingen vill erkänna det.'
+        ];
+
+        $response = new JsonResponse($data[$number]);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
