@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class LuckyControllerTwig extends AbstractController
+class HomeController extends AbstractController
 {
     #[Route("/", name: "home")]
     public function home(): Response
@@ -39,9 +39,10 @@ class LuckyControllerTwig extends AbstractController
         return $this->render('lucky.html.twig', $data);
     }
 
-    #[Route("/api", name: "api")]
+    #[Route("api", name: "api")]
     public function api(): Response
     {
         return $this->render('api.html.twig');
     }
+
 }
