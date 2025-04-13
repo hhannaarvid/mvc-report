@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <link rel="icon" href="{{ asset('img/icons8-tree-30.png') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Dirt&display=swap" rel="stylesheet">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    
+    <body>
+
+        <nav>
+            <ul>
+                <i class="fa-solid fa-tree"></i>
+                <li><a href="{{ path('home') }}">HOME</a></li>
+                <i class="fa-solid fa-tree"></i>
+                <li><a href="{{ path('about') }}">ABOUT</a></li>
+                <i class="fa-solid fa-tree"></i>
+                <li><a href="{{ path('report') }}">REPORT</a></li>
+                <i class="fa-solid fa-tree"></i>
+                <li><a href="{{ path('lucky') }}">LUCKY</a></li>
+                <i class="fa-solid fa-tree"></i>
+                <li><a href="{{ path('api') }}">API</a></li>
+                <i class="fa-solid fa-tree"></i>
+            </ul>
+        </nav>
+
+        <header>
+        
+            <p class="headertext">MVC</p>
+            <p class="headertext-small">Min portfolio för kursen mvc</p>
+
+
+        </header>
+
+        <div class="main">
+            <div class="content">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+
+        <footer>
+            <p>Finfin sida skapad av mig (haav23) för kursen mvc.</p>
+
+            <a href="https://github.com/hhannaarvid"><i class="fa-brands fa-github"></i></a>
+        </footer>
+
+    </body>
+
+</html>

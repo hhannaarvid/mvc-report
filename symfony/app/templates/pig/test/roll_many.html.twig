@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+{# Här ska finnas text om mig och en bild på mig. #}
+
+
+{% block body %}
+<h1 class="article-h1">Pig game - roll many</h1>
+    <div class="article-report">
+        <p>You rolled {{ num_dices }} dices. Here is the value of the dices.</p>
+
+
+        {% for roll in diceRoll %}
+            <p>{{ roll }}</p>
+        {% endfor %}
+
+        
+        <p>Try to roll 
+            <a href="{{ path('test_roll_num_dices', {num: 5}) }}">5</a>
+            or 
+            <a href="{{ path('test_roll_num_dices', {num: 10}) }}">10</a>
+            dices.
+        </p>
+    </div>
+{% endblock %}
