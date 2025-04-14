@@ -172,3 +172,9 @@ h1 {
   background-color: #e9f1ea;
   padding: 5px;
 }
+.flash-delete {
+  color: #676767;
+  background-color: #c9e4da;
+  border: 1px solid #bed2cb;
+  padding: 5px;
+}
