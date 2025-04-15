@@ -17,23 +17,33 @@ class CardController extends AbstractController {
     #[Route("/card", name: "card")]
     public function card(): Response
     {
-        $cards = new Card();
+        $cards = new Card('2','♥');
 
         $data = [
-            "cardnumber" => $cards->getcard()
+            "cardnumber" => $cards->getAsString()
         ];
         return $this->render('card/card.html.twig', $data);
     }
 
     #[Route("/card/deck", name: "card_deck")]
+    // visar hela kortleken
+    // starta session?
     public function card_deck(): Response
     {
         $deck = new DeckOfCard();
 
+        $deckArr = $deck->cardsArray();
+
+        $cards = $deck->getAsString();
+
         $data = [
-            "cardnumber" => $deck->getdeck()
-        ];
-        return $this->render('card/card.html.twig', $data);
+            "cards" => $cards,
+            "deck" => $deckArr
+        ]; 
+
+        // var_dump($cards);
+
+        return $this->render('card/card_deck.html.twig', $data);
     }
 
 

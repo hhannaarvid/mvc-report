@@ -178,3 +178,12 @@ h1 {
   border: 1px solid #bed2cb;
   padding: 5px;
 }
+.full-deck {
+  display: flex;
+  width: 100%;
+  gap: 10px 10px;
+  flex-wrap: wrap;
+}
+.card-deck {
+  width: 15%;
+}

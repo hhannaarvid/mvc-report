@@ -4,23 +4,36 @@ namespace App\Card;
 
 class Card
 {
-    protected $card;
+    protected string $suit;
+    protected string $rank;
 
-    public function __construct()
+    public function __construct(string $suit, string $rank)
     {
-        // konstruktor
-        $this->card = null;
+        $this->suit = $suit;
+        $this->rank = $rank;
     }
 
-
-    public function getcard(): string
-    {
-        $this->card = "[A♥]";
-        return $this->card;
-    }
-
-    // public function getAsString(): string
+    // public function getSuit(): string
     // {
-    //     return "[{$this->$card}]";
+    //     return $this->suit;
     // }
+
+    // public function getRank(): string
+    // {
+    //     return $this->rank;
+    // }
+
+    public function getAsString(): string
+    {
+        return "{$this->suit}{$this->rank}";
+    }
+
+    public function imgStr(): string
+    {
+        // fixa adress till bilderna
+        $rank = $this->rank;
+        $suit = $this->suit;
+
+        return "/img/deck/{$suit}{$rank}.svg";
+    }
 }
