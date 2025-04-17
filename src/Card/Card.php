@@ -23,17 +23,17 @@ class Card
     //     return $this->rank;
     // }
 
-    public function getAsString(): string
+    public function getCardString(): string
     {
         return "{$this->suit}{$this->rank}";
     }
 
-    public function imgStr(): string
-    {
-        // fixa adress till bilderna
-        $rank = $this->rank;
-        $suit = $this->suit;
+    // public function imgStr(): string
+    // {
+    //     // fixa adress till bilderna
+    //     $rank = $this->rank;
+    //     $suit = $this->suit;
 
-        return "/img/deck/{$suit}{$rank}.svg";
-    }
+    //     return "/img/deck/{$suit}{$rank}.svg";
+    // }
 }

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Card\Card;
 use App\Card\DeckOfCard;
-
+use App\Card\CardHand;
 
 
 class CardController extends AbstractController {
@@ -34,7 +34,7 @@ class CardController extends AbstractController {
         $cards = new Card('2','♥'); // test?
 
         $data = [
-            "cardnumber" => $cards->getAsString()
+            "cardnumber" => $cards->getCardString()
         ];
         return $this->render('card/card.html.twig', $data);
     }
@@ -63,7 +63,7 @@ class CardController extends AbstractController {
     {
         // hämta från session
         $deckArr = $session->get("deck");
-       
+
         //blanda
         shuffle($deckArr);
 
@@ -90,7 +90,7 @@ class CardController extends AbstractController {
         $draw = $deck->draw();
 
         //gör till sträng
-        $drawStr = $draw->getAsString();
+        $drawStr = $draw->getCardString();
         // var_dump($draw);
 
         //antal kvar i kortleken
@@ -110,6 +110,42 @@ class CardController extends AbstractController {
         ]; 
 
         return $this->render('card/card_deck_draw.html.twig', $data);
+    }
+
+    #[Route("/card/deck/draw/{num<\d+>}", name: "card_deck_draw_num")]
+    // visar hela kortleken
+    public function card_deck_draw_num(
+        SessionInterface $session, int $num
+    ): Response
+    {
+        //hämta objekt från session
+        $deck = $session->get("deckObj");
+
+        //dra kort och skapa objekt i cardhand
+        $cardhand = new Cardhand();
+        for ($i=0; $i< $num; $i++) {
+            $onecard = $deck->draw();
+            $cardhand->add($onecard);
+        }
+
+        //antal kvar i kortleken
+        $count = $deck->cardsCount();
+
+        //gör till array
+        $deckArr = $cardhand->cardsArray();
+        // var_dump(gettype($deckArr));
+
+        //spara array i session
+        $session->set('deck', $deckArr);
+
+
+        $data = [
+            "deck" => $deck,
+            "drawHand" => $deckArr,
+            "count" => $count
+        ]; 
+
+        return $this->render('card/card_deck_draw2.html.twig', $data);
     }
 
     //SESSION ROUTES ------------------------------------------- //

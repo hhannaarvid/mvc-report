@@ -32,18 +32,18 @@ class DeckOfCard extends Card
         $deckArr = [];
 
         foreach ($this->cards as $card) {
-            $deckArr[] = $card->getAsString();
+            $deckArr[] = $card->getCardString();
         }
         return $deckArr;
     }
 
-    public function getAsString(): string // behövs kanske inte ens???????
+    public function getAsString(): string
     {
         //hämtar kortlek som sträng
         $deckStr = [];
 
         foreach ($this->cards as $card) {
-            $deckStr[] = $card->getAsString();
+            $deckStr[] = $card->getCardString();
         }
 
         return implode(', ', $deckStr);
@@ -57,7 +57,7 @@ class DeckOfCard extends Card
         $deckArr = [];
 
         foreach ($this->cards as $card) {
-            $deckArr[] = $card->getAsString();
+            $deckArr[] = $card->getCardString();
         }
         shuffle($deckArr);
         $this->shuffled = $deckArr;
