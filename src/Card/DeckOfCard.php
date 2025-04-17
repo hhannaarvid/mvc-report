@@ -4,8 +4,9 @@ namespace App\Card;
 
 class DeckOfCard extends Card
 {
-    protected array $cards = [];
-    // protected array $deckArr = [];
+    protected array $cards = []; //sorterad
+    
+    protected array $shuffled = []; //blandad
 
 
     // protected array $suits = ['♥', '♦', '♣', '♠'];
@@ -53,19 +54,24 @@ class DeckOfCard extends Card
     public function shuffleDeck(): array
     {
         // blandar kortleken
-        // $deck = [];
-        // $deck = $this->cards;
-        // shuffle($deck);
-
         $deckArr = [];
 
         foreach ($this->cards as $card) {
             $deckArr[] = $card->getAsString();
         }
         shuffle($deckArr);
+        $this->shuffled = $deckArr;
         return $deckArr;
 
     }
+
+    public function shuffleDeck2(): void
+    {
+        // blandar kortleken
+        shuffle($this->cards);
+
+    }
+
 
     // public function draw(): ?Card
     // {

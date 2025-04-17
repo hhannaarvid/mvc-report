@@ -20,7 +20,16 @@ class CardController extends AbstractController {
         SessionInterface $session
     ): Response
     {
-        $cards = new Card('2','♥');
+        //skapa ny kortlek
+        $deck = new DeckOfCard();
+
+        //gör till array
+        $deckArr = $deck->cardsArray();
+
+        //spara i sessionen
+        $session->set("deck", $deckArr);
+
+        $cards = new Card('2','♥'); // test?
 
         $data = [
             "cardnumber" => $cards->getAsString()
@@ -30,39 +39,37 @@ class CardController extends AbstractController {
 
     #[Route("/card/deck", name: "card_deck")]
     // visar hela kortleken
-    // starta session?
     public function card_deck(
         SessionInterface $session
     ): Response
     {
-        $deck = new DeckOfCard();
-
-        $session->set("deck", $deck);
-
-        $deckArr = $deck->cardsArray();
-
-        $session->set("deckArr", $deckArr);
+        //hämta från session
+        $deckArr = $session->get("deck");
 
         $data = [
             "deck" => $deckArr
         ]; 
-
-        // var_dump($cards);
 
         return $this->render('card/card_deck.html.twig', $data);
     }
 
     #[Route("/card/deck/shuffle", name: "card_deck_suffle")]
     // blanda kortleken
-    // starta session?
-    public function suffle_deck(): Response
+    public function shuffle_deck(
+        SessionInterface $session
+    ): Response
     {
-        $deck = new DeckOfCard(); //object
+        // hämta från session
+        $deckArr = $session->get("deck");
+       
+        //blanda
+        shuffle($deckArr);
 
-        $shuffled = $deck->shuffleDeck();
+        //spara i sessionen
+        $session->set("deck", $deckArr);
 
         $data = [
-            "shuffled" => $shuffled
+            "shuffled" => $deckArr
         ]; 
 
         return $this->render('card/card_deck_shuffle.html.twig', $data);
