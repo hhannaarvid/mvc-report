@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Controller;
+use App\Card\Card;
+use App\Card\DeckOfCard;
+use App\Card\CardHand;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class HomeControllerJson
 {
@@ -46,6 +51,30 @@ class HomeControllerJson
         ];
 
         $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+
+    }
+
+    #[Route("/api/deck")]
+    public function deck(
+        Request $request,
+        SessionInterface $session
+    ): Response
+    {
+        //skapa kortlek-objekt
+        $deck = new DeckOfCard();
+
+        //spara i session
+        $session->set("deckObj", $deck);
+
+        
+        $nice = $deck->cardsArray2();
+
+
+        $response = new JsonResponse($nice);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
