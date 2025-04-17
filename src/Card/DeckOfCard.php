@@ -72,16 +72,15 @@ class DeckOfCard extends Card
 
     }
 
+    public function draw(): Card
+    {
+        return array_shift($this->cards);
+    }
 
-    // public function draw(): ?Card
-    // {
-    //     return array_shift($this->cards);
-    // }
-
-    // public function cardsLeft(): int
-    // {
-    //     return count($this->cards);
-    // }
+    public function cardsCount(): int
+    {
+        return count($this->cards);
+    }
 
 
 }

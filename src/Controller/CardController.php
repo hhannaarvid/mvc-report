@@ -28,6 +28,8 @@ class CardController extends AbstractController {
 
         //spara i sessionen
         $session->set("deck", $deckArr);
+        $session->set("deckObj", $deck);
+
 
         $cards = new Card('2','♥'); // test?
 
@@ -75,7 +77,40 @@ class CardController extends AbstractController {
         return $this->render('card/card_deck_shuffle.html.twig', $data);
     }
 
+    #[Route("/card/deck/draw", name: "card_deck_draw")]
+    // visar hela kortleken
+    public function card_deck_draw(
+        SessionInterface $session
+    ): Response
+    {
+        //hämta objekt från session
+        $deck = $session->get("deckObj");
 
+        //dra ett kort
+        $draw = $deck->draw();
+
+        //gör till sträng
+        $drawStr = $draw->getAsString();
+        // var_dump($draw);
+
+        //antal kvar i kortleken
+        $count = $deck->cardsCount();
+
+        //gör till array
+        $deckArr = $deck->cardsArray();
+
+        //spara array i session
+        $session->set('deck', $deckArr);
+
+
+        $data = [
+            "deck" => $deck,
+            "draw" => $drawStr,
+            "count" => $count
+        ]; 
+
+        return $this->render('card/card_deck_draw.html.twig', $data);
+    }
 
     //SESSION ROUTES ------------------------------------------- //
     // öppna session och printa allt som finns där i

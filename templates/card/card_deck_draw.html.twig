@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block body %}
+<h1 class="article-h1">Dra ett kort</h1>
+
+    <div class="article-report">
+
+        <div class="draw-card">
+
+            <div class="draw">
+                <p>Här är ett kort: </p><br>
+                <img src="{{ asset('img/deck/'~draw~'.svg') }}" alt="{{draw}}" class="card-draw"><br>
+            </div>
+            <div class="draw">
+                <p>Antal kort som är kvar:</p>
+                <p>{{count}}</p>
+            </div>
+
+
+
+        </div>
+        <br>
+        <br>
+    </div>
+    <br>
+        <br>
+{% endblock %}
