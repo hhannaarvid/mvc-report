@@ -15,7 +15,10 @@ use App\Card\DeckOfCard;
 class CardController extends AbstractController {
     // samlingssida med lista över alla routes som har med card att göra
     #[Route("/card", name: "card")]
-    public function card(): Response
+    public function initCallback(
+        Request $request,
+        SessionInterface $session
+    ): Response
     {
         $cards = new Card('2','♥');
 
@@ -28,16 +31,19 @@ class CardController extends AbstractController {
     #[Route("/card/deck", name: "card_deck")]
     // visar hela kortleken
     // starta session?
-    public function card_deck(): Response
+    public function card_deck(
+        SessionInterface $session
+    ): Response
     {
         $deck = new DeckOfCard();
 
+        $session->set("deck", $deck);
+
         $deckArr = $deck->cardsArray();
 
-        $cards = $deck->getAsString();
+        $session->set("deckArr", $deckArr);
 
         $data = [
-            "cards" => $cards,
             "deck" => $deckArr
         ]; 
 
@@ -46,15 +52,28 @@ class CardController extends AbstractController {
         return $this->render('card/card_deck.html.twig', $data);
     }
 
+    #[Route("/card/deck/shuffle", name: "card_deck_suffle")]
+    // blanda kortleken
+    // starta session?
+    public function suffle_deck(): Response
+    {
+        $deck = new DeckOfCard(); //object
 
+        $shuffled = $deck->shuffleDeck();
+
+        $data = [
+            "shuffled" => $shuffled
+        ]; 
+
+        return $this->render('card/card_deck_shuffle.html.twig', $data);
+    }
 
 
 
     //SESSION ROUTES ------------------------------------------- //
     // öppna session och printa allt som finns där i
     #[Route("/session", name: "session")]
-    public function initCallback(
-        Request $request,
+    public function session(
         SessionInterface $session
     ): Response
     {

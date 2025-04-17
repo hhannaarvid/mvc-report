@@ -178,7 +178,8 @@ h1 {
   border: 1px solid #bed2cb;
   padding: 5px;
 }
-.full-deck {
+.full-deck,
+.session-div {
   display: flex;
   width: 100%;
   gap: 10px 10px;

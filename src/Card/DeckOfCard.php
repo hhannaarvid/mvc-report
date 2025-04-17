@@ -5,6 +5,7 @@ namespace App\Card;
 class DeckOfCard extends Card
 {
     protected array $cards = [];
+    // protected array $deckArr = [];
 
 
     // protected array $suits = ['♥', '♦', '♣', '♠'];
@@ -24,21 +25,6 @@ class DeckOfCard extends Card
 
     }
 
-    // public function shuffle(): void
-    // {
-    //     shuffle($this->cards);
-    // }
-
-    // public function draw(): ?Card
-    // {
-    //     return array_shift($this->cards);
-    // }
-
-    // public function cardsLeft(): int
-    // {
-    //     return count($this->cards);
-    // }
-
     public function cardsArray(): array
     {
         // hämtar kortlek som Array
@@ -50,7 +36,7 @@ class DeckOfCard extends Card
         return $deckArr;
     }
 
-    public function getAsString(): string
+    public function getAsString(): string // behövs kanske inte ens???????
     {
         //hämtar kortlek som sträng
         $deckStr = [];
@@ -63,4 +49,33 @@ class DeckOfCard extends Card
         // return $deckStr;
 
     }
+
+    public function shuffleDeck(): array
+    {
+        // blandar kortleken
+        // $deck = [];
+        // $deck = $this->cards;
+        // shuffle($deck);
+
+        $deckArr = [];
+
+        foreach ($this->cards as $card) {
+            $deckArr[] = $card->getAsString();
+        }
+        shuffle($deckArr);
+        return $deckArr;
+
+    }
+
+    // public function draw(): ?Card
+    // {
+    //     return array_shift($this->cards);
+    // }
+
+    // public function cardsLeft(): int
+    // {
+    //     return count($this->cards);
+    // }
+
+
 }

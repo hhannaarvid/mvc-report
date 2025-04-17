@@ -7,15 +7,17 @@
 <h1 class="article-h1">Session</h1>
 
     <div class="article-report">
+        <div class="session-div">
         <br>
         {{ include('card/flash.html.twig') }}
         <br>
         {% if sessionData is not empty %}
         {% for key, value in sessionData %}
-        <p><strong>{{ key }}</strong>: {{ value|json_encode }}<br></p>
-        {% endfor %}
+            <p>{{ key }}:</p>
+            <pre>{{ dump(value) }}</pre> 
+            {% endfor %}
         {% else %}
-        <p> Sessionen är tom! </p>
+            <p>Sessionen är tom!</p>
         {% endif %}
 
         {# {{ dump(sessionData) }} #}
@@ -25,6 +27,7 @@
 
         <br>
         <br>
+    </div>
     </div>
     <br>
         <br>
