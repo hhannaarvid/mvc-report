@@ -13,27 +13,10 @@ class Card
         $this->rank = $rank;
     }
 
-    // public function getSuit(): string
-    // {
-    //     return $this->suit;
-    // }
-
-    // public function getRank(): string
-    // {
-    //     return $this->rank;
-    // }
-
     public function getCardString(): string
     {
         return "{$this->suit}{$this->rank}";
     }
 
-    // public function imgStr(): string
-    // {
-    //     // fixa adress till bilderna
-    //     $rank = $this->rank;
-    //     $suit = $this->suit;
 
-    //     return "/img/deck/{$suit}{$rank}.svg";
-    // }
 }

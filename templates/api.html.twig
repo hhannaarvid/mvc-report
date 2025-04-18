@@ -5,11 +5,9 @@
 
 {% block body %}
 <h1 class="article-h1">API-routes</h1>
-<br>
-        <br>
-    <div class="article">
-        <br>
-        <br>
+
+    <div class="article-report">
+
         <p>Hej och hå<br>
             <br>
             JSON-routes:<br>
@@ -19,8 +17,14 @@
             /api/deck/shuffle: blanda och visa kortleken<br>
             /api/deck/draw: dra ett kort som visas. <br>
             /api/deck/draw:number : dra x antal kort<br>
-</p>
-<br>
+        </p>
+        <br>
+        <p>Dra ett valfritt antal kort från kortleken:</p>
+        <form method="post" action="{{ path('api_post') }}">
+            <input type="number" name="num_cards" min="1" max="99" value="1">
+            <input type="submit" name="do_it" value="Draw" class="drawbtn">
+        </form>
+        <br>
         <br>
     </div>
     <br>

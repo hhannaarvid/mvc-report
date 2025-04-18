@@ -205,3 +205,19 @@ h1 {
 .draw {
   width: 40%;
 }
+.drawbtn {
+  padding: 5px 10px;
+  background-color: #c9e4da;
+  border: 1px solid #bed2cb;
+}
+.drawbtn:hover {
+  background-color: #a8bfb7;
+  border: 1px solid #000;
+}
+form {
+  padding: 10px 0;
+}
+form input {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}

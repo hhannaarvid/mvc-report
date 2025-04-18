@@ -5,6 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Card\DeckOfCard;
 
 class HomeController extends AbstractController
 {
@@ -39,10 +42,5 @@ class HomeController extends AbstractController
         return $this->render('lucky.html.twig', $data);
     }
 
-    #[Route("api", name: "api")]
-    public function api(): Response
-    {
-        return $this->render('api.html.twig');
-    }
 
 }

@@ -27,7 +27,7 @@ class CardController extends AbstractController {
         $deckArr = $deck->cardsArray();
 
         //spara i sessionen
-        $session->set("deck", $deckArr);
+        $session->set("deckArr", $deckArr);
         $session->set("deckObj", $deck);
 
 
@@ -46,7 +46,8 @@ class CardController extends AbstractController {
     ): Response
     {
         //hämta från session
-        $deckArr = $session->get("deck");
+        $deckArr = $session->get("deckArr");
+
 
         $data = [
             "deck" => $deckArr
@@ -62,13 +63,16 @@ class CardController extends AbstractController {
     ): Response
     {
         // hämta från session
-        $deckArr = $session->get("deck");
+        $deck = $session->get("deckObj");
 
         //blanda
-        shuffle($deckArr);
+        // shuffle($deckArr);
+        $deck->shuffle();
+
+        $deckArr = $deck->cardsArray();
 
         //spara i sessionen
-        $session->set("deck", $deckArr);
+        $session->set("deckObj", $deck);
 
         $data = [
             "shuffled" => $deckArr
@@ -86,8 +90,11 @@ class CardController extends AbstractController {
         //hämta objekt från session
         $deck = $session->get("deckObj");
 
+        // $deck = $session->get("deck");
+
         //dra ett kort
         $draw = $deck->draw();
+        // $draw = array_shift($deck);
 
         //gör till sträng
         $drawStr = $draw->getCardString();
@@ -100,7 +107,7 @@ class CardController extends AbstractController {
         $deckArr = $deck->cardsArray();
 
         //spara array i session
-        $session->set('deck', $deckArr);
+        // $session->set('deck', $deckArr);
 
 
         $data = [
@@ -136,7 +143,7 @@ class CardController extends AbstractController {
         // var_dump(gettype($deckArr));
 
         //spara array i session
-        $session->set('deck', $deckArr);
+        // $session->set('deck', $deck);
 
 
         $data = [
