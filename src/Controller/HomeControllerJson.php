@@ -11,7 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-
 class HomeControllerJson extends AbstractController
 {
     // #[Route("/api", name: "api_json")]
@@ -61,8 +60,7 @@ class HomeControllerJson extends AbstractController
     #[Route("/api/deck")]
     public function deck(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         //hämta objekt från session
         $deck = $session->get("deckObj2");
         $nice = $deck->cardsArray();
@@ -78,8 +76,7 @@ class HomeControllerJson extends AbstractController
     #[Route("/api/deck/shuffle")]
     public function deck_shuffle(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         //hämta objekt från session
         $deck = $session->get("deckObj2");
 
@@ -99,8 +96,7 @@ class HomeControllerJson extends AbstractController
     #[Route("/api/deck/draw", name: "api_deck_draw", methods: ['GET'])]
     public function api_draw(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         //hämta objekt från session
         $deck = $session->get("deckObj2");
 
@@ -110,10 +106,10 @@ class HomeControllerJson extends AbstractController
             //hämta antal kort från session
             $cardnumber = $session->get('cardnumber');
         }
-        
+
 
         $cardhand = new Cardhand();
-        for ($i=0; $i< $cardnumber; $i++) {
+        for ($i = 0; $i < $cardnumber; $i++) {
             $onecard = $deck->draw();
             $cardhand->add($onecard);
         }
@@ -137,8 +133,7 @@ class HomeControllerJson extends AbstractController
     public function api(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         //skapa kortlek-objekt
         // $deck = new PrettyDeck();
 
@@ -147,7 +142,7 @@ class HomeControllerJson extends AbstractController
         } else {
             $deck = $session->get('deckObj2');
         }
-        
+
 
         //spara i session
         $session->set("deckObj2", $deck);
@@ -159,8 +154,7 @@ class HomeControllerJson extends AbstractController
     public function initCallback(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         //hämta data från formuläret
         $cardnumber = $request->request->get('num_cards');
 

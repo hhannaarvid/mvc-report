@@ -3,7 +3,6 @@
 namespace App\Card;
 
 class PrettyDeck extends DeckOfCard
-
 {
     protected array $cards = []; //sorterad
     protected array $suits = ['♥', '♦', '♣', '♠'];

@@ -10,7 +10,7 @@ class DeckOfCard
     protected array $suits = ['h', 'd', 'c', 's'];
     protected array $ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
 
-    
+
     public function __construct()
     {
         foreach ($this->suits as $suit) {

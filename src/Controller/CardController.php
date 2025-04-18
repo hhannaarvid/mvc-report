@@ -11,15 +11,14 @@ use App\Card\Card;
 use App\Card\DeckOfCard;
 use App\Card\CardHand;
 
-
-class CardController extends AbstractController {
+class CardController extends AbstractController
+{
     // samlingssida med lista över alla routes som har med card att göra
     #[Route("/card", name: "card")]
     public function initCallback(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         //skapa ny kortlek
         $deck = new DeckOfCard();
 
@@ -31,7 +30,7 @@ class CardController extends AbstractController {
         $session->set("deckObj", $deck);
 
 
-        $cards = new Card('2','♥'); // test?
+        $cards = new Card('2', '♥'); // test?
 
         $data = [
             "cardnumber" => $cards->getCardString()
@@ -43,15 +42,14 @@ class CardController extends AbstractController {
     // visar hela kortleken
     public function card_deck(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         //hämta från session
         $deckArr = $session->get("deckArr");
 
 
         $data = [
             "deck" => $deckArr
-        ]; 
+        ];
 
         return $this->render('card/card_deck.html.twig', $data);
     }
@@ -60,8 +58,7 @@ class CardController extends AbstractController {
     // blanda kortleken
     public function shuffle_deck(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         // hämta från session
         $deck = $session->get("deckObj");
 
@@ -76,7 +73,7 @@ class CardController extends AbstractController {
 
         $data = [
             "shuffled" => $deckArr
-        ]; 
+        ];
 
         return $this->render('card/card_deck_shuffle.html.twig', $data);
     }
@@ -85,8 +82,7 @@ class CardController extends AbstractController {
     // visar hela kortleken
     public function card_deck_draw(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         //hämta objekt från session
         $deck = $session->get("deckObj");
 
@@ -114,7 +110,7 @@ class CardController extends AbstractController {
             "deck" => $deck,
             "draw" => $drawStr,
             "count" => $count
-        ]; 
+        ];
 
         return $this->render('card/card_deck_draw.html.twig', $data);
     }
@@ -122,15 +118,15 @@ class CardController extends AbstractController {
     #[Route("/card/deck/draw/{num<\d+>}", name: "card_deck_draw_num")]
     // visar hela kortleken
     public function card_deck_draw_num(
-        SessionInterface $session, int $num
-    ): Response
-    {
+        SessionInterface $session,
+        int $num
+    ): Response {
         //hämta objekt från session
         $deck = $session->get("deckObj");
 
         //dra kort och skapa objekt i cardhand
         $cardhand = new Cardhand();
-        for ($i=0; $i< $num; $i++) {
+        for ($i = 0; $i < $num; $i++) {
             $onecard = $deck->draw();
             $cardhand->add($onecard);
         }
@@ -150,7 +146,7 @@ class CardController extends AbstractController {
             "deck" => $deck,
             "drawHand" => $deckArr,
             "count" => $count
-        ]; 
+        ];
 
         return $this->render('card/card_deck_draw2.html.twig', $data);
     }
@@ -160,8 +156,7 @@ class CardController extends AbstractController {
     #[Route("/session", name: "session")]
     public function session(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
 
         $data = [
             'sessionData' => $session->all()
@@ -185,4 +180,3 @@ class CardController extends AbstractController {
     }
 
 }
-

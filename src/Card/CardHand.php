@@ -2,7 +2,6 @@
 
 namespace App\Card;
 
-
 class CardHand
 {
     protected array $cardhand = [];
