@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Magic number{% endblock %}
+{% block title %}Report{% endblock %}
 
 {% block body %}
 <h1 class="article-h1">Redovisningssida för mvc</h1>
@@ -8,30 +8,47 @@
     <p class="report-tag" id="kmom01">Kmom01</p>
 
 
-    <p><strong>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering.</strong></p><br>
-    Främst från kursen i objektorienterad python, jag läste den dock förra våren så äre ungefär ett år sedan.<br>
-    <br>
-    <p><strong>Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</strong></p><br>
-    Man bygger klasser med properties och metoder, liknande variabler och funktioner men inuti en klass. Inne i klassen så skapar men properties
-     som hör till klassen samt metoder. Man kan ha publika/privata delar i klassen, oftast vill man använda sig av privata saker men att man gör 
-     metoder som kan komma åt datan en "get-metod" till exempel. <br>
-    <br>
-    <p><strong>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</strong></p><br>
-    Jag tycker det är lite knepigt med ramverk, men känns också bra att vi får lära oss för jag tror det är viktigt att känna till det inför arbetslivet. 
-    Det har dock gått lättare i den här kursen än när vi använde t.ex. pico i design, kanske är det här ramverket lättare alt så 
-    är det lite lättare nu för att man har lite mer koll den här gången. Jag tycker fortfarande det är lite jobbigt med så många 
-    filer och mappar dock, känenr att det är mycket som jag inte vet vad det är och det stör mig. Försöker kolla upp det jag jobbar med 
-    åtminstone så jag lär mig så mycket som möjligt.<br>
-    <br>
-    <p><strong>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</strong></p><br>
-    Jag ska erkänna att jag inte har läst så mycket ur den då de var väldigt lång. Men jag kikade på templates och basics delarna och tyckte att de var tydliga och bra. 
-    Har sparat artikeln för det känns som den kan vara bra om man vill kolla upp vissa saker.<br>
-    <br>
-    <p><strong>Vilken är din TIL för detta kmom?</strong></p><br>
-        Det är lättare att jobba i det andra ramverket som man får lära sig än det första. <br>
+        <p><strong>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering.</strong></p><br>
+        Främst från kursen i objektorienterad python, jag läste den dock förra våren så äre ungefär ett år sedan.<br>
+        <br>
+        <p><strong>Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</strong></p><br>
+        Man bygger klasser med properties och metoder, liknande variabler och funktioner men inuti en klass. Inne i klassen så skapar men properties
+        som hör till klassen samt metoder. Man kan ha publika/privata delar i klassen, oftast vill man använda sig av privata saker men att man gör 
+        metoder som kan komma åt datan en "get-metod" till exempel. <br>
+        <br>
+        <p><strong>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</strong></p><br>
+        Jag tycker det är lite knepigt med ramverk, men känns också bra att vi får lära oss för jag tror det är viktigt att känna till det inför arbetslivet. 
+        Det har dock gått lättare i den här kursen än när vi använde t.ex. pico i design, kanske är det här ramverket lättare alt så 
+        är det lite lättare nu för att man har lite mer koll den här gången. Jag tycker fortfarande det är lite jobbigt med så många 
+        filer och mappar dock, känenr att det är mycket som jag inte vet vad det är och det stör mig. Försöker kolla upp det jag jobbar med 
+        åtminstone så jag lär mig så mycket som möjligt.<br>
+        <br>
+        <p><strong>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</strong></p><br>
+        Jag ska erkänna att jag inte har läst så mycket ur den då de var väldigt lång. Men jag kikade på templates och basics delarna och tyckte att de var tydliga och bra. 
+        Har sparat artikeln för det känns som den kan vara bra om man vill kolla upp vissa saker.<br>
+        <br>
+        <p><strong>Vilken är din TIL för detta kmom?</strong></p><br>
+            Det är lättare att jobba i det andra ramverket som man får lära sig än det första. <br>
         <br>
 
     <p class="report-tag" id="kmom02">Kmom02</p>
+
+        <p><strong>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</strong></p><br>
+        - Arv: man kan ha klasser som "ärver" varandra. T.ex. i mitt fall har jag en DeckOfCards, och en PrettyCards som ärver DeckOfCards. PrettyCards skapar en annan array men kan sedan använda alla metoder från DeckOfCard för att de har samma struktur.<br>
+        - Komposition: Exempel med min klass DeckOfCards som innehåller Card-objekt. Alltså, DeckOfCards har en/har flera Cards. Det är komposition.<br>
+        - Interface: om man använder sig av ett särskilt interface så säger man att alla klasser som gör det måste innehålla t.ex. metod "x". På så vis får man en viss tydlighet, man vet vad klassen ska kunna göra.<br>
+        - trait: metoder som kan användas av flera klasser. <br>
+        <p><strong>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?</strong></p><br>
+        Jag är nöjd. Det var svårt att komma igång för det var ett tag sedan jag programmerade objektorienterat (har läst oopython men förra året), sen kände jag att jag inte har programmerat ordentligt i php förut även om vi gjort det lite i flera kurser. Så det var en bra sak med det här kursmomentet, jag har fått programmera ordentligt med php. När jag väl kom igång så gick det bra,
+         jag försökte beta av ett krav i taget med hjälp av föreläsningar och internet/discord. Jag har försökt städa lite i mina klasser men tycker alltid det blir lite rörigt när jag är mitt i det. Det går nog att städa lite mer. Det kan hända att jag har någon metod som inte används t.ex.<br>
+        <br>
+        <p><strong>Vilka är dina reflektioner så här långt med att jobb i Symfony med applikationskod enligt MVC?</strong></p><br>
+        Nu är man inne i det och då tycker jag det går bra. I början känns det mest besvärligt. Men nu när man är inne i det så är det smidigt och går ganska snabbt att få till nya sidor t.ex. Så jag gillar det. <br>
+        <br>
+        <p><strong>Vilken är din TIL för detta kmom?</strong></p><br>
+        Att det är kul att jobba såhär med att bygga en kortlek. Det blir så visuellt det man gör. Dock har det sina utmaningar också och kmom03 kommer säkert bjuda på fler.<br>
+        <br>
+
     <p class="report-tag" id="kmom03">Kmom03</p>
     <p class="report-tag" id="kmom04">Kmom04</p>
     <p class="report-tag" id="kmom05">Kmom05</p>
