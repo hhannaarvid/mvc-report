@@ -17,7 +17,13 @@
             session/delete - ta bort sessionen <br>
         </p>
         <br>
-        <p>Ett kort ur kortleken: {{ cardnumber }} </p>
+        <br>
+        <p>Om klasserna:<br></p>
+        <p>Det finns fyra klasser, <strong>Card</strong>, <strong>CardHand</strong>, <strong>DeckOfCard</strong> och <strong>PrettyDeck</strong>. CardHand och DeckOfCard använder
+             sig av komposition och skapas genom flera Card-objekt som läggs i en array. PrettyDeck ärver från DeckOfCard
+              och skapar en finare array (utan bilder) att presentera på json-api:erna.
+        </p>
+        <img src="{{ asset('img/kmom02.drawio.png') }}" alt="uml" class="uml">
 
 <br>
         <br>

@@ -36,7 +36,4 @@ class CardHand
         }
         return $deckArr;
     }
-
-
-
 }

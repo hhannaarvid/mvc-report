@@ -5,7 +5,7 @@ namespace App\Card;
 class DeckOfCard
 {
     protected array $cards = []; //sorterad
-    protected array $shuffled = []; //blandad
+    // protected array $shuffled = []; //blandad
 
     protected array $suits = ['h', 'd', 'c', 's'];
     protected array $ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
@@ -54,7 +54,7 @@ class DeckOfCard
             $deckArr[] = $card->getCardString();
         }
         shuffle($deckArr);
-        $this->shuffled = $deckArr;
+        // $this->shuffled = $deckArr;
         return $deckArr;
 
     }
