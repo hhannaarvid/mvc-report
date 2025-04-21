@@ -9,22 +9,19 @@
     <div class="article-report">
 
         <p>
-            card/deck - visar samtliga kort i kortleken sorterade per färg och värde. <br>
-            card/deck/shuffle - visar samtliga kort i kortleken när den har blandats.<br>
-            card/deck/draw - drar ett kort från kortleken och visar upp det. Visa även antalet kort som är kvar i kortleken.<br>
-            card/deck/draw/:number - drar :number kort från kortleken och visar upp dem. Visa även antalet kort som är kvar i kortleken.<br>
-            session - kolla vad som är sparat i sessionen. <br>
-            session/delete - ta bort sessionen <br>
+            Välkommen till kortspelet 21!
+        </p>
+        <p>
+            Såhär går det till:
+        </p>
+        <p>
+            - Du spelar mot banken, målet är att komma så nära 21 poäng som möjligt utan att komma över 21.<br>
+            - Du börjar dra ett kort, du kan antingen stanna där eller dra ett till. Om du kommer över 21 så vinner banken.<br>
+            - När du väljer att stanna så drar banken ett kort. Banken vet inte vad du har fått för poäng. Banken drar så många kort den vill innan den väljer att stanna. <br>
+            - Sedan jämförs poängen. Är poängen samma, så vinner banken. Är du högst, men inte över 21 så vinner du. Är banken högst men inte över 21 så vinner den.<br>
         </p>
         <br>
-        <br>
-        <p>Om klasserna:<br></p>
-        <p>Det finns fyra klasser, <strong>Card</strong>, <strong>CardHand</strong>, <strong>DeckOfCard</strong> och <strong>PrettyDeck</strong>. CardHand och DeckOfCard använder
-             sig av komposition och skapas genom flera Card-objekt som läggs i en array. PrettyDeck ärver från DeckOfCard
-              och skapar en finare array (utan bilder) att presentera på json-api:erna.
-        </p>
-
-<br>
+        <a href="{{ path('gameInit') }}" class="big-a">Starta spelet</a>
         <br>
     </div>
     <br>

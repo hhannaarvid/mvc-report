@@ -37,4 +37,13 @@ class GameController extends AbstractController
         // ];
         return $this->render('game/game.html.twig');
     }
+
+    #[Route("/game/init", name: "gameInit")] 
+        public function gameInit(
+            SessionInterface $session
+        ): Response {
+
+            return $this->render('game/game_init.html.twig');
+        
+    }
 }
