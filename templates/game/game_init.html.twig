@@ -6,16 +6,19 @@
 {% block body %}
 <h1 class="article-h1">21</h1>
 
-    <div class="article-report">
+    <div class="article-game">
 
-        <p>
-            Dra ett kort
-        </p>
-
+        
+            <div class="gamedraw">
+                <p>Ditt kort:</p><br>
+            <img src="{{ asset('img/deck/'~draw~'.svg') }}" alt="{{draw}}" class="card-draw"><br>
+        </div>
+        
         <br>
-        <input type="submit" name="draw" value="Dra ett till" class="big-a">
-        <input type="submit" name="stop" value="Stanna" class="big-a">
-
+        <div class="gamediv">
+            <input type="submit" name="draw" value="Dra ett till" class="gamebtn">
+            <input type="submit" name="stop" value="Stanna" class="gamebtn">
+        </div>
 
         <br>
     </div>

@@ -43,7 +43,26 @@ class GameController extends AbstractController
             SessionInterface $session
         ): Response {
 
-            return $this->render('game/game_init.html.twig');
+            //skapa ny kortlek
+            $deck = new DeckOfCard();
+
+            // blanda kortleken
+            $deck->shuffle();
+
+            //dra ett kort
+            $draw = $deck->draw();
+
+            //gör till sträng
+            $drawStr = $draw->getCardString();
+
+            //spara i sessionen
+            $session->set("deckObj", $drawStr);
+
+            $data = [
+                "draw" => $drawStr,
+            ];
+
+            return $this->render('game/game_init.html.twig', $data);
         
     }
 }
