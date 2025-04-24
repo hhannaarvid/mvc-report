@@ -11,11 +11,11 @@
         
             <div class="gamedraw">
                 <div class="gameinfo">
-                    <p>Ditt kort:</p><br>
-                    <p>Din totala poäng: {{userpoints}}</p>
+                    <p>Bankens kort:</p><br>
+                    <p>Bankens totala poäng: {{bankpoints}}</p>
                 </div>
                 <div class="cards">
-                {% for card in cardhand %}
+                {% for card in bankhand %}
                 {# {{card}} #}
                 <img src="{{ asset('img/deck/'~card~'.svg') }}" alt="{{card}}" class="card-draw"><br>
                 {% endfor %}
@@ -25,14 +25,9 @@
         <br>
         <div class="gamediv">
             <form method="post" action="">
-                <input type="submit" name="draw" value="Dra ett kort" class="gamebtn"
-                    onClick='this.form.action="{{ path("game_play") }}";'>
+                <input type="submit" name="draw" value="Kolla vem som vann" class="gamebtn"
+                    onClick="this.form.action='{{ path('game_score') }}';">
 
-                <input type="submit" name="save" value="Spara poäng" class="gamebtn"
-                    onClick="this.form.action='{{ path('game_save') }}';">
-
-                <input type="submit" name="quit" value="Spela igen" class="gamebtn"
-                    onClick="this.form.action='{{ path('game') }}';this.form.method='get';">
 
             </form>
         </div>
