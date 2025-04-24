@@ -18,5 +18,10 @@ class Card
         return "{$this->suit}{$this->rank}";
     }
 
+    public function getRank(): int
+    {
+        return $this->rank;
+    }
+
 
 }

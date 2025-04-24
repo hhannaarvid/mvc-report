@@ -251,3 +251,11 @@ form input {
   gap: 10px;
   flex-direction: column;
 }
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+}
+.cards img {
+  width: 130px;
+}

@@ -15,33 +15,26 @@ class GameController extends AbstractController
 {
     // startsida för kortspel
     #[Route("/game", name: "game")]
-    public function initCallback(
-        Request $request,
-        SessionInterface $session
+    public function game(
+        
     ): Response {
-        // //skapa ny kortlek
-        // $deck = new DeckOfCard();
 
-        // //gör till array
-        // $deckArr = $deck->cardsArray();
-
-        // //spara i sessionen
-        // $session->set("deckArr", $deckArr);
-        // $session->set("deckObj", $deck);
-
-
-        // $cards = new Card('2', '♥'); // test?
-
-        // $data = [
-        //     "cardnumber" => $cards->getCardString()
-        // ];
         return $this->render('game/game.html.twig');
     }
 
     #[Route("/game/init", name: "gameInit")] 
+    //framsidan för spelet, starta genom att trycka på knapp
         public function gameInit(
+            Request $request,
             SessionInterface $session
         ): Response {
+
+            //skapa rätt variabler i session
+            $session->set("userpoints", 0);
+            $session->set("draws", 0);
+            $session->set("bankpoints", 0);
+            $session->set("cardhand", []);
+
 
             //skapa ny kortlek
             $deck = new DeckOfCard();
@@ -49,20 +42,57 @@ class GameController extends AbstractController
             // blanda kortleken
             $deck->shuffle();
 
-            //dra ett kort
-            $draw = $deck->draw();
-
-            //gör till sträng
-            $drawStr = $draw->getCardString();
-
-            //spara i sessionen
-            $session->set("deckObj", $drawStr);
+            //spara blandad kortlek (objekt) i session
+            $session->set("gameDeck", $deck);
 
             $data = [
-                "draw" => $drawStr,
+                "userpoints"=> $session->get("userpoints"),
+                "bankpoints"=> $session->get("bankpoints"),
+                "cardhand"=> $session->get("cardhand")
             ];
 
             return $this->render('game/game_init.html.twig', $data);
         
+    }
+
+    // #[Route("/game/init", name: "gameInit", methods: ["POST"])]
+    // public function initCallback(): Response
+    // {
+    //     return $this->redirectToRoute("game_play");
+    // }
+
+    #[Route("/game/play", name: "game_play", methods: ["GET"])]
+    public function Play(): Response
+    {
+        return $this->render("game/game_play.html.twig");
+    }
+
+    #[Route("/game/play", name: "game_play", methods: ['POST'])]
+    public function roll(
+        SessionInterface $session
+    ): Response
+    {
+            $deck = $session->get("gameDeck");
+            $cardhand = $session->get("cardhand");
+
+
+            //dra ett kort
+            $draw = $deck->draw();
+            $cardhand[] = $draw->getCardString();
+            $session->set("cardhand", $cardhand);
+
+            //ta fram poäng för kortet
+            $rank = $draw->getRank();
+            $points = $session->get("userpoints");
+            $total = $rank + $points;
+            $session->set("userpoints", $total);
+
+            $data = [
+                "userpoints"=> $session->get("userpoints"),
+                "bankpoints"=> $session->get("bankpoints"),
+                "cardhand"=> $session->get("cardhand")
+            ];
+
+        return $this->render('game/game_play.html.twig', $data);
     }
 }
