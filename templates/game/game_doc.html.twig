@@ -1,0 +1,73 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block body %}
+<h1 class="article-h1">Dokumentation</h1>
+
+    <div class="article-report">
+        <div class="flowchart">
+            <p><strong>Flödesschema för grundstrukturen i spelet.</strong></p><br>
+            <img src="{{ asset('img/flowchart.drawio.svg') }}" alt="flowchart" width="300"><br>
+        </div>
+        <br>
+        <p><strong>Skapa psuedokod som visar hur du tänker lösa delar av spelet. Du kan spara 
+        resultatet som text eller bild men visa upp det i webbsidan för dokumentationen. Det behöver 
+        inte vara en komplett lösning, en dellösning räcker bra.</strong><br>
+
+        Exempel på pseudokod för kontrollern som kollar vem som vann, och kontrollern där poängen sparas samt banken spelar.<br>
+            <pre>
+                #score route
+
+            Hämta userpoints(session)
+            Hämta bankpoints(session)
+
+            IF (jämför bankpoints och userpoints)
+            Bankpoints > 21 OCH userpoints > 21
+                = ingen vinner
+            Bankpoints = userpoints
+                = banken vinner
+            Userpoints > 21 och bankpoints <= 21
+                = banken vinner
+            Bankpoints >21 och userpoints <= 21
+                = användaren vinner
+            Userpoints < bankpoints och bankpoints <= 21
+                = banken vinner
+            Userpoints > bankpoints och userpoints <= 21
+                = spelaren vinner
+
+            Return -> meddelande om vem som vann
+
+
+            ________________________________
+
+                #save route
+            Skapa ny kortleksobjekt
+            Blanda kortleken
+
+            Randomisera antal kort (2-3) ($number)
+
+            FOR loop (dra antal kort ($number) från kortleken.)
+                skapa ett cardhand-objekt
+                räkna samman bankens poäng
+                spara bankpoints i session
+
+            Data = [bankpoints, bankens korthand]
+
+            Return -> Data</pre><br>
+        </p><br>
+        <strong>Fundera igenom vilka klasser du behöver för att implementera spelet. Beskriv klasserna 
+        i text med klassens namn och en mening som beskriver vad klassens syfte är. Håll det kort och 
+        enkelt.</strong><br>
+        <br>
+        Jag tänker att det borde räcka med de klasserna som jag redan har skapat, så i första hand använder jag mig av dem.<br>
+        Card - skapar ett card-objekt
+        Deckofcard - skapar en hel kortlek (av card-objekt).
+        Cardhand - skapar en "korthand" med hjälp av card-objekt.
+        </p>
+        <br>
+    </div>
+    <br>
+        <br>
+{% endblock %}
