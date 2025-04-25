@@ -163,4 +163,24 @@ class HomeControllerJson extends AbstractController
 
         return $this->redirectToRoute('api_deck_draw');
     }
+
+    #[Route("/api/game")]
+    public function show_game(
+        SessionInterface $session
+    ): Response {
+        //hämta objekt från session
+        
+        $data = [
+            "userwins"=> $session->get("user-wins"),
+            "bankwins"=> $session->get("bank-wins")
+        ];
+
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+
+    }
 }
