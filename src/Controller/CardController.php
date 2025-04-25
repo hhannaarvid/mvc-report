@@ -86,8 +86,6 @@ class CardController extends AbstractController
         //hämta objekt från session
         $deck = $session->get("deckObj");
 
-        // $deck = $session->get("deck");
-
         //dra ett kort
         $draw = $deck->draw();
         // $draw = array_shift($deck);
@@ -101,9 +99,6 @@ class CardController extends AbstractController
 
         //gör till array
         $deckArr = $deck->cardsArray();
-
-        //spara array i session
-        // $session->set('deck', $deckArr);
 
 
         $data = [

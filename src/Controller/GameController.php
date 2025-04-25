@@ -7,9 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use App\Card\Card;
 use App\Card\DeckOfCard;
-use App\Card\CardHand;
 
 class GameController extends AbstractController
 {
@@ -36,7 +34,11 @@ class GameController extends AbstractController
             $session->set("cardhand", []);
             $session->set("bankhand", []);
 
-
+            if (!$session->has("bank-wins") || !$session->has("user-wins")) {
+                $session->set("user-wins", 0);
+                $session->set("bank-wins", 0);
+            }
+            
             //skapa ny kortlek
             $deck = new DeckOfCard();
 
@@ -55,12 +57,6 @@ class GameController extends AbstractController
             return $this->render('game/game_init.html.twig', $data);
         
     }
-
-    // #[Route("/game/init", name: "gameInit", methods: ["POST"])]
-    // public function initCallback(): Response
-    // {
-    //     return $this->redirectToRoute("game_play");
-    // }
 
     #[Route("/game/play", name: "game_play", methods: ["GET"])]
     public function play_get(): Response
@@ -109,7 +105,7 @@ class GameController extends AbstractController
             $deck->shuffle();
 
             //hur många kort ska banken dra
-            $number = rand(1,3);
+            $number = rand(2,3);
 
             //dra ett kort
             for ($i=1; $i<=$number; $i++) {
@@ -119,11 +115,11 @@ class GameController extends AbstractController
                 $rank = $draw->getRank();
                 $points = $session->get("bankpoints");
                 $total = $rank + $points;
+
                 $session->set("bankpoints", $total);
             }
 
             $session->set("bankhand", $bankhand);
-
             
             $data = [
                 "userpoints"=> $session->get("userpoints"),
@@ -135,7 +131,6 @@ class GameController extends AbstractController
         return $this->render('game/game_bank.html.twig', $data);
     }
 
-    
     #[Route("/game/score", name: "game_score", methods: ['POST'])]
     public function score(
         SessionInterface $session
@@ -143,30 +138,37 @@ class GameController extends AbstractController
     {
         $userpoints = $session->get("userpoints");
         $bankpoints = $session->get("bankpoints");
-        $cardhand = $session->get("cardhand");
-        $bankhand = $session->get("bankhand");
         $message = "";
+        $bankwins = $session->get("bank-wins");
+        $userwins = $session->get("user-wins");
 
         if ($userpoints > 21 && $bankpoints > 21) {
             $message = "Båda fick över 21, alltså vann ingen.";
         } elseif ($userpoints === $bankpoints) {
             $message = "Banken vann!";
+            $bankwins += 1;
+            $session->set("bank-wins", $bankwins);
         } elseif ($userpoints > 21 && $bankpoints <= 21){
             $message ="Banken vann!";
+            $bankwins += 1;
+            $session->set("bank-wins", $bankwins);
         } elseif ($bankpoints > 21 && $userpoints <= 21) {
             $message = "Du vann!";
+            $userwins += 1;
+            $session->set("user-wins", $userwins);
         } elseif ($userpoints > $bankpoints && $userpoints <= 21) {
             $message = "Du vann!";
+            $userwins += 1;
+            $session->set("user-wins", $userwins);
         } elseif ($userpoints < $bankpoints && $bankpoints <= 21) {
             $message = "Banken vann!";
+            $bankwins += 1;
+            $session->set("bank-wins", $bankwins);
         }
-        
-            
+         
             $data = [
                 "userpoints"=> $userpoints,
                 "bankpoints"=> $bankpoints,
-                "cardhand"=> $cardhand,
-                "bankhand"=> $bankhand,
                 "message"=> $message
             ];
 
