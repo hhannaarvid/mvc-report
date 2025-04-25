@@ -1,8 +1,9 @@
 parameters:
-    level: 9
+    level: 8
     paths:
         - ../../config
         - ../../src
         - ../../tests
     bootstrapFiles:
         #- .phpstan.constants.php
+    

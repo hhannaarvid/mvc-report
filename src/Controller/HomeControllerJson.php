@@ -169,10 +169,10 @@ class HomeControllerJson extends AbstractController
         SessionInterface $session
     ): Response {
         //hämta objekt från session
-        
+
         $data = [
-            "userwins"=> $session->get("user-wins"),
-            "bankwins"=> $session->get("bank-wins")
+            "userwins" => $session->get("user-wins"),
+            "bankwins" => $session->get("bank-wins")
         ];
 
 
