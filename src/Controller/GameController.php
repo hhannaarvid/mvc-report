@@ -5,7 +5,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Card\DeckOfCard;
 
@@ -23,7 +22,6 @@ class GameController extends AbstractController
     #[Route("/game/init", name: "gameInit")]
     //framsidan för spelet, starta genom att trycka på knapp
     public function gameInit(
-        Request $request,
         SessionInterface $session
     ): Response {
 
@@ -59,13 +57,13 @@ class GameController extends AbstractController
     }
 
     #[Route("/game/play", name: "game_play", methods: ["GET"])]
-    public function play_get(): Response
+    public function playGet(): Response
     {
         return $this->render("game/game_play.html.twig");
     }
 
     #[Route("/game/play", name: "game_play", methods: ['POST'])]
-    public function play_post(
+    public function playPost(
         SessionInterface $session
     ): Response {
         $deck = $session->get("gameDeck");
@@ -104,10 +102,13 @@ class GameController extends AbstractController
 
         //hur många kort ska banken dra
         $number = rand(2, 3);
-
+        $bankhand = [];
         //dra ett kort
         for ($i = 1; $i <= $number; $i++) {
             $draw = $deck->draw();
+            if ($draw === null) {
+                continue;
+            }
             $bankhand[] = $draw->getCardString();
             //ta fram poäng för kortet
             $rank = $draw->getRank();
@@ -141,23 +142,33 @@ class GameController extends AbstractController
 
         if ($userpoints > 21 && $bankpoints > 21) {
             $message = "Båda fick över 21, alltså vann ingen.";
-        } elseif ($userpoints === $bankpoints) {
+        }
+    
+        if ($userpoints === $bankpoints) {
             $message = "Banken vann!";
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);
-        } elseif ($userpoints > 21 && $bankpoints <= 21) {
+        }
+    
+        if ($userpoints > 21) {
             $message = "Banken vann!";
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);
-        } elseif ($bankpoints > 21 && $userpoints <= 21) {
+        }
+    
+        if ($bankpoints > 21) {
             $message = "Du vann!";
             $userwins += 1;
             $session->set("user-wins", $userwins);
-        } elseif ($userpoints > $bankpoints && $userpoints <= 21) {
+        }
+    
+        if ($userpoints > $bankpoints) {
             $message = "Du vann!";
             $userwins += 1;
             $session->set("user-wins", $userwins);
-        } elseif ($userpoints < $bankpoints && $bankpoints <= 21) {
+        }
+    
+        if ($message === "") {
             $message = "Banken vann!";
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);

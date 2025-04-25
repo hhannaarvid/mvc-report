@@ -74,7 +74,7 @@ class HomeControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/shuffle")]
-    public function deck_shuffle(
+    public function deckShuffle(
         SessionInterface $session
     ): Response {
         //hämta objekt från session
@@ -94,19 +94,20 @@ class HomeControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/draw", name: "api_deck_draw", methods: ['GET'])]
-    public function api_draw(
+    public function apiDraw(
         SessionInterface $session
     ): Response {
         //hämta objekt från session
         $deck = $session->get("deckObj2");
 
-        if (!$session->get('cardnumber')) {
-            $cardnumber = 1;
-        } else {
-            //hämta antal kort från session
-            $cardnumber = $session->get('cardnumber');
-        }
+        // if (!$session->get('cardnumber')) {
+        //     $cardnumber = 1;
+        // } else {
+        //     //hämta antal kort från session
+        //     $cardnumber = $session->get('cardnumber');
+        // }
 
+        $cardnumber = $session->get('cardnumber') ?? 1;
 
         $cardhand = new Cardhand();
         for ($i = 0; $i < $cardnumber; $i++) {
@@ -131,18 +132,18 @@ class HomeControllerJson extends AbstractController
 
     #[Route("/api", name: "api", methods: ['GET'])]
     public function api(
-        Request $request,
         SessionInterface $session
     ): Response {
         //skapa kortlek-objekt
         // $deck = new PrettyDeck();
 
-        if (!$session->get('deckObj2')) {
-            $deck = new PrettyDeck();
-        } else {
-            $deck = $session->get('deckObj2');
-        }
+        // if (!$session->get('deckObj2')) {
+        //     $deck = new PrettyDeck();
+        // } else {
+        //     $deck = $session->get('deckObj2');
+        // }
 
+        $deck = $session->get('deckObj2') ?? new PrettyDeck();
 
         //spara i session
         $session->set("deckObj2", $deck);
@@ -165,7 +166,7 @@ class HomeControllerJson extends AbstractController
     }
 
     #[Route("/api/game")]
-    public function show_game(
+    public function showGame(
         SessionInterface $session
     ): Response {
         //hämta objekt från session

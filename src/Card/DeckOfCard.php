@@ -4,10 +4,13 @@ namespace App\Card;
 
 class DeckOfCard
 {
+    /** @var Card[] */
     protected array $cards = []; //sorterad
-    // protected array $shuffled = []; //blandad
 
+    /** @var String[] */
     protected array $suits = ['h', 'd', 'c', 's'];
+
+    /** @var String[] */
     protected array $ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
 
 
@@ -20,6 +23,7 @@ class DeckOfCard
         }
     }
 
+    /** @return String[] */
     public function cardsArray(): array
     {
         // hämtar kortlek som Array
@@ -41,10 +45,9 @@ class DeckOfCard
         }
 
         return implode(', ', $deckStr);
-        // return $deckStr;
-
     }
 
+    /** @return String[] */
     public function shuffleDeck(): array
     {
         // blandar kortleken
@@ -54,7 +57,6 @@ class DeckOfCard
             $deckArr[] = $card->getCardString();
         }
         shuffle($deckArr);
-        // $this->shuffled = $deckArr;
         return $deckArr;
 
     }
@@ -64,7 +66,7 @@ class DeckOfCard
         shuffle($this->cards);
     }
 
-    public function draw(): Card
+    public function draw(): ?Card
     {
         return array_shift($this->cards);
     }

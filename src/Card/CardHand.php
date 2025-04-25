@@ -4,6 +4,7 @@ namespace App\Card;
 
 class CardHand
 {
+    /** @var Card[] */
     protected array $cardhand = [];
 
     public function add(Card $card): void
@@ -12,11 +13,13 @@ class CardHand
 
     }
 
+    /** @return Card[] */
     public function getCardHand(): array
     {
         return $this->cardhand;
     }
 
+    /** @return String[] */
     public function getString(): array
     {
         $cards = [];
@@ -26,6 +29,7 @@ class CardHand
         return $cards;
     }
 
+    /** @return String[] */
     public function cardsArray(): array
     {
         // hämtar kortlek som Array

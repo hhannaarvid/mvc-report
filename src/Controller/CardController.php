@@ -5,7 +5,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Card\Card;
 use App\Card\DeckOfCard;
@@ -16,7 +15,6 @@ class CardController extends AbstractController
     // samlingssida med lista över alla routes som har med card att göra
     #[Route("/card", name: "card")]
     public function initCallback(
-        Request $request,
         SessionInterface $session
     ): Response {
         //skapa ny kortlek
@@ -38,9 +36,9 @@ class CardController extends AbstractController
         return $this->render('card/card.html.twig', $data);
     }
 
-    #[Route("/card/deck", name: "card_deck")]
+    #[Route("/card/deck", name: "cardDeck")]
     // visar hela kortleken
-    public function card_deck(
+    public function cardDeck(
         SessionInterface $session
     ): Response {
         //hämta från session
@@ -51,12 +49,12 @@ class CardController extends AbstractController
             "deck" => $deckArr
         ];
 
-        return $this->render('card/card_deck.html.twig', $data);
+        return $this->render('card/cardDeck.html.twig', $data);
     }
 
-    #[Route("/card/deck/shuffle", name: "card_deck_suffle")]
+    #[Route("/card/deck/shuffle", name: "cardDeckShuffle")]
     // blanda kortleken
-    public function shuffle_deck(
+    public function shuffleDeck(
         SessionInterface $session
     ): Response {
         // hämta från session
@@ -75,12 +73,12 @@ class CardController extends AbstractController
             "shuffled" => $deckArr
         ];
 
-        return $this->render('card/card_deck_shuffle.html.twig', $data);
+        return $this->render('card/cardDeckShuffle.html.twig', $data);
     }
 
-    #[Route("/card/deck/draw", name: "card_deck_draw")]
+    #[Route("/card/deck/draw", name: "cardDeckDraw")]
     // visar hela kortleken
-    public function card_deck_draw(
+    public function cardDeckDraw(
         SessionInterface $session
     ): Response {
         //hämta objekt från session
@@ -98,7 +96,7 @@ class CardController extends AbstractController
         $count = $deck->cardsCount();
 
         //gör till array
-        $deckArr = $deck->cardsArray();
+        // $deckArr = $deck->cardsArray();
 
 
         $data = [
@@ -107,12 +105,12 @@ class CardController extends AbstractController
             "count" => $count
         ];
 
-        return $this->render('card/card_deck_draw.html.twig', $data);
+        return $this->render('card/cardDeckDraw.html.twig', $data);
     }
 
-    #[Route("/card/deck/draw/{num<\d+>}", name: "card_deck_draw_num")]
+    #[Route("/card/deck/draw/{num<\d+>}", name: "cardDeckDrawNum")]
     // visar hela kortleken
-    public function card_deck_draw_num(
+    public function cardDeckDrawNum(
         SessionInterface $session,
         int $num
     ): Response {
@@ -143,7 +141,7 @@ class CardController extends AbstractController
             "count" => $count
         ];
 
-        return $this->render('card/card_deck_draw2.html.twig', $data);
+        return $this->render('card/cardDeckDraw2.html.twig', $data);
     }
 
     //SESSION ROUTES ------------------------------------------- //
@@ -162,7 +160,7 @@ class CardController extends AbstractController
 
     // ta bort allt i sessionen!
     #[Route("/session/delete", name: "session_delete")]
-    public function session_delete(SessionInterface $session): Response
+    public function sessionDelete(SessionInterface $session): Response
     {
         $session->clear();
 
