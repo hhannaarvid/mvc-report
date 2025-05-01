@@ -9,12 +9,12 @@
     <div class="article-report">
 
         <p>
-            card/deck - visar samtliga kort i kortleken sorterade per färg och värde. <br>
-            card/deck/shuffle - visar samtliga kort i kortleken när den har blandats.<br>
-            card/deck/draw - drar ett kort från kortleken och visar upp det. Visa även antalet kort som är kvar i kortleken.<br>
+            <a href="{{ path('cardDeck') }}">card/deck </a>- visar samtliga kort i kortleken sorterade per färg och värde. <br>
+            <a href="{{ path('cardDeckShuffle') }}">card/deck/shuffle </a>- visar samtliga kort i kortleken när den har blandats.<br>
+            <a href="{{ path('cardDeckDraw') }}">card/deck/draw </a> - drar ett kort från kortleken och visar upp det. Visa även antalet kort som är kvar i kortleken.<br>
             card/deck/draw/:number - drar :number kort från kortleken och visar upp dem. Visa även antalet kort som är kvar i kortleken.<br>
-            session - kolla vad som är sparat i sessionen. <br>
-            session/delete - ta bort sessionen <br>
+            <a href="{{ path('session') }}">session </a>- kolla vad som är sparat i sessionen. <br>
+            <a href="{{ path('session_delete') }}">session/delete </a>- ta bort sessionen <br>
         </p>
         <br>
         <br>

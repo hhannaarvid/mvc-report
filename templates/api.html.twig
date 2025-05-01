@@ -11,12 +11,12 @@
         <p>Hej och hå<br>
             <br>
             JSON-routes:<br>
-            /api: sammanställning av alla json-routes.<br>
-            /api/quote: slumpa fram ett citat med datum.<br>
-            /api/deck: visa hela kortleken<br>
-            /api/deck/shuffle: blanda och visa kortleken<br>
-            /api/deck/draw: dra ett kort som visas. <br>
-            api/game: visa ställningen i kortspelet
+            <a href="{{ path('api') }}">/api</a> : sammanställning av alla json-routes.<br>
+            <a href="{{ path('apiQuote') }}">/api/quote </a>: slumpa fram ett citat med datum.<br>
+            <a href="{{ path('apiDeck') }}">/api/deck </a>: visa hela kortleken<br>
+            <a href="{{ path('apiShuffle') }}">/api/deck/shuffle </a>: blanda och visa kortleken<br>
+            <a href="{{ path('api_deck_draw') }}">/api/deck/draw </a>: dra ett kort som visas. <br>
+            <a href="{{ path('showGame') }}">api/game </a>: visa ställningen i kortspelet
         </p>
         <br>
         <p>Dra ett valfritt antal kort från kortleken:</p>

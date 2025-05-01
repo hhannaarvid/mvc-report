@@ -29,7 +29,7 @@ class HomeControllerJson extends AbstractController
     //     return $response;
     // }
 
-    #[Route("/api/quote")]
+    #[Route("/api/quote", name: "apiQuote")]
     public function jsonNumber(): Response
     {
         $number = random_int(1, 5);
@@ -57,12 +57,14 @@ class HomeControllerJson extends AbstractController
 
     }
 
-    #[Route("/api/deck")]
+    #[Route("/api/deck", name: "apiDeck")]
     public function deck(
         SessionInterface $session
     ): Response {
         //hämta objekt från session
-        $deck = $session->get("deckObj2");
+
+        $deck = $session->get('deckObj2') ?? new PrettyDeck();
+        // $deck = $session->get("deckObj2");
         $nice = $deck->cardsArray();
 
         $response = new JsonResponse($nice);
@@ -73,12 +75,13 @@ class HomeControllerJson extends AbstractController
 
     }
 
-    #[Route("/api/deck/shuffle")]
+    #[Route("/api/deck/shuffle", name: "apiShuffle")]
     public function deckShuffle(
         SessionInterface $session
     ): Response {
         //hämta objekt från session
-        $deck = $session->get("deckObj2");
+        // $deck = $session->get("deckObj2");
+        $deck = $session->get('deckObj2') ?? new PrettyDeck();
 
         $deck->shuffle();
 
@@ -98,14 +101,8 @@ class HomeControllerJson extends AbstractController
         SessionInterface $session
     ): Response {
         //hämta objekt från session
-        $deck = $session->get("deckObj2");
-
-        // if (!$session->get('cardnumber')) {
-        //     $cardnumber = 1;
-        // } else {
-        //     //hämta antal kort från session
-        //     $cardnumber = $session->get('cardnumber');
-        // }
+        // $deck = $session->get("deckObj2");
+        $deck = $session->get('deckObj2') ?? new PrettyDeck();
 
         $cardnumber = $session->get('cardnumber') ?? 1;
 
@@ -134,14 +131,6 @@ class HomeControllerJson extends AbstractController
     public function api(
         SessionInterface $session
     ): Response {
-        //skapa kortlek-objekt
-        // $deck = new PrettyDeck();
-
-        // if (!$session->get('deckObj2')) {
-        //     $deck = new PrettyDeck();
-        // } else {
-        //     $deck = $session->get('deckObj2');
-        // }
 
         $deck = $session->get('deckObj2') ?? new PrettyDeck();
 
@@ -165,7 +154,7 @@ class HomeControllerJson extends AbstractController
         return $this->redirectToRoute('api_deck_draw');
     }
 
-    #[Route("/api/game")]
+    #[Route("/api/game", name: "showGame")]
     public function showGame(
         SessionInterface $session
     ): Response {
