@@ -3,7 +3,7 @@
 namespace App\Card;
 
 /** klass för CardHand. Skapas utifrån att man har några kortobjekt som
- * tillsammans utgör en korthand. 
+ * tillsammans utgör en korthand.
  */
 class CardHand
 {
@@ -19,16 +19,16 @@ class CardHand
 
     }
 
-    /** 
+    /**
      * Returnerar cardhand som den är.
-     * @return Card[] 
+     * @return Card[]
     */
     public function getCardHand(): array
     {
         return $this->cardhand;
     }
 
-    /** 
+    /**
      * Returnerar en array med strängar.
      * @return String[] */
     public function getString(): array
@@ -40,7 +40,7 @@ class CardHand
         return $cards;
     }
 
-    /** 
+    /**
      * Returnerar en array med strängar.
      * @return String[] */
     public function cardsArray(): array

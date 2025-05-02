@@ -4,15 +4,16 @@ namespace App\Card;
 
 use PHPUnit\Framework\TestCase;
 
-/** 
- * test case for the class Card. 
+/**
+ * test case for the class Card.
  */
 class CardHandTest extends TestCase
 {
     /**
      * test for creating cardhand-object!
      */
-    public function testCreateCardHandObject() {
+    public function testCreateCardHandObject()
+    {
         //alla behövs kanske inte?
         $card1 = new Card("h", "7");
         $card2 = new Card("c", "5");
@@ -28,7 +29,8 @@ class CardHandTest extends TestCase
         $this->assertInstanceOf("\App\Card\CardHand", $cardhand);
     }
 
-    public function testGetCardhandArray() {
+    public function testGetCardhandArray()
+    {
         $card1 = new Card("h", "7");
         $card2 = new Card("c", "5");
 
@@ -45,7 +47,8 @@ class CardHandTest extends TestCase
 
     }
 
-    public function testGetCardHandString() {
+    public function testGetCardHandString()
+    {
         $card1 = new Card("h", "7");
         $card2 = new Card("c", "5");
 

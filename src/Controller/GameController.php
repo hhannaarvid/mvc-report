@@ -143,31 +143,31 @@ class GameController extends AbstractController
         if ($userpoints > 21 && $bankpoints > 21) {
             $message = "Båda fick över 21, alltså vann ingen.";
         }
-    
+
         if ($userpoints === $bankpoints) {
             $message = "Banken vann!";
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);
         }
-    
+
         if ($userpoints > 21) {
             $message = "Banken vann!";
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);
         }
-    
+
         if ($bankpoints > 21) {
             $message = "Du vann!";
             $userwins += 1;
             $session->set("user-wins", $userwins);
         }
-    
+
         if ($userpoints > $bankpoints) {
             $message = "Du vann!";
             $userwins += 1;
             $session->set("user-wins", $userwins);
         }
-    
+
         if ($message === "") {
             $message = "Banken vann!";
             $bankwins += 1;

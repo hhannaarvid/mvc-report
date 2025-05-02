@@ -17,7 +17,7 @@ class DeckOfCard
     protected array $ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
 
     /**
-     * konstruktor för klassen som genererar en sorterad kortlek. 
+     * konstruktor för klassen som genererar en sorterad kortlek.
      */
     public function __construct()
     {
@@ -28,7 +28,7 @@ class DeckOfCard
         }
     }
 
-    /** 
+    /**
      * Returnerar en array med strängar.
      * @return String[] */
     public function cardsArray(): array
@@ -88,7 +88,7 @@ class DeckOfCard
     }
 
     /**
-     * räknar hur många kort som finns kvar i kortleken. 
+     * räknar hur många kort som finns kvar i kortleken.
      */
     public function cardsCount(): int
     {

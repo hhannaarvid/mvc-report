@@ -3,13 +3,13 @@
 namespace App\Card;
 
 /**
- * skapar klassen Card (ett kort) med två argument, en rank och en suit. 
+ * skapar klassen Card (ett kort) med två argument, en rank och en suit.
  */
 class Card
 {
     protected string $suit;
     protected string $rank;
-    
+
     /**
      * konstruktor för klassen, tar emot två argument(strängar) som tillsammans skapar ett
      * kortobjekt.
