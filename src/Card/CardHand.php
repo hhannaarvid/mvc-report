@@ -2,24 +2,35 @@
 
 namespace App\Card;
 
+/** klass för CardHand. Skapas utifrån att man har några kortobjekt som
+ * tillsammans utgör en korthand. 
+ */
 class CardHand
 {
     /** @var Card[] */
     protected array $cardhand = [];
 
+    /**
+     * lägger till ett kortobjekt i card[].
+     */
     public function add(Card $card): void
     {
         $this->cardhand[] = $card;
 
     }
 
-    /** @return Card[] */
+    /** 
+     * Returnerar cardhand som den är.
+     * @return Card[] 
+    */
     public function getCardHand(): array
     {
         return $this->cardhand;
     }
 
-    /** @return String[] */
+    /** 
+     * Returnerar en array med strängar.
+     * @return String[] */
     public function getString(): array
     {
         $cards = [];
@@ -29,7 +40,9 @@ class CardHand
         return $cards;
     }
 
-    /** @return String[] */
+    /** 
+     * Returnerar en array med strängar.
+     * @return String[] */
     public function cardsArray(): array
     {
         // hämtar kortlek som Array
