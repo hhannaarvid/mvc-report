@@ -12,7 +12,7 @@ class DeckOfCardTest extends TestCase
     /**
      * test for creating object of DeckOfCard-class.
      */
-    public function testCreatePrettyDeck()
+    public function testCreatePrettyDeck(): void
     {
         $deck = new DeckOfCard();
         $this->assertInstanceOf("\App\Card\DeckOfCard", $deck);
@@ -21,20 +21,21 @@ class DeckOfCardTest extends TestCase
     /**
      * tests methods for making object into array and array of strings.
      */
-    public function testArrayAndString()
+    public function testArrayAndString(): void
     {
         $deck = new DeckOfCard();
         $deckarray = $deck->cardsArray();
         $deckstr = $deck->getAsString();
 
-        $this->assertTrue(is_array($deckarray));
-        $this->assertTrue(is_string($deckstr[0]));
+        $this->assertEquals(count($deckarray), 52);
+        $this->assertNotEmpty($deckarray);
+        $this->assertContains("h7", $deckarray);
     }
 
     /**
      * tests method to shuffle deck
      */
-    public function testShuffleDeck()
+    public function testShuffleDeck(): void
     {
         $deck = new DeckOfCard();
         $deckArr = $deck->cardsArray();
@@ -46,7 +47,7 @@ class DeckOfCardTest extends TestCase
         $this->assertNotEquals($deckArr, $shuffledArr);
     }
 
-    public function testDraw()
+    public function testDraw(): void
     {
         $deck = new DeckOfCard();
         $deckarr = $deck->cardsArray();

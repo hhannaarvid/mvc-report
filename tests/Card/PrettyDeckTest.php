@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PrettyDeckTest extends TestCase
 {
-    public function testCreatePrettyDeck()
+    public function testCreatePrettyDeck(): void
     {
         $deck = new PrettyDeck();
         $this->assertInstanceOf("\App\Card\PrettyDeck", $deck);

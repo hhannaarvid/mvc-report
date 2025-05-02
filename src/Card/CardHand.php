@@ -20,7 +20,7 @@ class CardHand
     }
 
     /**
-     * Returnerar cardhand som den är.
+     * Returnerar en array av objekt.
      * @return Card[]
     */
     public function getCardHand(): array
