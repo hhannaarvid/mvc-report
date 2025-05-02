@@ -47,19 +47,19 @@ class DeckOfCard
         return implode(', ', $deckStr);
     }
 
-    /** @return String[] */
-    public function shuffleDeck(): array
-    {
-        // blandar kortleken
-        $deckArr = [];
+    // /** @return String[] */
+    // public function shuffleDeck(): array
+    // {
+    //     // blandar kortleken
+    //     $deckArr = [];
 
-        foreach ($this->cards as $card) {
-            $deckArr[] = $card->getCardString();
-        }
-        shuffle($deckArr);
-        return $deckArr;
+    //     foreach ($this->cards as $card) {
+    //         $deckArr[] = $card->getCardString();
+    //     }
+    //     shuffle($deckArr);
+    //     return $deckArr;
 
-    }
+    // }
 
     public function shuffle(): void
     {
