@@ -44,18 +44,18 @@ class CardHandTest extends TestCase
         $this->assertContains("c5", $cardarray); 
     }
 
-    public function testGetCardHandString(): void
-    {
-        $card1 = new Card("h", "7");
-        $card2 = new Card("c", "5");
+    // public function testGetCardHandString(): void
+    // {
+    //     $card1 = new Card("h", "7");
+    //     $card2 = new Card("c", "5");
 
-        $cardhand = new CardHand();
-        $cardhand->add($card1);
-        $cardhand->add($card2);
+    //     $cardhand = new CardHand();
+    //     $cardhand->add($card1);
+    //     $cardhand->add($card2);
 
-        $cardarray = $cardhand->getString();
-        $this->assertEquals(count($cardarray), 2);
-        $this->assertContains("h7", $cardarray);
-        $this->assertContains("c5", $cardarray);
-    }
+    //     $cardarray = $cardhand->getString();
+    //     $this->assertEquals(count($cardarray), 2);
+    //     $this->assertContains("h7", $cardarray);
+    //     $this->assertContains("c5", $cardarray);
+    // }
 }

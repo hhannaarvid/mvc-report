@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1746176009">
-  <project timestamp="1746176009">
+<coverage generated="1746176713">
+  <project timestamp="1746176713">
     <file name="/Users/hannaarvidsson/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
       </class>
-      <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="11"/>
-      <line num="19" type="stmt" count="11"/>
-      <line num="20" type="stmt" count="11"/>
-      <line num="26" type="method" name="getCardString" visibility="public" complexity="1" crap="1" count="6"/>
-      <line num="28" type="stmt" count="6"/>
+      <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="10"/>
+      <line num="19" type="stmt" count="10"/>
+      <line num="20" type="stmt" count="10"/>
+      <line num="26" type="method" name="getCardString" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="28" type="stmt" count="5"/>
       <line num="32" type="method" name="getRank" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="34" type="stmt" count="1"/>
       <metrics loc="39" ncloc="28" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
     </file>
     <file name="/Users/hannaarvidsson/dbwebb-kurser/mvc/me/report/src/Card/CardHand.php">
       <class name="App\Card\CardHand" namespace="global">
-        <metrics complexity="6" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
+        <metrics complexity="4" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
       </class>
-      <line num="16" type="method" name="add" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="18" type="stmt" count="3"/>
+      <line num="16" type="method" name="add" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="18" type="stmt" count="2"/>
       <line num="26" type="method" name="getCardHand" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="28" type="stmt" count="1"/>
-      <line num="34" type="method" name="getString" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="36" type="stmt" count="1"/>
-      <line num="37" type="stmt" count="1"/>
-      <line num="38" type="stmt" count="1"/>
-      <line num="40" type="stmt" count="1"/>
       <line num="46" type="method" name="cardsArray" visibility="public" complexity="2" crap="2" count="1"/>
       <line num="49" type="stmt" count="1"/>
       <line num="51" type="stmt" count="1"/>
       <line num="52" type="stmt" count="1"/>
       <line num="54" type="stmt" count="1"/>
-      <metrics loc="57" ncloc="39" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
+      <metrics loc="57" ncloc="31" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
     </file>
     <file name="/Users/hannaarvidsson/dbwebb-kurser/mvc/me/report/src/Card/DeckOfCard.php">
       <class name="App\Card\DeckOfCard" namespace="global">
@@ -357,6 +352,6 @@
       </class>
       <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="10" loc="852" ncloc="713" classes="9" methods="42" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="254" coveredstatements="33" elements="296" coveredelements="49"/>
+    <metrics files="10" loc="852" ncloc="705" classes="9" methods="41" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="250" coveredstatements="29" elements="291" coveredelements="44"/>
   </project>
 </coverage>
