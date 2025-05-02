@@ -41,7 +41,7 @@ class CardHandTest extends TestCase
         $cardarray = $cardhand->cardsArray();
         $this->assertEquals(count($cardarray), 2);
         $this->assertContains("h7", $cardarray);
-        $this->assertContains("c5", $cardarray);
+        $this->assertContains("c5", $cardarray); 
     }
 
     public function testGetCardHandString(): void
