@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Repository\LibraryRepository;
 
 class HomeControllerJson extends AbstractController
 {
@@ -173,4 +174,23 @@ class HomeControllerJson extends AbstractController
         return $response;
 
     }
+
+    #[Route('api/library/books', name: 'library_books')]
+    public function libraryBooks(
+        LibraryRepository $libraryRepository
+    ): Response
+    {
+        $library = $libraryRepository->findAll();
+        // $products = $productRepository
+        // ->findAll();
+
+        // return $this->json($products);
+
+        // $response = new JsonResponse($library);
+        // $response->setEncodingOptions(
+        //     $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        // );
+        return $this->json($library);
+    }
+
 }
