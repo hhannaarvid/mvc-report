@@ -11,6 +11,7 @@
             <th>Titel</th>
             <th>ISBN</th>
             <th>Författare</th>
+            <th></th>
 
             {% for book in library %}
             <tr>
@@ -21,7 +22,9 @@
                     
                 <td>{{ book.getIsbn|e }}</td>
                 <td>{{ book.getForfattare|e }}</td>
-            
+                <td>
+                    <a href="{{ path('library_delete', {'id': book.getId}) }}">ta bort</a>
+                </td>
             </tr>
             {% endfor %}
         </table>

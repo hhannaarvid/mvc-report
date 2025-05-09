@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Library;
+use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\LibraryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,5 +47,25 @@ final class LibraryController extends AbstractController
 
 
         return $this->render('library/library_view_one.html.twig', $data);
+    }
+
+    #[Route('/delete/delete/{id}', name: 'library_delete')]
+    public function deleteBookById(
+        ManagerRegistry $doctrine,
+        int $id
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $library = $entityManager->getRepository(Library::class)->find($id);
+
+        if (!$library) {
+        throw $this->createNotFoundException(
+            'No product found for id '.$id
+        );
+        }
+
+        $entityManager->remove($library);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('library_view');
     }
 }
