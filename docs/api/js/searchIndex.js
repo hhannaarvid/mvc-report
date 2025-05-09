@@ -43,13 +43,8 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetCardHand\u0028\u0029",
             "name": "getCardHand",
-            "summary": "Returnerar\u0020cardhand\u0020som\u0020den\u0020\u00E4r.",
+            "summary": "Returnerar\u0020en\u0020array\u0020av\u0020objekt.",
             "url": "classes/App-Card-CardHand.html#method_getCardHand"
-        },                {
-            "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetString\u0028\u0029",
-            "name": "getString",
-            "summary": "Returnerar\u0020en\u0020array\u0020med\u0020str\u00E4ngar.",
-            "url": "classes/App-Card-CardHand.html#method_getString"
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AcardsArray\u0028\u0029",
             "name": "cardsArray",
@@ -281,6 +276,61 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-HomeControllerJson.html#method_showGame"
         },                {
+            "fqsen": "\\App\\Controller\\HomeControllerJson\u003A\u003AlibraryBooks\u0028\u0029",
+            "name": "libraryBooks",
+            "summary": "",
+            "url": "classes/App-Controller-HomeControllerJson.html#method_libraryBooks"
+        },                {
+            "fqsen": "\\App\\Controller\\HomeControllerJson\u003A\u003AlibraryBook\u0028\u0029",
+            "name": "libraryBook",
+            "summary": "",
+            "url": "classes/App-Controller-HomeControllerJson.html#method_libraryBook"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController",
+            "name": "LibraryController",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AlibraryView\u0028\u0029",
+            "name": "libraryView",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_libraryView"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AshowBookbyId\u0028\u0029",
+            "name": "showBookbyId",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_showBookbyId"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AcreateLibrary\u0028\u0029",
+            "name": "createLibrary",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_createLibrary"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AcreatePost\u0028\u0029",
+            "name": "createPost",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_createPost"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AdeleteBookById\u0028\u0029",
+            "name": "deleteBookById",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_deleteBookById"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AupdateGet\u0028\u0029",
+            "name": "updateGet",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_updateGet"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AupdatePOST\u0028\u0029",
+            "name": "updatePOST",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_updatePOST"
+        },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",
             "summary": "",
@@ -306,10 +356,110 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Dice-Dice.html#property_value"
         },                {
+            "fqsen": "\\App\\Entity\\Library",
+            "name": "Library",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AgetTitel\u0028\u0029",
+            "name": "getTitel",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_getTitel"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AsetTitel\u0028\u0029",
+            "name": "setTitel",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_setTitel"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AgetISBN\u0028\u0029",
+            "name": "getISBN",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_getISBN"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AsetISBN\u0028\u0029",
+            "name": "setISBN",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_setISBN"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AgetForfattare\u0028\u0029",
+            "name": "getForfattare",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_getForfattare"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AsetForfattare\u0028\u0029",
+            "name": "setForfattare",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_setForfattare"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AgetBild\u0028\u0029",
+            "name": "getBild",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_getBild"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AsetBild\u0028\u0029",
+            "name": "setBild",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_setBild"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AgetBildnamn\u0028\u0029",
+            "name": "getBildnamn",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_getBildnamn"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AsetBildnamn\u0028\u0029",
+            "name": "setBildnamn",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#method_setBildnamn"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024titel",
+            "name": "titel",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#property_titel"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024ISBN",
+            "name": "ISBN",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#property_ISBN"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024forfattare",
+            "name": "forfattare",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#property_forfattare"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024bild",
+            "name": "bild",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#property_bild"
+        },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024bildnamn",
+            "name": "bildnamn",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#property_bildnamn"
+        },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
             "summary": "",
             "url": "classes/App-Kernel.html"
+        },                {
+            "fqsen": "\\App\\Repository\\LibraryRepository",
+            "name": "LibraryRepository",
+            "summary": "",
+            "url": "classes/App-Repository-LibraryRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\LibraryRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-LibraryRepository.html#method___construct"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -331,9 +481,19 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/app-dice.html"
         },                {
+            "fqsen": "\\App\\Entity",
+            "name": "Entity",
+            "summary": "",
+            "url": "namespaces/app-entity.html"
+        },                {
             "fqsen": "\\App",
             "name": "App",
             "summary": "",
             "url": "namespaces/app.html"
+        },                {
+            "fqsen": "\\App\\Repository",
+            "name": "Repository",
+            "summary": "",
+            "url": "namespaces/app-repository.html"
         }            ]
 );

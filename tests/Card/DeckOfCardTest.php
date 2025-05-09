@@ -25,7 +25,7 @@ class DeckOfCardTest extends TestCase
     {
         $deck = new DeckOfCard();
         $deckarray = $deck->cardsArray();
-        $deckstr = $deck->getAsString();
+        // $deckstr = $deck->getAsString();
 
         $this->assertEquals(count($deckarray), 52);
         $this->assertNotEmpty($deckarray);

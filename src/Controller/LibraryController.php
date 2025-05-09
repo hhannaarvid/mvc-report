@@ -23,8 +23,7 @@ final class LibraryController extends AbstractController
     #[Route('/library/view', name: 'library_view')]
     public function libraryView(
         LibraryRepository $libraryRepository
-    ): Response
-    {
+    ): Response {
         $library = $libraryRepository->findAll();
 
         $data = [
@@ -41,7 +40,7 @@ final class LibraryController extends AbstractController
     ): Response {
         $library = $libraryRepository
             ->find($id);
-        
+
         $data = [
             'library' => $library
         ];
@@ -63,11 +62,11 @@ final class LibraryController extends AbstractController
         ManagerRegistry $doctrine
     ): Response {
         $entityManager = $doctrine->getManager();
-        $titel = $request->request->get('i_titel');
-        $isbn = $request->request->get('i_isbn');
-        $forfattare = $request->request->get('i_forfattare');
-        $bild = $request->request->get('i_bild');
-        $bildnamn = $request->request->get('i_bildnamn');
+        $titel = (string) $request->request->get('i_titel');
+        $isbn = (int) $request->request->get('i_isbn');
+        $forfattare = (string) $request->request->get('i_forfattare');
+        $bild = (string) $request->request->get('i_bild');
+        $bildnamn = (string) $request->request->get('i_bildnamn');
 
         $library = new Library();
         $library->setTitel($titel);
@@ -94,9 +93,9 @@ final class LibraryController extends AbstractController
         $library = $entityManager->getRepository(Library::class)->find($id);
 
         if (!$library) {
-        throw $this->createNotFoundException(
-            'No product found for id '.$id
-        );
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
         }
 
         $entityManager->remove($library);
@@ -112,7 +111,7 @@ final class LibraryController extends AbstractController
     ): Response {
         $library = $libraryRepository
             ->find($id);
-        
+
         $data = [
             'library' => $library
         ];
@@ -135,11 +134,11 @@ final class LibraryController extends AbstractController
             );
         }
 
-        $titel = $request->request->get('i_titel');
-        $isbn = $request->request->get('i_isbn');
-        $forfattare = $request->request->get('i_forfattare');
-        $bild = $request->request->get('i_bild');
-        $bildnamn = $request->request->get('i_bildnamn');
+        $titel = (string) $request->request->get('i_titel');
+        $isbn = (int) $request->request->get('i_isbn');
+        $forfattare = (string) $request->request->get('i_forfattare');
+        $bild = (string) $request->request->get('i_bild');
+        $bildnamn = (string) $request->request->get('i_bildnamn');
 
         $library->setTitel($titel);
         $library->setIsbn((int)$isbn);

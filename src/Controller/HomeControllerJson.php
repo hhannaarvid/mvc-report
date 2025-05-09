@@ -178,8 +178,7 @@ class HomeControllerJson extends AbstractController
     #[Route('api/library/books', name: 'library_books')]
     public function libraryBooks(
         LibraryRepository $libraryRepository
-    ): Response
-    {
+    ): Response {
         $library = $libraryRepository->findAll();
         return $this->json($library);
     }
@@ -188,14 +187,13 @@ class HomeControllerJson extends AbstractController
     public function libraryBook(
         LibraryRepository $libraryRepository,
         int $isbn
-    ): Response
-    {
+    ): Response {
         $library = $libraryRepository->findOneBy(['ISBN' => $isbn]);
 
         if (!$library) {
             return $this->json(['error' => 'Book not found'], 404);
         }
-    
+
 
         return $this->json($library);
     }

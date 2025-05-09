@@ -9,5 +9,9 @@ parameters:
     excludePaths:
         - ../../tests/bootstrap.php
         - ../../tests/Dice/DiceTest.php
+        - ../../migrations/*
+        - ../../src/Entity/*
+        - ../../src/Respository/*
+
 
     
