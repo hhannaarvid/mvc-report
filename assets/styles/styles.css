@@ -114,6 +114,7 @@ h1 {
   flex-direction: column;
   gap: 10px;
   width: 100%;
+  min-height: 300px;
 }
 .article-random {
   align-items: center;

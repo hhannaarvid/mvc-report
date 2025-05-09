@@ -23,8 +23,8 @@
                 <td>{{ book.getIsbn|e }}</td>
                 <td>{{ book.getForfattare|e }}</td>
                 <td>
-                    <a href="{{ path('library_delete', {'id': book.getId}) }}">ta bort</a>
-                    {# <a href="{{ path('library_update', {'id': book.getId}) }}">updatera</a> #}
+                    <a href="{{ path('library_delete', {'id': book.getId}) }}">ta bort</a><br>
+                    <a href="{{ path('library_update', {'id': book.getId}) }}">updatera</a>
 
                 </td>
             </tr>
