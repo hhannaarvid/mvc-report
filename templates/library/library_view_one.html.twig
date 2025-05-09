@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bibliotek{% endblock %}
+
+{% block body %}
+
+<h1 class="article-h1">Bibliotek</h1>
+    <div class="article-report">
+
+        <table class="book-table">
+            <th>Bild</th>
+            <th>Titel</th>
+            <th>ISBN</th>
+            <th>Författare</th>
+
+            <tr>
+                <td class="img-cell"><img src="{{ asset('img/books/'~library.bildnamn~'.jpg') }}" alt="{{library.titel}}" class="book-img"></td>
+                <td>{{ library.titel}}</td>
+                <td>{{ library.isbn }}</td>
+                <td>{{ library.forfattare }}</td>
+            
+            </tr>
+        </table>
+</div>
+{% endblock %}

@@ -15,7 +15,10 @@
             {% for book in library %}
             <tr>
                 <td class="img-cell"><img src="{{ asset('img/books/'~book.getBildnamn|e~'.jpg') }}" alt="{{book.getTitel|e}}" class="book-img"></td>
-                <td>{{ book.getTitel|e }}</td>
+                <td>
+                    <a href="{{ path('library_view_one', {'id': book.getId}) }}">{{ book.getTitel|e }}</a>
+                </td>
+                    
                 <td>{{ book.getIsbn|e }}</td>
                 <td>{{ book.getForfattare|e }}</td>
             
