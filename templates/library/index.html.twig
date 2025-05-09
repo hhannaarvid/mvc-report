@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LibraryController!{% endblock %}
+{% block title %}Bibliotek{% endblock %}
 
 {% block body %}
 
@@ -8,11 +8,11 @@
     <div class="article-report">
         <p>
             <a href="{{ path('app_library') }}">/library</a> : sammanställning av länkar som rör biblioteket.<br>
-            <a href="{{ path('library_create') }}">/library/create </a>: Lägg till böcker i biblioteket.<br>
+            {# <a href="{{ path('library_create') }}">/library/create </a>: Lägg till böcker i biblioteket.<br> #}
             <a href="{{ path('library_view') }}">/library/view </a>: Se alla böcker.<br> 
-            <a href="{{ path('apiShuffle') }}">/api/deck/shuffle </a>: blanda och visa kortleken<br>
+            {# <a href="{{ path('apiShuffle') }}">/api/deck/shuffle </a>: blanda och visa kortleken<br>
             <a href="{{ path('api_deck_draw') }}">/api/deck/draw </a>: dra ett kort som visas. <br>
-            <a href="{{ path('showGame') }}">api/game </a>: visa ställningen i kortspelet
+            <a href="{{ path('showGame') }}">api/game </a>: visa ställningen i kortspelet #}
         </p>
 </div>
 {% endblock %}

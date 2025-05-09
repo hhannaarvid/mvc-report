@@ -25,6 +25,9 @@ class Library
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $bild = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $bildnamn = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Library
     public function setBild(?string $bild): static
     {
         $this->bild = $bild;
+
+        return $this;
+    }
+
+    public function getBildnamn(): ?string
+    {
+        return $this->bildnamn;
+    }
+
+    public function setBildnamn(?string $bildnamn): static
+    {
+        $this->bildnamn = $bildnamn;
 
         return $this;
     }

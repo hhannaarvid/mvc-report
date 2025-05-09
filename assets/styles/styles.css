@@ -259,3 +259,20 @@ form input {
 .cards img {
   width: 130px;
 }
+.book-table {
+  border: 1px solid #f1f1f1;
+}
+.book-img {
+  width: 70px;
+}
+th {
+  text-align: left;
+  background-color: #e9f1ea;
+  padding: 5px;
+  color: #2f2f2f;
+  font-family: "Roboto", "Open Sans";
+  font-size: 1.2rem;
+}
+.img-cell {
+  text-align: center;
+}
