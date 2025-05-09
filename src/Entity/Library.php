@@ -25,7 +25,7 @@ class Library
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $bild = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $bildnamn = null;
 
     public function getId(): ?int

@@ -24,9 +24,13 @@
                 <td>{{ book.getForfattare|e }}</td>
                 <td>
                     <a href="{{ path('library_delete', {'id': book.getId}) }}">ta bort</a>
+                    {# <a href="{{ path('library_update', {'id': book.getId}) }}">updatera</a> #}
+
                 </td>
             </tr>
             {% endfor %}
         </table>
+
+        <a href="{{ path('library_create')}}">Lägg till bok</a>
 </div>
 {% endblock %}

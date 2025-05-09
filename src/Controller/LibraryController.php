@@ -7,6 +7,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\LibraryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 
 final class LibraryController extends AbstractController
@@ -49,6 +50,42 @@ final class LibraryController extends AbstractController
         return $this->render('library/library_view_one.html.twig', $data);
     }
 
+    #[Route('/library/create', name: 'library_create', methods: ['GET'])]
+    public function createLibrary(
+    ): Response {
+
+        return $this->render('library/library_create.html.twig');
+    }
+
+    #[Route('library/create', name: 'library_create_post', methods: ['POST'])]
+    public function createPost(
+        Request $request,
+        ManagerRegistry $doctrine
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $titel = $request->request->get('i_titel');
+        $isbn = $request->request->get('i_isbn');
+        $forfattare = $request->request->get('i_forfattare');
+        $bild = $request->request->get('i_bild');
+        $bildnamn = $request->request->get('i_bild');
+
+        $library = new Library();
+        $library->setTitel($titel);
+        $library->setIsbn((int)$isbn);
+        $library->setForfattare($forfattare);
+        $library->setBildnamn($bildnamn);
+        $library->setBild($bild);
+
+        // tell Doctrine you want to (eventually) save the Product
+        $entityManager->persist($library);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
+
+        return $this->redirectToRoute('library_view');
+    }
+
+    // funkar ej än!!!
     #[Route('/delete/delete/{id}', name: 'library_delete')]
     public function deleteBookById(
         ManagerRegistry $doctrine,
