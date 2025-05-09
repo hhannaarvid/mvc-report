@@ -17,7 +17,11 @@
             <a href="{{ path('apiShuffle') }}">/api/deck/shuffle </a>: blanda och visa kortleken<br>
             <a href="{{ path('api_deck_draw') }}">/api/deck/draw </a>: dra ett kort som visas. <br>
             <a href="{{ path('showGame') }}">api/game </a>: visa ställningen i kortspelet<br>
-            <a href="{{ path('library_books') }}">api/library/books </a>: visa alla böcker
+            <a href="{{ path('library_books') }}">api/library/books </a>: visa alla böcker<br>
+            api/library/book/{isbn}: visa bok med valt ISBN.<br>
+            <a href="{{ path('library_books_one', {'isbn': 9780063278677}) }}">api/library/book/9780063278677 </a>: visa bok med valt ISBN (exempel)<br>
+
+
         
         </p>
         <br>

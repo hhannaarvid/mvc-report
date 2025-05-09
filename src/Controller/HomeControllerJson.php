@@ -181,15 +181,22 @@ class HomeControllerJson extends AbstractController
     ): Response
     {
         $library = $libraryRepository->findAll();
-        // $products = $productRepository
-        // ->findAll();
+        return $this->json($library);
+    }
 
-        // return $this->json($products);
+    #[Route('api/library/book/{isbn}', name: 'library_books_one')]
+    public function libraryBook(
+        LibraryRepository $libraryRepository,
+        int $isbn
+    ): Response
+    {
+        $library = $libraryRepository->findOneBy(['ISBN' => $isbn]);
 
-        // $response = new JsonResponse($library);
-        // $response->setEncodingOptions(
-        //     $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        // );
+        if (!$library) {
+            return $this->json(['error' => 'Book not found'], 404);
+        }
+    
+
         return $this->json($library);
     }
 
