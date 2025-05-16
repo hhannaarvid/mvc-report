@@ -43,7 +43,7 @@ nav {
 nav ul {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
 }
 nav ul i {
   color: #678d6f;
@@ -93,7 +93,8 @@ nav,
 footer {
   width: 100vw;
 }
-h1 {
+h1,
+h2 {
   font-family: "Roboto", "Open Sans";
   color: #2f2f2f;
 }

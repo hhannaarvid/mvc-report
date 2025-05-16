@@ -1,0 +1,72 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Metrics analys{% endblock %}
+
+
+{% block body %}
+<h1 class="article-h1">Metrics analys</h1>
+    <div class="article-report">
+        <h2>Introduktion</h2>
+        <p>Börja med en rubrik “Introduktion” där du förklarar de sex C:na och hur de kan 
+        påverka kodens kvalitet. Exemplifiera, där det passar, med några mätvärden som 
+        är kopplad till din egen kod och ge en kort förklaring av mätvärdet relaterat 
+        till kodkvalitet.</p>
+        <br>
+        <br>
+
+        <p><strong>Codestyle</strong></p>
+        <p>Avser olika sätt att skriva och formattera sin kod. Det finns olika riktlinjer för olika sätt att skriva på
+            för att man ska hålla så god kodstandard som möjligt.  </p>
+        <p><strong>Coverage</strong></p><br>
+        <p>Hur stor del av koden som täcks av enhetstester, anges i procent.</p>
+
+        <p><strong>Complexity</strong></p><br>
+        <p>Används för att beskriva kodens komplexitet. En skala används ofta där t.ex. 1
+            betyder att det finns en beslutspunkt (t.ex. en if-sats) i koden. Det är 
+            önskvärd att försöka hålla sig under 10. Man brukar säga att kod utan för mycket 
+            indentering (beslutspunkter) är mindre komplex, lättare att underhålla och 
+            färre ställen där det kan gå fel. 
+        </p>
+
+        <p><strong>Cohesion</strong></p><br>
+        <p>Med cohesion avses hur väl en viss klass "hänger ihop". En klass med bra 
+            cohesion gör bara en sak, medan en spretigare klass som gör flera olika 
+            saker får låga poäng när det kommer till cohesion. För tydlig kod så vill man 
+            gärna att en klass bara har ett ansvarsområde.</p>
+
+        <p><strong>Coupling</strong></p><br>
+        <p>Hur beroende är klasserna av varandra? Om en klass använder andra klasser så finns ett beroende, 
+            samma sak om min klass används av andra klasser. Finns många starka beroenden finns störra 
+            risk att något går sönder om koden ändras på ett ställe. Man vill helst undvika starka beroenden.</p>
+        
+        <p><strong>CRAP</strong></p><br>
+        <p>CRAP-score är en blandning av storlek, komplexitet och hur testad en metod är. CRAP-score 
+            är en indikation på hur riskfyllt det är att ändra en bit kod. T.ex. större och komplex kod är mer 
+            riskfyllt att ändra.
+        </p>
+        <h2>Phpmetrics</h2>
+        <img src="{{ asset('img/metrics1.png') }}" alt="metrics1">
+
+        <p>Flaskhalsar enligt phpmetrics:</p>
+        <ul>
+            <li>HomecontrollerJson - röd/orange, för många publika metoder. Låg cohesion (spretig klass), följer inte "single responsibility principle"
+            </li>
+        </ul>
+
+        <br>
+        <h2>Scrutinizer</h2>
+        Skapa en rubrik “Scrutinizer” och analysera dess rapport för din kod. Gör på samma sätt som du gjorde med Phpmetrics.
+        <br>
+        - Inkludera klickbara Scrutinizer badges i din rapport för build, coverage och quality.<br>
+        - Placera samma badges i din README.md.<br>
+        <br>
+        I ovan analys så kopplar du dina “findings” till 6C. Använd gärna något ytterligare mättal som du finner relevant och intressant.
+        <br>
+        <h2>Förbättringar</h2>
+
+        <h2>Diskussion</h2>
+        
+        
+
+    </div>
+{% endblock %}

@@ -10,26 +10,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use App\Repository\LibraryRepository;
+// use App\Repository\LibraryRepository;
 
 class HomeControllerJson extends AbstractController
 {
-    // #[Route("/api", name: "api_json")]
-    // public function view(
-    // ): Response
-    // {
-    //     $jsonroutes = [
-    //         '/api' => 'view of all json routes',
-    //         '/api/quote' => 'Quote of the day',
-    //     ];
-
-    //     $response = new JsonResponse($jsonroutes);
-    //     $response->setEncodingOptions(
-    //         $response->getEncodingOptions() | JSON_PRETTY_PRINT
-    //     );
-    //     return $response;
-    // }
-
     #[Route("/api/quote", name: "apiQuote")]
     public function jsonNumber(): Response
     {
@@ -175,27 +159,27 @@ class HomeControllerJson extends AbstractController
 
     }
 
-    #[Route('api/library/books', name: 'library_books')]
-    public function libraryBooks(
-        LibraryRepository $libraryRepository
-    ): Response {
-        $library = $libraryRepository->findAll();
-        return $this->json($library);
-    }
+    // #[Route('api/library/books', name: 'library_books')]
+    // public function libraryBooks(
+    //     LibraryRepository $libraryRepository
+    // ): Response {
+    //     $library = $libraryRepository->findAll();
+    //     return $this->json($library);
+    // }
 
-    #[Route('api/library/book/{isbn}', name: 'library_books_one')]
-    public function libraryBook(
-        LibraryRepository $libraryRepository,
-        int $isbn
-    ): Response {
-        $library = $libraryRepository->findOneBy(['ISBN' => $isbn]);
+    // #[Route('api/library/book/{isbn}', name: 'library_books_one')]
+    // public function libraryBook(
+    //     LibraryRepository $libraryRepository,
+    //     int $isbn
+    // ): Response {
+    //     $library = $libraryRepository->findOneBy(['ISBN' => $isbn]);
 
-        if (!$library) {
-            return $this->json(['error' => 'Book not found'], 404);
-        }
+    //     if (!$library) {
+    //         return $this->json(['error' => 'Book not found'], 404);
+    //     }
 
 
-        return $this->json($library);
-    }
+    //     return $this->json($library);
+    // }
 
 }
