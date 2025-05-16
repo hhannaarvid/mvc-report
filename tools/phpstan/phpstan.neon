@@ -8,7 +8,6 @@ parameters:
         #- .phpstan.constants.php
     excludePaths:
         - ../../tests/bootstrap.php
-        - ../../tests/Dice/DiceTest.php
         - ../../migrations/*
         - ../../src/Entity/*
         - ../../src/Respository/*
