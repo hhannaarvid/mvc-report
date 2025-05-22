@@ -45,17 +45,17 @@ class DeckOfCard
     /**
      * returnerar en sträng.
      */
-    public function getAsString(): string
-    {
-        //hämtar kortlek som sträng
-        $deckStr = [];
+    // public function getAsString(): string
+    // {
+    //     //hämtar kortlek som sträng
+    //     $deckStr = [];
 
-        foreach ($this->cards as $card) {
-            $deckStr[] = $card->getCardString();
-        }
+    //     foreach ($this->cards as $card) {
+    //         $deckStr[] = $card->getCardString(); 
+    //     }
 
-        return implode(', ', $deckStr);
-    }
+    //     return implode(', ', $deckStr);
+    // }
 
     // /** @return String[] */
     // public function shuffleDeck(): array

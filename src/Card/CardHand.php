@@ -28,18 +28,6 @@ class CardHand
         return $this->cardhand;
     }
 
-    // /**
-    //  * Returnerar en array med strängar.
-    //  * @return String[] */
-    // public function getString(): array
-    // {
-    //     $cards = [];
-    //     foreach ($this->cardhand as $card) {
-    //         $cards[] = $card->getCardString();
-    //     }
-    //     return $cards;
-    // }
-
     /**
      * Returnerar en array med strängar.
      * @return String[] */

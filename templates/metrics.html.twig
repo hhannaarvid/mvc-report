@@ -16,16 +16,18 @@
 
         <p><strong>Codestyle</strong></p>
         <p>Avser olika sätt att skriva och formattera sin kod. Det finns olika riktlinjer för olika sätt att skriva på
-            för att man ska hålla så god kodstandard som möjligt.  </p>
+            för att man ska hålla så god kodstandard som möjligt. För att säkerställa att det följs används verktyg som phpstan. </p>
         <p><strong>Coverage</strong></p><br>
-        <p>Hur stor del av koden som täcks av enhetstester, anges i procent.</p>
+        <p>Hur stor del av koden som täcks av enhetstester, anges i procent. Enligt scrutinizer så har jag 9% på min kod om kan kollar på hela. 
+            Jag har ju medvetet inte gjort tester på controllers så det känns mer rättvist att visa siffran 87.5 då som är coverage för /card
+             där jag faktiskt gjort tester. </p>
 
         <p><strong>Complexity</strong></p><br>
         <p>Används för att beskriva kodens komplexitet. En skala används ofta där t.ex. 1
             betyder att det finns en beslutspunkt (t.ex. en if-sats) i koden. Det är 
             önskvärd att försöka hålla sig under 10. Man brukar säga att kod utan för mycket 
             indentering (beslutspunkter) är mindre komplex, lättare att underhålla och 
-            färre ställen där det kan gå fel. 
+            färre ställen där det kan gå fel. I min kod finns det lite höga siffror i vissa controllers, t.ex. GameController.
         </p>
 
         <p><strong>Cohesion</strong></p><br>
@@ -49,21 +51,52 @@
 
         <p>Flaskhalsar enligt phpmetrics:</p>
         <ul>
-            <li>HomecontrollerJson - röd/orange, för många publika metoder. Låg cohesion (spretig klass), följer inte "single responsibility principle"
+            <li>HomeControllerJson - röd/orange, för många publika metoder. Låg cohesion (spretig klass), följer inte "single responsibility principle"
             </li>
+            <li>LibraryController - orange, "probably bugged". se över tester och komplexitet. </li>
+            <li>GameController - orange, samma som LibraryController.</li>
         </ul>
 
         <br>
         <h2>Scrutinizer</h2>
-        Skapa en rubrik “Scrutinizer” och analysera dess rapport för din kod. Gör på samma sätt som du gjorde med Phpmetrics.
-        <br>
-        - Inkludera klickbara Scrutinizer badges i din rapport för build, coverage och quality.<br>
-        - Placera samma badges i din README.md.<br>
-        <br>
-        I ovan analys så kopplar du dina “findings” till 6C. Använd gärna något ytterligare mättal som du finner relevant och intressant.
-        <br>
-        <h2>Förbättringar</h2>
+        <img src="{{ asset('img/scrut1.png') }}" alt="scrutinizer1">
 
+        <p>Siffror: <br></p>
+        <a href="https://scrutinizer-ci.com/g/hhannaarvid/mvc-report/?branch=main">
+            <img src="https://scrutinizer-ci.com/g/hhannaarvid/mvc-report/badges/quality-score.png?b=main">
+        </a> 
+        <p>Kodkvaliteten är hög, 9.92 av 10. Det är jag nöjd med. Tittar man ner noga så finns en bug i HomeControllerJson där det kan bli osäkerheter med typ. </p>
+        <a href="https://scrutinizer-ci.com/g/hhannaarvid/mvc-report/?branch=main">
+            <img src="https://scrutinizer-ci.com/g/hhannaarvid/mvc-report/badges/coverage.png?b=main">
+        </a>
+        <p>Låg coverage kan till största del förklaras av att controllers i koden inte testas. Går man istället in och tittar coverage för resten av klasserna under /card så ser man istället att coverage är på 87.5%. Jag trodde faktiskt att den siffran skulle vara på 100% så där har jag missat lite. Det ska förbättras. </p>
+        <a href="https://scrutinizer-ci.com/g/hhannaarvid/mvc-report/?branch=main">
+            <img src="https://scrutinizer-ci.com/g/hhannaarvid/mvc-report/badges/build.png?b=main">
+        </a>
+        <p>Build är godkänt.</p>
+        
+        <p>
+        Kollar man siffrorna från både phpmetrics och scrutinizer så hittar man lite gott och blandat. Det finns några klasser (framför allt controllers) som har lite hög komplexitet och låg cohesion. Här finns förbättringspotential på flera ställen.
+        T.ex. HomeControllerJson har låg cohesion (gör många olika saker), här kan man dela upp för att få flera klasser som blir lite mindre "spretiga". 
+        Jag trodde att jag hade 100% på coverage under /card, men visade sig att jag glömt att testa en klass vilket jag också tänker förbättra. Kodkvaliteten enligt
+        scrutinizer är rätt hög (9.92/10). Man kan nog tänka att verktyg som phpstan har skött sitt jobb.
+        </p>
+
+        
+        <h2>Förbättringar</h2>
+        <p>Planerade förbättringar:<br></p>
+
+        <ul>
+            <li>Fixa bug/issue i HomeControllerJson där det bara ska gå att skicka in objekt, men i nuläget kan det också bli null. Minska risken för bugg. Bättre flöde i spelet.</li>
+            <li>Få 100% i coverage för /card. Kommer visserligen inte öka totala coverage jättemycket, men något. Däremot ökas coverage till 100% om man kollar för just /card.</li>
+            <li>Se över komplexitet i GameController. Än sålänge vet jag inte exakt vad som ska ändras, men det är en stor klass så det finns antagligen en del att kika på där.</li>
+        </ul>
+        <p>Jag tycker det är lite knepigt att göra sådana här förändringar, det som jag tänkt ändra är det mest "konkreta" jag har kunnat hitta att ändra. 
+            Ser man till vad som skulle förbättra poängen/score för koden så finns det säkert andra saker man kan ändra som ger mer effekt. 
+        </p>
+
+        <p>Genomförande</p>
+        
         <h2>Diskussion</h2>
         
         

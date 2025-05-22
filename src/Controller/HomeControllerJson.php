@@ -94,7 +94,10 @@ class HomeControllerJson extends AbstractController
         $cardhand = new Cardhand();
         for ($i = 0; $i < $cardnumber; $i++) {
             $onecard = $deck->draw();
-            $cardhand->add($onecard);
+            if ($onecard !== null ){
+                $cardhand->add($onecard);
+            }
+            
         }
 
         $cardsLeft = $deck->cardsCount();
