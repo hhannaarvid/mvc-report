@@ -5,7 +5,7 @@ namespace App\Card;
 use App\Card\DeckOfCard;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class GameHelp 
+class GameHelp
 {
     public function createDeck(): DeckOfCard
     {

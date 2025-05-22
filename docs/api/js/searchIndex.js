@@ -71,11 +71,6 @@ Search.appendIndex(
             "summary": "Returnerar\u0020en\u0020array\u0020med\u0020str\u00E4ngar.",
             "url": "classes/App-Card-DeckOfCard.html#method_cardsArray"
         },                {
-            "fqsen": "\\App\\Card\\DeckOfCard\u003A\u003AgetAsString\u0028\u0029",
-            "name": "getAsString",
-            "summary": "returnerar\u0020en\u0020str\u00E4ng.",
-            "url": "classes/App-Card-DeckOfCard.html#method_getAsString"
-        },                {
             "fqsen": "\\App\\Card\\DeckOfCard\u003A\u003Ashuffle\u0028\u0029",
             "name": "shuffle",
             "summary": "Blandar\u0020kortleken.",
@@ -236,6 +231,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-HomeController.html#method_number"
         },                {
+            "fqsen": "\\App\\Controller\\HomeController\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-HomeController.html#method_metrics"
+        },                {
             "fqsen": "\\App\\Controller\\HomeControllerJson",
             "name": "HomeControllerJson",
             "summary": "",
@@ -275,16 +275,6 @@ Search.appendIndex(
             "name": "showGame",
             "summary": "",
             "url": "classes/App-Controller-HomeControllerJson.html#method_showGame"
-        },                {
-            "fqsen": "\\App\\Controller\\HomeControllerJson\u003A\u003AlibraryBooks\u0028\u0029",
-            "name": "libraryBooks",
-            "summary": "",
-            "url": "classes/App-Controller-HomeControllerJson.html#method_libraryBooks"
-        },                {
-            "fqsen": "\\App\\Controller\\HomeControllerJson\u003A\u003AlibraryBook\u0028\u0029",
-            "name": "libraryBook",
-            "summary": "",
-            "url": "classes/App-Controller-HomeControllerJson.html#method_libraryBook"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController",
             "name": "LibraryController",
@@ -331,30 +321,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LibraryController.html#method_updatePOST"
         },                {
-            "fqsen": "\\App\\Dice\\Dice",
-            "name": "Dice",
+            "fqsen": "\\App\\Controller\\LibraryJsonController",
+            "name": "LibraryJsonController",
             "summary": "",
-            "url": "classes/App-Dice-Dice.html"
+            "url": "classes/App-Controller-LibraryJsonController.html"
         },                {
-            "fqsen": "\\App\\Dice\\Dice\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
+            "fqsen": "\\App\\Controller\\LibraryJsonController\u003A\u003AlibraryBooks\u0028\u0029",
+            "name": "libraryBooks",
             "summary": "",
-            "url": "classes/App-Dice-Dice.html#method___construct"
+            "url": "classes/App-Controller-LibraryJsonController.html#method_libraryBooks"
         },                {
-            "fqsen": "\\App\\Dice\\Dice\u003A\u003Aroll\u0028\u0029",
-            "name": "roll",
+            "fqsen": "\\App\\Controller\\LibraryJsonController\u003A\u003AlibraryBook\u0028\u0029",
+            "name": "libraryBook",
             "summary": "",
-            "url": "classes/App-Dice-Dice.html#method_roll"
-        },                {
-            "fqsen": "\\App\\Dice\\Dice\u003A\u003AgetAsString\u0028\u0029",
-            "name": "getAsString",
-            "summary": "",
-            "url": "classes/App-Dice-Dice.html#method_getAsString"
-        },                {
-            "fqsen": "\\App\\Dice\\Dice\u003A\u003A\u0024value",
-            "name": "value",
-            "summary": "",
-            "url": "classes/App-Dice-Dice.html#property_value"
+            "url": "classes/App-Controller-LibraryJsonController.html#method_libraryBook"
         },                {
             "fqsen": "\\App\\Entity\\Library",
             "name": "Library",
@@ -446,6 +426,36 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Library.html#property_bildnamn"
         },                {
+            "fqsen": "\\App\\Card\\GameHelp",
+            "name": "GameHelp",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003AcreateDeck\u0028\u0029",
+            "name": "createDeck",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_createDeck"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003AstartGame\u0028\u0029",
+            "name": "startGame",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_startGame"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003Abank\u0028\u0029",
+            "name": "bank",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_bank"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003Ascore\u0028\u0029",
+            "name": "score",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_score"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003AuserPlay\u0028\u0029",
+            "name": "userPlay",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_userPlay"
+        },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
             "summary": "",
@@ -475,11 +485,6 @@ Search.appendIndex(
             "name": "Controller",
             "summary": "",
             "url": "namespaces/app-controller.html"
-        },                {
-            "fqsen": "\\App\\Dice",
-            "name": "Dice",
-            "summary": "",
-            "url": "namespaces/app-dice.html"
         },                {
             "fqsen": "\\App\\Entity",
             "name": "Entity",

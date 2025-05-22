@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2025-05-22 08:21:08        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2025-05-22 08:51:43        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -297,16 +297,6 @@
         "relations": []
     },
     {
-        "name": "\\App\\Card\\GameHelp",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-        "size": 3000,
-        "relations": []
-    },
-    {
         "name": "\\App\\Entity\\Library",
         "size": 3000,
         "relations": []
@@ -342,6 +332,11 @@
         ]
     },
     {
+        "name": "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Controller\\GameController",
         "size": 3000,
         "relations": [
@@ -349,6 +344,14 @@
             "\\Symfony\\Component\\HttpFoundation\\Response",
             "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "\\App\\Card\\GameHelp"
+        ]
+    },
+    {
+        "name": "\\App\\Card\\GameHelp",
+        "size": 3000,
+        "relations": [
+            "\\App\\Card\\DeckOfCard",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
         ]
     },
     {

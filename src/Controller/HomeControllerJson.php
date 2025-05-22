@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 // use App\Repository\LibraryRepository;
 
 class HomeControllerJson extends AbstractController
@@ -94,10 +95,10 @@ class HomeControllerJson extends AbstractController
         $cardhand = new Cardhand();
         for ($i = 0; $i < $cardnumber; $i++) {
             $onecard = $deck->draw();
-            if ($onecard !== null ){
+            if ($onecard !== null) {
                 $cardhand->add($onecard);
             }
-            
+
         }
 
         $cardsLeft = $deck->cardsCount();

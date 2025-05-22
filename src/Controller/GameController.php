@@ -25,7 +25,7 @@ class GameController extends AbstractController
     public function gameInit(
         SessionInterface $session
     ): Response {
-        
+
         $helper = new GameHelp();
         $helper->startGame($session);
         // //skapa rätt variabler i session

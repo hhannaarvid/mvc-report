@@ -51,7 +51,7 @@ class DeckOfCard
     //     $deckStr = [];
 
     //     foreach ($this->cards as $card) {
-    //         $deckStr[] = $card->getCardString(); 
+    //         $deckStr[] = $card->getCardString();
     //     }
 
     //     return implode(', ', $deckStr);

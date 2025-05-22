@@ -90,15 +90,57 @@
             <li>Fixa bug/issue i HomeControllerJson där det bara ska gå att skicka in objekt, men i nuläget kan det också bli null. Minska risken för bugg. Bättre flöde i spelet.</li>
             <li>Få 100% i coverage för /card. Kommer visserligen inte öka totala coverage jättemycket, men något. Däremot ökas coverage till 100% om man kollar för just /card.</li>
             <li>Se över komplexitet i GameController. Än sålänge vet jag inte exakt vad som ska ändras, men det är en stor klass så det finns antagligen en del att kika på där.</li>
+            <li>Dela upp homecontrollerjson, dålig cohesion enligt metrics (röd)</li>
         </ul>
         <p>Jag tycker det är lite knepigt att göra sådana här förändringar, det som jag tänkt ändra är det mest "konkreta" jag har kunnat hitta att ändra. 
             Ser man till vad som skulle förbättra poängen/score för koden så finns det säkert andra saker man kan ändra som ger mer effekt. 
         </p>
 
         <p>Genomförande</p>
-        
+        <p>1. fixa bug/issue i HomeControllerJson. Detta var en liten och enkel grej att ordna. Jag behövde bara ändra lite kod i en metod under HomeControllerJson för att säkerställa att man inte skickade in null till en metod som vill ha ett objekt.</p>
+        <p>2. få 100% coverage för /card. Det fanns en metod som inte ens användes, så jag kommenterade ut den. 
+            Därefter blev det 100% coverage för /cards. </p>
+        <p>3. Försöka jobba ner komplexitet/cohesion i GameController. För att göra det så gjorde jag en ny klass, GameHelp, dit flyttade jag en del 
+            kod för att få ner kopmlexiteten och göra controllern mer "dum" som vi fått lära oss att de ska vara. Se diskussion för mer tankar kring den här punkten. 
+        </p>
+        <p>4. Jag har delat upp homecontrollerjson och flyttat ut några metoder till en egen controller, libraryjsoncontroller. Detta för mindre "spret".</p>
+        <img src="{{ asset('img/metrics2.png') }}" alt="metrics2">
+        <figcaption>PHPmetrics efter ändringarna.</figcaption>
+        <img src="{{ asset('img/before.png') }}" alt="before">
+        <figcaption>Komplexitet innan</figcaption>
+        <img src="{{ asset('img/after3.png') }}" alt="after3">
+        <figcaption>Komplexitet efter</figcaption><br>
+        <img src="{{ asset('img/scrut2.png') }}" alt="scrut2">
+
+        <figcaption>Scrutinizer efter</figcaption>
+
+
+
         <h2>Diskussion</h2>
-        
+        <p>Det var svårt att jobba med det här på det här sättet. Kollar man på jobbet jag gjorde med GameController
+            till exempel. Vi har fått lära oss att ha "dumma" controllers, dvs. så lite kod som möjligt där och mer kod 
+            i klasser. En klass ska göra en sak och så vidare. Det jag gjort främst här är att flytta ut majoriteten av koden 
+            (det fanns mycket att flytta) till en ny klass, GameHelp. Detta sänkte komplexiteten avsevärt, men däremot finns ju nu 
+            GameHelp som har hög komplexitet istället. Det går anagligen att skriva om den koden mer. Så i slutändan så blev GameController 
+            "renare", mindre kod och enklare (vilket även syns i siffror både på phpmetrics och scrutinizer-betyg). Men totala 
+            poängen för all kod är inte så mycket bättre pga GameHelp fortfarande är relativt tung. Däremot känns det bättre att ha 
+            koden såhär, tycker jag, för att det känns tydligare och bättre uppdelat. Men det är ett tydligt exempel på att 
+            det kan vara svårt att göra om koden för att få bättre siffror. Då får man istället gå tillbaka till regler, t.ex. att 
+            ha så lite kod som möjligt i controllers.
+
+            Detta betyder ju inte att man inte kan jobba med "clean code". Jag använder mig ju av ett flertal verktyg som ser till att en viss 
+            kodstandard följs, phpstan, phpfixer osv vilka säkerställer att det finns en viss standard i koden. När verktyg som phpmetrics och 
+            scrutinizer då används så borde vissa poäng redan vara ganska bra. I mitt fall hade jag nästan bara A på mina klasser enligt Scrutinizer.
+
+            Det är bra verktyg men bör nog användas som komplement då de inte ger hela bilden. Jag tror att bäst resultat blir 
+            att använd flera olika verktyg och tillsammans med sitt eget omdöme. Kanske be någon som är duktigare på kod än en själv 
+            också komma med feedback på förbättringsförslag. 
+            
+            En fördel med t.ex. scrutinizer och phpmetrics är att man kan få "på papper" att du har en fin kod. Det kan vara lättare 
+            att kanske visa upp för andra som ett betyg. Både till folk som kan kod och inte kan, snarare än att de ska gå igenom 
+            all din kod manuellt. Jag tror dock att man kanske kan få lite "falska" dåliga betyg på sin kod även om den inte är det. 
+            Det är nog bra att kolla vad den ger dåligt betyg på i sådana fall.
+        </p>
         
 
     </div>
