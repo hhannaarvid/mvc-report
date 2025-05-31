@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use App\Card\DeckOfCard;
+// use App\Card\DeckOfCard;
 use App\Card\GameHelp;
 
 class GameController extends AbstractController
@@ -28,26 +28,6 @@ class GameController extends AbstractController
 
         $helper = new GameHelp();
         $helper->startGame($session);
-        // //skapa rätt variabler i session
-        // $session->set("userpoints", 0);
-        // $session->set("draws", 0);
-        // $session->set("bankpoints", 0);
-        // $session->set("cardhand", []);
-        // $session->set("bankhand", []);
-
-        // if (!$session->has("bank-wins") || !$session->has("user-wins")) {
-        //     $session->set("user-wins", 0);
-        //     $session->set("bank-wins", 0);
-        // }
-
-        // //skapa ny kortlek
-        // $deck = new DeckOfCard();
-
-        // // blanda kortleken
-        // $deck->shuffle();
-
-        // //spara blandad kortlek (objekt) i session
-        // $session->set("gameDeck", $deck);
 
         $data = [
             "userpoints" => $session->get("userpoints"),
@@ -71,20 +51,6 @@ class GameController extends AbstractController
     ): Response {
         $helper = new GameHelp();
         $helper->userPlay($session);
-        // $deck = $session->get("gameDeck");
-        // $cardhand = $session->get("cardhand");
-
-
-        // //dra ett kort
-        // $draw = $deck->draw();
-        // $cardhand[] = $draw->getCardString();
-        // $session->set("cardhand", $cardhand);
-
-        // //ta fram poäng för kortet
-        // $rank = $draw->getRank();
-        // $points = $session->get("userpoints");
-        // $total = $rank + $points;
-        // $session->set("userpoints", $total);
 
         $data = [
             "userpoints" => $session->get("userpoints"),
@@ -102,31 +68,7 @@ class GameController extends AbstractController
         $helper = new GameHelp();
 
         $helper->bank($session);
-        // //skapa ny kortlek
-        // $deck = new DeckOfCard();
 
-        // // blanda kortleken
-        // $deck->shuffle();
-
-        // //hur många kort ska banken dra
-        // $number = rand(2, 3);
-        // $bankhand = [];
-        // //dra ett kort
-        // for ($i = 1; $i <= $number; $i++) {
-        //     $draw = $deck->draw();
-        //     if ($draw === null) {
-        //         continue;
-        //     }
-        //     $bankhand[] = $draw->getCardString();
-        //     //ta fram poäng för kortet
-        //     $rank = $draw->getRank();
-        //     $points = $session->get("bankpoints");
-        //     $total = $rank + $points;
-
-        //     $session->set("bankpoints", $total);
-        // }
-
-        // $session->set("bankhand", $bankhand);
 
         $data = [
             "userpoints" => $session->get("userpoints"),
@@ -142,45 +84,7 @@ class GameController extends AbstractController
     public function score(
         SessionInterface $session
     ): Response {
-        // $userpoints = $session->get("userpoints");
-        // $bankpoints = $session->get("bankpoints");
-        // $message = "";
-        // $bankwins = $session->get("bank-wins");
-        // $userwins = $session->get("user-wins");
 
-        // if ($userpoints > 21 && $bankpoints > 21) {
-        //     $message = "Båda fick över 21, alltså vann ingen.";
-        // }
-
-        // if ($userpoints === $bankpoints) {
-        //     $message = "Banken vann!";
-        //     $bankwins += 1;
-        //     $session->set("bank-wins", $bankwins);
-        // }
-
-        // if ($userpoints > 21) {
-        //     $message = "Banken vann!";
-        //     $bankwins += 1;
-        //     $session->set("bank-wins", $bankwins);
-        // }
-
-        // if ($bankpoints > 21) {
-        //     $message = "Du vann!";
-        //     $userwins += 1;
-        //     $session->set("user-wins", $userwins);
-        // }
-
-        // if ($userpoints > $bankpoints) {
-        //     $message = "Du vann!";
-        //     $userwins += 1;
-        //     $session->set("user-wins", $userwins);
-        // }
-
-        // if ($message === "") {
-        //     $message = "Banken vann!";
-        //     $bankwins += 1;
-        //     $session->set("bank-wins", $bankwins);
-        // }
         $helper = new GameHelp();
         $message = $helper->score($session);
         $data = [

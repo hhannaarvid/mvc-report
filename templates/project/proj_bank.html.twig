@@ -1,0 +1,39 @@
+{% extends "project/base2.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block body %}
+<h1 class="article-h1">Black Jack</h1>
+
+    <div class="article-game">
+
+        
+            <div class="gamedraw">
+                <div class="gameinfo">
+                    <p>Bankens kort:</p><br>
+                    <p>Bankens totala poäng: {{bankpoints}}</p>
+                </div>
+                <div class="cards">
+                {% for card in bankhand %}
+                {# {{card}} #}
+                <img src="{{ asset('img/deck/'~card~'.svg') }}" alt="{{card}}" class="card-draw"><br>
+                {% endfor %}
+            </div>
+            </div>
+        
+        <br>
+        <div class="gamediv">
+            <form method="post" action="">
+                <input type="submit" name="draw" value="Kolla vem som vann" class="gamebtn"
+                    onClick="this.form.action='{{ path('proj_score') }}';">
+
+
+            </form>
+        </div>
+
+        <br>
+    </div>
+    <br>
+        <br>
+{% endblock %}

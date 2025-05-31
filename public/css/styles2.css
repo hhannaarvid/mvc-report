@@ -37,7 +37,7 @@ header {
   color: white;
 }
 nav {
-  background-color: #90ae97;
+  background-color: #506053;
   padding: 10px;
 }
 nav ul {
@@ -72,6 +72,7 @@ nav ul li a:hover {
   margin: 0 auto;
   padding: 20px;
   height: 100%;
+  border: 1px solid red;
 }
 footer {
   background-color: #90ae97;
