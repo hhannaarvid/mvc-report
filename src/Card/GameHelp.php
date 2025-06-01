@@ -18,28 +18,33 @@ class GameHelp
         return $deck;
     }
 
+
     public function startGame(SessionInterface $session): void
     {
+        //skapa ny kortlek med metod
         $deck = $this->createDeck();
+
         //spara blandad kortlek (objekt) i session
         $session->set("gameDeck", $deck);
 
         //skapa rätt variabler i session
         $session->set("userpoints", 0);
-        $session->set("draws", 0);
         $session->set("bankpoints", 0);
         $session->set("cardhand", []);
         $session->set("bankhand", []);
+        // $session->set("draws", 0);
 
+
+        // skapa poäng för bank och spelare om det inte finns.
         if (!$session->has("bank-wins") || !$session->has("user-wins")) {
             $session->set("user-wins", 0);
             $session->set("bank-wins", 0);
         }
-
-
     }
+
+
     public function bank(SessionInterface $session): void
-    {
+    { // ORIGINAL
         $deck = $this->createDeck();
 
         //hur många kort ska banken dra
@@ -59,6 +64,68 @@ class GameHelp
 
         $session->set("bankhand", $bankhand);
     }
+
+
+    public function bank2(SessionInterface $session): void
+    {
+        // hämta kortlek från session
+        $deck = $session->get('gameDeck');
+
+        // skapa array för bankens korthand
+        $bankhand = [];
+
+        //dra ett kort
+        $draw = $deck->draw();
+
+        //spara dragna kortet som sträng i bankens korthand
+        $bankhand[] = $draw->getCardString();
+
+        //hämta bankens poäng från session om det finns
+        $points = $session->get("bankpoints", 0);
+
+        //spara bankens poäng i session
+        $session->set("bankpoints", $points + $draw->getRank());
+
+        // spara bankens korthand i session
+        $session->set("bankhand", $bankhand);
+
+        //spara kortlek i session
+        $session->set("gameDeck", $deck);
+    }
+
+        public function userPlay(SessionInterface $session): void
+    {
+        // hämta kortlek från session
+        $deck = $session->get("gameDeck");
+
+        //hämta korthand från session
+        $cardhand = $session->get("cardhand");
+
+        //dra ett kort
+        $draw = $deck->draw();
+
+        //spara draget kort som sträng i array
+        $cardhand[] = $draw->getCardString();
+
+        //spara korthand i session
+        $session->set("cardhand", $cardhand);
+
+        //ta fram poäng för kortet
+        $rank = $draw->getRank();
+
+        // hämta användarpoäng från session
+        $points = $session->get("userpoints");
+
+        //räkna ut totalpoäng
+        $total = $rank + $points;
+
+        //spara nya poäng i session
+        $session->set("userpoints", $total);
+
+        //spara kortlek i session
+        $session->set("gameDeck", $deck);
+    }
+
     public function score(SessionInterface $session): string
     {
         $userpoints = $session->get("userpoints");
@@ -103,21 +170,100 @@ class GameHelp
         return $message;
     }
 
-    public function userPlay(SessionInterface $session): void
+    public function startDraws(SessionInterface $session, $players): void
     {
-        $deck = $session->get("gameDeck");
-        $cardhand = $session->get("cardhand");
+        // hämta kortlek
+        $deck = $session->get('gameDeck');
 
+        //tom bank
+        $bank = [];
 
-        //dra ett kort
+        //spelare
+        $user1 = [];
+        $user2 = [];
+        $user3 = [];
+
+        if ($players === 1) {
+            for ($i = 1; $i <= 2; $i++){
+                //dra ett kort
+                $draw = $deck->draw();
+                //spara draget kort som sträng i array
+                $user1[] = $draw->getCardString();
+            }
+            //spara startkort för spelare1
+            $session->set("user1", $user1);
+        }
+        if ($players === 2) {
+            for ($i = 1; $i <= 2; $i++){
+                //dra ett kort
+                $draw = $deck->draw();
+                //spara draget kort som sträng i array
+                $user1[] = $draw->getCardString();
+            }
+            for ($i = 1; $i <= 2; $i++){
+                //dra ett kort
+                $draw = $deck->draw();
+                //spara draget kort som sträng i array
+                $user2[] = $draw->getCardString();
+            }
+            $session->set("user1", $user1);
+            $session->set("user2", $user2);
+        }
+        if ($players === 3) {
+            for ($i = 1; $i <= 2; $i++){
+                //dra ett kort
+                $draw = $deck->draw();
+                //spara draget kort som sträng i array
+                $user1[] = $draw->getCardString();
+            }
+            for ($i = 1; $i <= 2; $i++){
+                //dra ett kort
+                $draw = $deck->draw();
+                //spara draget kort som sträng i array
+                $user2[] = $draw->getCardString();
+            }
+            for ($i = 1; $i <= 2; $i++){
+                //dra ett kort
+                $draw = $deck->draw();
+                //spara draget kort som sträng i array
+                $user3[] = $draw->getCardString();
+            }
+            $session->set("user1", $user1);
+            $session->set("user2", $user2);
+            $session->set("user3", $user3);
+
+            
+        }
+        //bankens första kort
         $draw = $deck->draw();
-        $cardhand[] = $draw->getCardString();
-        $session->set("cardhand", $cardhand);
+        $bank[] = $draw->getCardString();
+        $session->set('bankhand', $bank);
 
-        //ta fram poäng för kortet
-        $rank = $draw->getRank();
-        $points = $session->get("userpoints");
-        $total = $rank + $points;
-        $session->set("userpoints", $total);
+
     }
 }
+
+//     public function userPlay(SessionInterface $session): void
+// {
+//     // hämta kortlek från session
+//     $deck = $session->get("gameDeck");
+//     //hämta korthand från session
+//     $cardhand = $session->get("cardhand");
+
+
+//     //dra ett kort
+//     $draw = $deck->draw();
+//     //spara draget kort som sträng i array
+//     $cardhand[] = $draw->getCardString();
+//     //spara korthand i session
+//     $session->set("cardhand", $cardhand);
+
+//     //ta fram poäng för kortet
+//     $rank = $draw->getRank();
+//     // hämta användarpoäng från session
+//     $points = $session->get("userpoints");
+//     //räkna ut totalpoäng
+//     $total = $rank + $points;
+//     //spara nya poäng i session
+//     $session->set("userpoints", $total);
+// }

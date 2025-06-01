@@ -216,12 +216,14 @@ h2 {
 .draw {
   width: 40%;
 }
-.drawbtn {
+.drawbtn,
+.startbtn {
   padding: 5px 10px;
   background-color: #c9e4da;
   border: 1px solid #bed2cb;
 }
-.drawbtn:hover {
+.drawbtn:hover,
+.startbtn {
   background-color: #a8bfb7;
   border: 1px solid #000;
 }
@@ -275,6 +277,7 @@ input[type=submit]:hover,
 .gamedraw {
   display: flex;
   gap: 15px;
+  border: 1px solid blue;
 }
 .article-game {
   padding: 30px 0 50px 0;
@@ -286,9 +289,16 @@ input[type=submit]:hover,
   display: flex;
   flex-wrap: wrap;
   gap: 10px 10px;
+  border: 1px solid yellow;
 }
 .cards img {
   width: 130px;
+}
+.player,
+.bank {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
 }
 .book-table {
   border: 1px solid #f1f1f1;

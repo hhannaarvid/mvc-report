@@ -48,14 +48,12 @@ class ProjectController extends AbstractController
             $session->set('user_two', $userTwo);
             $session->set('user_two_points', 0);
             $players += 1;
-
         }
 
         if ($userThree) {
             $session->set('user_three', $userThree);
             $session->set('user_three_points', 0);
             $players += 1;
-
         }
 
         $session->set('players', $players);
@@ -77,14 +75,17 @@ class ProjectController extends AbstractController
             "userpoints" => $session->get("userpoints"),
             "bankpoints" => $session->get("bankpoints"),
             "cardhand" => $session->get("cardhand"),
-            "userOne" => $session->get("user_one")
+            "userOne" => $session->get("user_one"),
+            "bankhand" => $session->get("bankhand"),
+            "user1" => $session->get("user1")
         ];
 
         return $this->render('project/proj_init.html.twig', $data);
+        // return $this->redirectToRoute('proj_play');
     }
 
 
-    // DRA ETT KORT #################################
+    // DRA ETT KORT FÖR ALLA #################################
     #[Route("/proj/play", name: "proj_play", methods: ["GET"])]
     public function playGet(): Response
     {
@@ -92,23 +93,126 @@ class ProjectController extends AbstractController
     }
 
 
-    // DRA ETT KORT #################################
+    // DRA STARTKORT FÖR ALLA #################################
     #[Route("/proj/play", name: "proj_play", methods: ['POST'])]
     public function playPost(
         SessionInterface $session
     ): Response {
         $helper = new GameHelp();
-        $helper->userPlay($session);
+        // $helper->userPlay($session);
+
+        // new
+        $helper->startDraws($session, 2);
+        $session->set('players', 2);
+
+        // new
 
         $data = [
             "userpoints" => $session->get("userpoints"),
             "bankpoints" => $session->get("bankpoints"),
-            "cardhand" => $session->get("cardhand"),
-            "userOne" => $session->get("user_one")
+            "cardhand" => $session->get("cardhand"), //new
+            "user1" => $session->get("user1"), //new
+            "user2" => $session->get("user2"), //new
+            "user3" => $session->get("user3"), //new
+            "userOne" => $session->get("user_one"),
+            "bankhand" => $session->get("bankhand")
         ];
 
         return $this->render('project/proj_play.html.twig', $data);
     }
+
+
+    // DRA ETT KORT FÖR SPELARE 1 ##################################
+    #[Route("/proj/play1", name: "play1", methods: ["GET"])]
+    public function play1Get(): Response
+    {
+        return $this->render("proj/proj_play_view.html.twig");
+    }
+
+    #[Route("proj/play1", name: "play1", methods: ['POST'])]
+    public function play1(
+        SessionInterface $session
+    ): Response {
+        //hämta korthand för spelare 1
+        $user1 = $session->get("user1");
+        $deck = $session->get('gameDeck');
+
+        //dra ett nytt kort för spelare 1
+        $draw = $deck->draw();
+
+        //spara draget kort i korthand
+        $user1[] = $draw->getCardString();
+
+        //spara ny korthand i session
+        $session->set("user1", $user1);
+
+        //spara kortleken igen
+        $session->set('gameDeck', $deck);
+
+        //redirect till proj_play
+        return $this->redirectToRoute('proj_play_view');
+
+    }
+    // ######################################################
+
+
+    // DRA ETT KORT FÖR SPELARE 1 ##################################
+    #[Route("/proj/play2", name: "play2", methods: ["GET"])]
+    public function play2Get(): Response
+    {
+        return $this->render("proj/proj_play_view.html.twig");
+    }
+    
+    #[Route("proj/play2", name: "play2", methods: ['POST'])]
+    public function play2(
+        SessionInterface $session
+    ): Response {
+        //hämta korthand för spelare 1
+        $user2 = $session->get("user2");
+        $deck = $session->get('gameDeck');
+
+        //dra ett nytt kort för spelare 1
+        $draw = $deck->draw();
+
+        //spara draget kort i korthand
+        $user2[] = $draw->getCardString();
+
+        //spara ny korthand i session
+        $session->set("user2", $user2);
+
+        //spara kortleken igen
+        $session->set('gameDeck', $deck);
+
+        //redirect till proj_play
+        return $this->redirectToRoute('proj_play_view');
+
+    }
+    // ######################################################
+
+
+    // VISA ALLAS HÄNDER IGEN #################################
+    #[Route("/proj/play_view", name: "proj_play_view", methods: ['GET'])]
+    public function playView(
+        SessionInterface $session
+    ): Response {
+
+
+        $data = [
+            "userpoints" => $session->get("userpoints"),
+            "bankpoints" => $session->get("bankpoints"),
+            "cardhand" => $session->get("cardhand"), //new
+            "user1" => $session->get("user1"), //new
+            "user2" => $session->get("user2"), //new
+            "user3" => $session->get("user3"), //new
+            "userOne" => $session->get("user_one"),
+            "bankhand" => $session->get("bankhand")
+        ];
+
+        return $this->render('project/proj_play_view.html.twig', $data);
+    }
+
+
+
 
     #[Route("/proj/save", name: "proj_save", methods: ['POST'])]
     public function save(
