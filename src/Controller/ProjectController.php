@@ -99,26 +99,49 @@ class ProjectController extends AbstractController
         SessionInterface $session
     ): Response {
         $helper = new GameHelp();
-        // $helper->userPlay($session);
         $players = $session->get('players');
 
-        // new
-        $helper->startDraws($session, $players); // fixa på annat sätt! <---------------
-        // $session->set('players', 1); // fixa på annat sätt! <---------------
+        //startkort
+        $helper->startDraws($session, $players); 
 
-        // new
+        //poäng för banken
+        $bankhand = $session->get("bankhand");
+        $bankpoints = $helper->countPoints($bankhand);
+        $session->set("bankpoints", $bankpoints);
+
+        //poäng för spelare 1
+        $user1 = $session->get("user1");
+        $userOnePoints = $session->get("user_one_points");
+        $userOnePoints = $helper->countPoints($user1);
+        $session->set("user_one_points", $userOnePoints);
+
+        if ($session->has('user_two')) {
+            $user2 = $session->get("user2");
+            $userTwoPoints = $session->get("user_two_points");
+            $userTwoPoints = $helper->countPoints($user2);
+            $session->set("user_two_points", $userTwoPoints);
+        }
+
+        if ($session->has('user_three')) {
+            $user3 = $session->get("user3");
+            $userThreePoints = $session->get("user_three_points");
+            $userThreePoints = $helper->countPoints($user3);
+            $session->set("user_three_points", $userThreePoints);
+        }
 
         $data = [
-            "userpoints" => $session->get("userpoints"),
-            "bankpoints" => $session->get("bankpoints"),
+            "bankpoints" => $bankpoints,
             "cardhand" => $session->get("cardhand"), //new
-            "user1" => $session->get("user1"), //new
+            "user1" => $user1, //new
             "user2" => $session->get("user2"), //new
             "user3" => $session->get("user3"), //new
             "userOne" => $session->get("user_one"),
             "userTwo" => $session->get("user_two"),
             "userThree" => $session->get("user_three"),
-            "bankhand" => $session->get("bankhand")
+            "bankhand" => $bankhand,
+            "userOnePoints" => $session->get("user_one_points"),
+            "userTwoPoints" => $session->get("user_two_points"),
+            "userThreePoints" => $session->get("user_three_points")
         ];
 
         return $this->render('project/proj_play.html.twig', $data);
@@ -225,25 +248,63 @@ class ProjectController extends AbstractController
     }
     // ######################################################
 
-
+    #[Route("/proj/playsave", name: "play_save", methods: ["GET"])]
+    public function play_save(): Response
+    {
+        return $this->render("proj/proj_play_view.html.twig");
+    }
+    #[Route("/proj/playsave", name: "play_save", methods: ["POST"])]
+    public function play_save_post(): Response
+    {
+        return $this->redirectToRoute("proj_play_view");
+    }
     // VISA ALLAS HÄNDER IGEN #################################
     #[Route("/proj/play_view", name: "proj_play_view", methods: ['GET'])]
     public function playView(
         SessionInterface $session
     ): Response {
+        // nytt
+        $helper = new GameHelp();
 
+        //poäng för banken
+        $bankhand = $session->get("bankhand");
+        $bankpoints = $helper->countPoints($bankhand);
+        $session->set("bankpoints", $bankpoints);
+
+        //poäng för spelare 1
+        $user1 = $session->get("user1");
+        $userOnePoints = $session->get("user_one_points");
+        $userOnePoints = $helper->countPoints($user1);
+        $session->set("user_one_points", $userOnePoints);
+
+        if ($session->has('user_two')) {
+            $user2 = $session->get("user2");
+            $userTwoPoints = $session->get("user_two_points");
+            $userTwoPoints = $helper->countPoints($user2);
+            $session->set("user_two_points", $userTwoPoints);
+        }
+
+        if ($session->has('user_three')) {
+            $user3 = $session->get("user3");
+            $userThreePoints = $session->get("user_three_points");
+            $userThreePoints = $helper->countPoints($user3);
+            $session->set("user_three_points", $userThreePoints);
+        }
+        // nytt
 
         $data = [
-            "userpoints" => $session->get("userpoints"),
-            "bankpoints" => $session->get("bankpoints"),
-            "cardhand" => $session->get("cardhand"), //new
-            "user1" => $session->get("user1"), //new
+            "bankpoints" => $bankpoints, //new
+            "cardhand" => $session->get("cardhand"), 
+            "user1" => $user1, //new
             "user2" => $session->get("user2"), //new
             "user3" => $session->get("user3"), //new
             "userOne" => $session->get("user_one"),
             "userTwo" => $session->get("user_two"),
             "userThree" => $session->get("user_three"),
-            "bankhand" => $session->get("bankhand")
+            "bankhand" => $session->get("bankhand"),
+            "userOnePoints" => $session->get("user_one_points"), //new
+            "userTwoPoints" => $session->get("user_two_points"), //new
+            "userThreePoints" => $session->get("user_three_points") //new
         ];
 
         return $this->render('project/proj_play_view.html.twig', $data);

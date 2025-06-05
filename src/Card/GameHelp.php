@@ -4,6 +4,7 @@ namespace App\Card;
 
 use App\Card\DeckOfCard;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Validator\Constraints\Length;
 
 class GameHelp
 {
@@ -238,6 +239,35 @@ class GameHelp
         $draw = $deck->draw();
         $bank[] = $draw->getCardString();
         $session->set('bankhand', $bank);
+    }
+
+    public function countPoints($cardhand): int
+    {
+        // räkna ut poäng för en hand med kort
+
+        $points = 0;
+
+        // foreach ($cardhand as $card) {
+        //     $points += (int) substr($card, 1);
+        // }
+
+        foreach ($cardhand as $card) {
+            $rank = substr($card, 1);
+
+            if ($rank === '11' || $rank === '12' || $rank === '13') {
+                $points += 10;
+            } elseif ($rank === '14') {
+                if (($points + 11) <= 21){
+                    $points += 11;
+                } else {
+                    $points += 1;
+                }
+            } else {
+                $points += (int) $rank;
+            }
+        }
+
+        return $points;
     }
 }
 

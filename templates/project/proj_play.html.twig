@@ -31,7 +31,7 @@
                     <div class="gameinfo">
                         <p>Spelare: {{userOne}}</p>
                         <p>Dina kort:</p><br>
-                        <p>Din totala poäng: {{userpoints}}</p>
+                        <p>Poäng: {{userOnePoints}}</p>
                     </div>
                     <div class="cards">
                         {% for card in user1 %}
@@ -39,19 +39,20 @@
                         {% endfor %}
                     </div>
                     <form method="post" action="">
-                        <input type="submit" name="draw" value="Dra ett kort" class="gamebtn"
+                        <input type="submit" name="draw" value="Dra ett kort" class="gamebtn player1btn"
                             onClick='this.form.action="{{ path("play1") }}";'>
 
-                        <input type="submit" name="save" value="Spara poäng" class="gamebtn"
-                            onClick="this.form.action='{{ path('proj_save') }}';">
+                        <input type="submit" name="save" value="Spara poäng" class="gamebtn player1btn"
+                            onClick="this.form.action='{{ path('play_save') }}'; ">
                     </form>
+
                 </div>
                 {% if user2 is not empty %}
                 <div class="player">
                     <div class="gameinfo">
                         <p>Spelare: {{userTwo}}</p>
                         <p>Dina kort:</p><br>
-                        <p>Din totala poäng: {{userpoints}}</p>
+                        <p>Poäng: {{userTwoPoints}}</p>
                     </div>
                     <div class="cards">
                         {% for card in user2 %}
@@ -72,7 +73,7 @@
                     <div class="gameinfo">
                         <p>Spelare: {{userThree}}</p>
                         <p>Dina kort:</p><br>
-                        <p>Din totala poäng: {{userpoints}}</p>
+                        <p>Poäng: {{userThreePoints}}</p>
                     </div>
                     <div class="cards">
                         {% for card in user3 %}
