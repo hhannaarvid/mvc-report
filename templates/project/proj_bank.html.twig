@@ -8,24 +8,72 @@
 
     <div class="article-game">
 
-        <div class="gamedraw">
-            <div class="bank">
-                <div class="gameinfo">
-                    <p>Bankens kort:</p><br>
-                    <p>Bankens totala poäng: {{bankpoints}}</p>
+        
+            <div class="gamedraw">
+                {# new #}
+                <div class="bank">
+                    <div class="gameinfo">
+                        <p>Bankens kort:</p><br>
+                        <p>Bankens totala poäng: {{bankpoints}}</p>
+                    </div>
+                    <div class="cards">
+                        {% for card in bankhand %}
+                        <img src="{{ asset('img/deck/'~card~'.svg') }}" alt="{{card}}" class="card-draw"><br>
+                        {% endfor %}
+                    </div>
+                    {# <form method="post" action="">
+                        <input type="submit" name="draw" value="Kolla vem som vann" class="gamebtn"
+                            onClick="this.form.action='{{ path('proj_score') }}';">
+                    </form> #}
                 </div>
-                <div class="cards">
-                    {% for card in bankhand %}
-                    <img src="{{ asset('img/deck/'~card~'.svg') }}" alt="{{card}}" class="card-draw"><br>
-                    {% endfor %}
+                {# new #}
+                <div class="player">
+                    <div class="gameinfo">
+                        <p>Spelare: {{userOne}}</p>
+                        <p>Dina kort:</p><br>
+                        <p>Poäng: {{userOnePoints}}</p>
+                    </div>
+                    <div class="cards">
+                        {% for card in user1 %}
+                        <img src="{{ asset('img/deck/'~card~'.svg') }}" alt="{{card}}" class="card-draw"><br>
+                        {% endfor %}
+                    </div>
                 </div>
-                <form method="post" action="">
-                    <input type="submit" name="draw" value="Kolla vem som vann" class="gamebtn"
-                        onClick="this.form.action='{{ path('proj_score') }}';">
-                </form>
+                {% if user2 is not empty %}
+                <div class="player">
+                    <div class="gameinfo">
+                        <p>Spelare: {{userTwo}}</p>
+                        <p>Dina kort:</p><br> 
+                        <p>Poäng: {{userTwoPoints}}</p>
+                    </div>
+                    <div class="cards">
+                        {% for card in user2 %}
+                        <img src="{{ asset('img/deck/'~card~'.svg') }}" alt="{{card}}" class="card-draw"><br>
+                        {% endfor %}
+                    </div>
+
+                </div>
+                {% endif %}
+                {% if user3 is not empty %}
+                <div class="player">
+                    <div class="gameinfo">
+                        <p>Spelare: {{userThree}}</p>
+                        <p>Dina kort:</p><br>
+                        <p>Poäng: {{userThreePoints}}</p>
+                    </div>
+                    <div class="cards">
+                        {% for card in user3 %}
+                        <img src="{{ asset('img/deck/'~card~'.svg') }}" alt="{{card}}" class="card-draw"><br>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
-    
-        </div>
+        <br>
+        <form method="post">
+            <input type="submit" name="resultat" value="Resultat" class="gamebtn"
+                onClick='this.form.action="{{ path("proj_score") }}";'>
+        </form>
         <br>
     </div>
     <br>

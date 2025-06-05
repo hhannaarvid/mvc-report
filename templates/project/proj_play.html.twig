@@ -39,11 +39,8 @@
                         {% endfor %}
                     </div>
                     <form method="post" action="">
-                        <input type="submit" name="draw" value="Dra ett kort" class="gamebtn player1btn"
+                        <input type="submit" name="draw" value="Dra ett till kort" class="gamebtn"
                             onClick='this.form.action="{{ path("play1") }}";'>
-
-                        <input type="submit" name="save" value="Spara poäng" class="gamebtn player1btn"
-                            onClick="this.form.action='{{ path('play_save') }}'; ">
                     </form>
 
                 </div>
@@ -62,9 +59,6 @@
                     <form method="post" action="">
                         <input type="submit" name="draw" value="Dra ett kort" class="gamebtn"
                             onClick='this.form.action="{{ path("play2") }}";'>
-
-                        <input type="submit" name="save" value="Spara poäng" class="gamebtn"
-                            onClick="this.form.action='{{ path('proj_save') }}';">
                     </form>
                 </div>
                 {% endif %}
@@ -83,14 +77,15 @@
                     <form method="post" action="">
                         <input type="submit" name="draw" value="Dra ett kort" class="gamebtn"
                             onClick='this.form.action="{{ path("play3") }}";'>
-
-                        <input type="submit" name="save" value="Spara poäng" class="gamebtn"
-                            onClick="this.form.action='{{ path('proj_save') }}';">
                     </form>
                 </div>
                 {% endif %}
             </div>
         <br>
+        <form method="post">
+            <input type="submit" name="bank" value="Gå vidare" class="gamebtn"
+                onClick='this.form.action="{{ path("save_bank") }}";'>
+        </form>
         <br>
     </div>
     <br>

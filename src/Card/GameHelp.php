@@ -73,7 +73,7 @@ class GameHelp
         $deck = $session->get('gameDeck');
 
         // skapa array för bankens korthand
-        $bankhand = [];
+        $bankhand = $session->get('bankhand');
 
         //dra ett kort
         $draw = $deck->draw();
@@ -81,17 +81,18 @@ class GameHelp
         //spara dragna kortet som sträng i bankens korthand
         $bankhand[] = $draw->getCardString();
 
-        //hämta bankens poäng från session om det finns
-        $points = $session->get("bankpoints", 0);
-
-        //spara bankens poäng i session
-        $session->set("bankpoints", $points + $draw->getRank());
-
         // spara bankens korthand i session
         $session->set("bankhand", $bankhand);
 
         //spara kortlek i session
         $session->set("gameDeck", $deck);
+
+        //räkna poäng
+        $bankpoints = $this->countPoints($bankhand);
+
+        $session->set("bankpoints", $bankpoints);
+
+
     }
 
         public function userPlay(SessionInterface $session): void
@@ -244,12 +245,7 @@ class GameHelp
     public function countPoints($cardhand): int
     {
         // räkna ut poäng för en hand med kort
-
         $points = 0;
-
-        // foreach ($cardhand as $card) {
-        //     $points += (int) substr($card, 1);
-        // }
 
         foreach ($cardhand as $card) {
             $rank = substr($card, 1);

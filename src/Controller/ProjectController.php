@@ -248,16 +248,7 @@ class ProjectController extends AbstractController
     }
     // ######################################################
 
-    #[Route("/proj/playsave", name: "play_save", methods: ["GET"])]
-    public function play_save(): Response
-    {
-        return $this->render("proj/proj_play_view.html.twig");
-    }
-    #[Route("/proj/playsave", name: "play_save", methods: ["POST"])]
-    public function play_save_post(): Response
-    {
-        return $this->redirectToRoute("proj_play_view");
-    }
+
     // VISA ALLAS HÄNDER IGEN #################################
     #[Route("/proj/play_view", name: "proj_play_view", methods: ['GET'])]
     public function playView(
@@ -312,22 +303,38 @@ class ProjectController extends AbstractController
 
 
 
-
-    #[Route("/proj/save", name: "proj_save", methods: ['POST'])]
+    #[Route("/proj/save", name: "save_bank", methods: ['POST'])]
     public function save(
         SessionInterface $session
     ): Response {
         $helper = new GameHelp();
 
-        $helper->bank($session);
+        $helper->bank2($session);
+
+        $bankpoints = $session->get("bankpoints");
+
+        while ($bankpoints <= 16) {
+            $helper->bank2($session);
+            $bankpoints = $session->get("bankpoints");
+        }
+
 
 
         $data = [
-            "userpoints" => $session->get("userpoints"),
-            "bankpoints" => $session->get("bankpoints"),
-            "cardhand" => $session->get("cardhand"),
-            "bankhand" => $session->get("bankhand")
+            "bankpoints" => $session->get("bankpoints"), //new
+            "cardhand" => $session->get("cardhand"), 
+            "user1" => $session->get("user1"), //new
+            "user2" => $session->get("user2"), //new
+            "user3" => $session->get("user3"), //new
+            "userOne" => $session->get("user_one"),
+            "userTwo" => $session->get("user_two"),
+            "userThree" => $session->get("user_three"),
+            "bankhand" => $session->get("bankhand"),
+            "userOnePoints" => $session->get("user_one_points"), //new
+            "userTwoPoints" => $session->get("user_two_points"), //new
+            "userThreePoints" => $session->get("user_three_points") //new
         ];
+
 
         return $this->render('project/proj_bank.html.twig', $data);
     }
