@@ -100,10 +100,11 @@ class ProjectController extends AbstractController
     ): Response {
         $helper = new GameHelp();
         // $helper->userPlay($session);
+        $players = $session->get('players');
 
         // new
-        $helper->startDraws($session, 2);
-        $session->set('players', 2);
+        $helper->startDraws($session, $players); // fixa på annat sätt! <---------------
+        // $session->set('players', 1); // fixa på annat sätt! <---------------
 
         // new
 
@@ -115,6 +116,8 @@ class ProjectController extends AbstractController
             "user2" => $session->get("user2"), //new
             "user3" => $session->get("user3"), //new
             "userOne" => $session->get("user_one"),
+            "userTwo" => $session->get("user_two"),
+            "userThree" => $session->get("user_three"),
             "bankhand" => $session->get("bankhand")
         ];
 
@@ -167,11 +170,11 @@ class ProjectController extends AbstractController
     public function play2(
         SessionInterface $session
     ): Response {
-        //hämta korthand för spelare 1
+        //hämta korthand för spelare 2
         $user2 = $session->get("user2");
         $deck = $session->get('gameDeck');
 
-        //dra ett nytt kort för spelare 1
+        //dra ett nytt kort för spelare 2
         $draw = $deck->draw();
 
         //spara draget kort i korthand
@@ -179,6 +182,39 @@ class ProjectController extends AbstractController
 
         //spara ny korthand i session
         $session->set("user2", $user2);
+
+        //spara kortleken igen
+        $session->set('gameDeck', $deck);
+
+        //redirect till proj_play
+        return $this->redirectToRoute('proj_play_view');
+
+    }
+    // ######################################################
+
+    // DRA ETT KORT FÖR SPELARE 1 ##################################
+    #[Route("/proj/play3", name: "play3", methods: ["GET"])]
+    public function play3Get(): Response
+    {
+        return $this->render("proj/proj_play_view.html.twig");
+    }
+    
+    #[Route("proj/play3", name: "play3", methods: ['POST'])]
+    public function play3(
+        SessionInterface $session
+    ): Response {
+        //hämta korthand för spelare 3
+        $user2 = $session->get("user3");
+        $deck = $session->get('gameDeck');
+
+        //dra ett nytt kort för spelare 3
+        $draw = $deck->draw();
+
+        //spara draget kort i korthand
+        $user2[] = $draw->getCardString();
+
+        //spara ny korthand i session
+        $session->set("user3", $user2);
 
         //spara kortleken igen
         $session->set('gameDeck', $deck);
@@ -205,6 +241,8 @@ class ProjectController extends AbstractController
             "user2" => $session->get("user2"), //new
             "user3" => $session->get("user3"), //new
             "userOne" => $session->get("user_one"),
+            "userTwo" => $session->get("user_two"),
+            "userThree" => $session->get("user_three"),
             "bankhand" => $session->get("bankhand")
         ];
 

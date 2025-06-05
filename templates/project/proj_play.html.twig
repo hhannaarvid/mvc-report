@@ -21,15 +21,15 @@
                         <img src="{{ asset('img/deck/'~card~'.svg') }}" alt="{{card}}" class="card-draw"><br>
                         {% endfor %}
                     </div>
-                    <form method="post" action="">
+                    {# <form method="post" action="">
                         <input type="submit" name="draw" value="Kolla vem som vann" class="gamebtn"
                             onClick="this.form.action='{{ path('proj_score') }}';">
-                    </form>
+                    </form> #}
                 </div>
                 {# new #}
                 <div class="player">
                     <div class="gameinfo">
-                        <p>Spelare: 1</p>
+                        <p>Spelare: {{userOne}}</p>
                         <p>Dina kort:</p><br>
                         <p>Din totala poäng: {{userpoints}}</p>
                     </div>
@@ -49,7 +49,7 @@
                 {% if user2 is not empty %}
                 <div class="player">
                     <div class="gameinfo">
-                        <p>Spelare: 2</p>
+                        <p>Spelare: {{userTwo}}</p>
                         <p>Dina kort:</p><br>
                         <p>Din totala poäng: {{userpoints}}</p>
                     </div>
@@ -70,7 +70,7 @@
                 {% if user3 is not empty %}
                 <div class="player">
                     <div class="gameinfo">
-                        <p>Spelare: 3</p>
+                        <p>Spelare: {{userThree}}</p>
                         <p>Dina kort:</p><br>
                         <p>Din totala poäng: {{userpoints}}</p>
                     </div>
@@ -81,7 +81,7 @@
                     </div>
                     <form method="post" action="">
                         <input type="submit" name="draw" value="Dra ett kort" class="gamebtn"
-                            onClick='this.form.action="{{ path("proj_play") }}";'>
+                            onClick='this.form.action="{{ path("play3") }}";'>
 
                         <input type="submit" name="save" value="Spara poäng" class="gamebtn"
                             onClick="this.form.action='{{ path('proj_save') }}';">

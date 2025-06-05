@@ -238,8 +238,6 @@ class GameHelp
         $draw = $deck->draw();
         $bank[] = $draw->getCardString();
         $session->set('bankhand', $bank);
-
-
     }
 }
 
