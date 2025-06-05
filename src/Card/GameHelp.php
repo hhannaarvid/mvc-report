@@ -172,6 +172,36 @@ class GameHelp
         return $message;
     }
 
+    public function score2($userpoints, $bankpoints, $playername): string
+    {
+        $message = "";
+
+        if ($userpoints > 21 && $bankpoints > 21) {
+            $message = "Båda fick över 21, alltså vann ingen.";
+        }
+
+        if ($userpoints === $bankpoints) {
+            $message = "Banken vann över $playername!";
+        }
+
+        if ($userpoints > 21) {
+            $message = "Banken vann över $playername!";
+        }
+
+        if ($bankpoints > 21) {
+            $message = "$playername vann över banken!";
+        }
+
+        if ($userpoints > $bankpoints) {
+            $message = "$playername vann över banken!";
+        }
+
+        if ($message === "") {
+            $message = "Banken vann över $playername!";
+        }
+        return $message;
+    }
+
     public function startDraws(SessionInterface $session, $players): void
     {
         // hämta kortlek

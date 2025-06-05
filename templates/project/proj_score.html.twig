@@ -10,10 +10,23 @@
 
         
             <div class="gamedraw">
-                <div class="gameinfo">
-                    <p>Dina poäng: {{userpoints}}</p><br>
-                    <p>Bankens totala poäng: {{bankpoints}}</p><br>
-                    <p>{{message}}</p>
+                <div class="gameinfo summering">
+                    <p>Sammanställning:</p>
+                    <p>Bankens poäng = {{bankpoints}}</p>
+                    <br>
+                    <p>{{userOne}}:s poäng = {{userOnePoints}}</p>
+                    <p>{{message1}}</p><br>
+                    {% if user2 is not empty %}
+                    <p>{{userTwo}}:s poäng = {{userTwoPoints}}</p>
+                    <p>{{message2}}</p>
+                    {% endif %}
+                    <br>
+                    {% if user3 is not empty %}
+                    <p>{{userThree}}:s poäng = {{userThreePoints}}</p>
+                    <p>{{message3}}</p>
+                    {% endif %}
+
+
                 </div>
 
             </div>

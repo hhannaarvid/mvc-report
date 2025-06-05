@@ -318,8 +318,6 @@ class ProjectController extends AbstractController
             $bankpoints = $session->get("bankpoints");
         }
 
-
-
         $data = [
             "bankpoints" => $session->get("bankpoints"), //new
             "cardhand" => $session->get("cardhand"), 
@@ -335,7 +333,6 @@ class ProjectController extends AbstractController
             "userThreePoints" => $session->get("user_three_points") //new
         ];
 
-
         return $this->render('project/proj_bank.html.twig', $data);
     }
 
@@ -345,11 +342,34 @@ class ProjectController extends AbstractController
     ): Response {
 
         $helper = new GameHelp();
-        $message = $helper->score($session);
+        $bankpoints = $session->get('bankpoints');
+        $userOnePoints = $session->get('user_one_points');
+        $userTwoPoints = $session->get('user_two_points');
+        $userThreePoints = $session->get('user_three_points');
+        $userOne = $session->get("user_one");
+        $userTwo = $session->get("user_two");
+        $userThree = $session->get("user_three");
+
+        $message1 = $helper->score2($userOnePoints, $bankpoints, $userOne);
+        $message2 = $helper->score2($userTwoPoints, $bankpoints, $userTwo);
+        $message3 = $helper->score2($userThreePoints, $bankpoints, $userThree);
+
+        
+
         $data = [
-            "userpoints" => $session->get("userpoints"),
+            "message1" => $message1,
+            "message2" => $message2,
+            "message3" => $message3,
+            "userOne" => $session->get("user_one"),
+            "userTwo" => $session->get("user_two"),
+            "userThree" => $session->get("user_three"),
+            "userOnePoints" => $session->get("user_one_points"), //new
+            "userTwoPoints" => $session->get("user_two_points"), //new
+            "userThreePoints" => $session->get("user_three_points"), //new
             "bankpoints" => $session->get("bankpoints"),
-            "message" => $message
+            "user1" => $session->get("user1"), //new
+            "user2" => $session->get("user2"), //new
+            "user3" => $session->get("user3")
         ];
 
         return $this->render('project/proj_score.html.twig', $data);
