@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Card\GameHelp;
 use App\Card\ProjHelp;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -225,5 +226,14 @@ class ProjectController extends AbstractController
         ];
 
         return $this->render('project/proj_play_view.html.twig', $data);
+    }
+
+    #[Route('/proj/api/view', name: 'proj_api_view')]
+    public function apiView(
+        SessionInterface $session
+    ): Response {
+        $helper = new GameHelp();
+        $helper->startGame($session);
+        return $this->render('project/api_view.html.twig');
     }
 }
