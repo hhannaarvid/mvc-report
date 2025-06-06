@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use App\Card\DeckOfCard;
 use App\Card\GameHelp;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -46,6 +45,7 @@ class ProjectController extends AbstractController
             $session->set('user_one', $userOne);
             $session->set('user_one_points', 0);
             $session->set('one_money', $oneMoney);
+            $session->set($userOne, 0);
             $players += 1;
         }
 
@@ -53,6 +53,7 @@ class ProjectController extends AbstractController
             $session->set('user_two', $userTwo);
             $session->set('user_two_points', 0);
             $session->set('two_money', $twoMoney);
+            $session->set($userTwo, 0);
             $players += 1;
         }
 
@@ -60,6 +61,7 @@ class ProjectController extends AbstractController
             $session->set('user_three', $userThree);
             $session->set('user_three_points', 0);
             $session->set('three_money', $threeMoney);
+            $session->set($userThree, 0);
             $players += 1;
         }
 
@@ -369,7 +371,23 @@ class ProjectController extends AbstractController
         $win3 = $helper->score3($userThreePoints, $bankpoints);
         $winnings3 = $helper->winnings($userThreePoints, $win3);
 
-        
+        //total bank
+        $one_money = $session->get('one_money');
+        $two_money = $session->get('two_money');
+        $three_money = $session->get('three_money');
+        if ($userOne != null) {
+            $oneTotal = $session->get($userOne);
+            $session->set($userOne, $oneTotal += ($one_money * $winnings1));
+        } 
+        if ($userTwo != null) {
+            $twoTotal = $session->get($userTwo);
+            $session->set($userTwo, $twoTotal += ($two_money * $winnings2));
+        }
+        if ($userThree != null) {
+            $threeTotal = $session->get($userThree);
+            $session->set($userThree, $threeTotal += ($three_money * $winnings3));
+        }
+        //total bank
 
         $data = [
             "message1" => $message1,

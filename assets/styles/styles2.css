@@ -72,7 +72,6 @@ body {
   margin: 0 auto;
   padding: 20px;
   height: 100%;
-  border: 1px solid red;
 }
 footer {
   background-color: #616161 !important;
@@ -288,7 +287,6 @@ input[type=submit]:hover,
 .gamedraw {
   display: flex;
   gap: 15px;
-  border: 1px solid blue;
   justify-content: center;
 }
 .article-game {
@@ -301,7 +299,6 @@ input[type=submit]:hover,
   display: flex;
   flex-wrap: wrap;
   gap: 10px 10px;
-  border: 1px solid yellow;
   justify-content: center;
 }
 .cards img {
@@ -309,7 +306,6 @@ input[type=submit]:hover,
 }
 .player,
 .bank {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
 }

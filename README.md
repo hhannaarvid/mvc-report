@@ -1,15 +1,21 @@
 ![front page](/public/img/home.png)
 Front page
 
+![project page](/public/img/front2.png)
+Project front page
+
 MVC
 =====
 
 ## About
 This is my repo for the course mvc.
-It's a project built with the framework symfony which uses multiple techonologies such as php, twig, js, html, css and more. 
+It's a project built with the framework symfony which uses multiple techonologies such as php, twig, js, html, css and more. The last part of the course is an assignment to build a project (second picture), I chose to build a black jack game, which expands the game 21 we built earlier in the course.
 
-* To run this repo you need php installed.
-* clone the repo and begin browsing.
+To view this project:
+* clone the repo
+* install php and composer
+* build front end files with npm
+* enjoy!
 
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hhannaarvid/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/hhannaarvid/mvc-report/?branch=main)
