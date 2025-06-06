@@ -36,23 +36,30 @@ class ProjectController extends AbstractController
         $userOne = $request->request->get('user-one');
         $userTwo = $request->request->get('user-two');
         $userThree = $request->request->get('user-three');
+        $oneMoney = $request->request->get('one-money');
+        $twoMoney = $request->request->get('two-money');
+        $threeMoney = $request->request->get('three-money');
+
         $players = 0;
 
         if ($userOne) {
             $session->set('user_one', $userOne);
             $session->set('user_one_points', 0);
+            $session->set('one_money', $oneMoney);
             $players += 1;
         }
 
         if ($userTwo) {
             $session->set('user_two', $userTwo);
             $session->set('user_two_points', 0);
+            $session->set('two_money', $twoMoney);
             $players += 1;
         }
 
         if ($userThree) {
             $session->set('user_three', $userThree);
             $session->set('user_three_points', 0);
+            $session->set('three_money', $threeMoney);
             $players += 1;
         }
 
@@ -351,8 +358,16 @@ class ProjectController extends AbstractController
         $userThree = $session->get("user_three");
 
         $message1 = $helper->score2($userOnePoints, $bankpoints, $userOne);
+        $win1 = $helper->score3($userOnePoints, $bankpoints);
+        $winnings1 = $helper->winnings($userOnePoints, $win1);
+
         $message2 = $helper->score2($userTwoPoints, $bankpoints, $userTwo);
+        $win2 = $helper->score3($userTwoPoints, $bankpoints);
+        $winnings2 = $helper->winnings($userTwoPoints, $win2);
+
         $message3 = $helper->score2($userThreePoints, $bankpoints, $userThree);
+        $win3 = $helper->score3($userThreePoints, $bankpoints);
+        $winnings3 = $helper->winnings($userThreePoints, $win3);
 
         
 
@@ -369,7 +384,14 @@ class ProjectController extends AbstractController
             "bankpoints" => $session->get("bankpoints"),
             "user1" => $session->get("user1"), //new
             "user2" => $session->get("user2"), //new
-            "user3" => $session->get("user3")
+            "user3" => $session->get("user3"),
+            "winnings1" => $winnings1,
+            "winnings2" => $winnings2,
+            "winnings3" => $winnings3,
+            "one_money" => $session->get('one_money'),
+            "two_money" => $session->get('two_money'),
+            "three_money" => $session->get('three_money')
+
         ];
 
         return $this->render('project/proj_score.html.twig', $data);

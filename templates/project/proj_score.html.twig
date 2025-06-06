@@ -15,23 +15,19 @@
                     <p>Bankens poäng = {{bankpoints}}</p>
                     <br>
                     <p>{{userOne}}:s poäng = {{userOnePoints}}</p>
-                    <p>{{message1}}</p><br>
+                    <p>{{message1}} {{userOne}} får {{winnings1}}x{{one_money}}kr.</p><br>
                     {% if user2 is not empty %}
                     <p>{{userTwo}}:s poäng = {{userTwoPoints}}</p>
-                    <p>{{message2}}</p>
+                    <p>{{message2}} {{userTwo}} får {{winnings2}}x{{two_money}}kr.</p>
                     {% endif %}
                     <br>
                     {% if user3 is not empty %}
                     <p>{{userThree}}:s poäng = {{userThreePoints}}</p>
-                    <p>{{message3}}</p>
+                    <p>{{message3}} {{userThree}} får {{winnings3}}x{{three_money}}</p>
                     {% endif %}
-
-
                 </div>
-
             </div>
            
-        
         <br>
 
             <form method="post" action="">

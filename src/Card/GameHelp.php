@@ -179,7 +179,7 @@ class GameHelp
         if ($userpoints > 21 && $bankpoints > 21) {
             $message = "Båda fick över 21, alltså vann ingen.";
         } elseif ($userpoints === $bankpoints) {
-            $message = "Banken vann över $playername!";
+            $message = "Oavgjort.";
         } elseif ($userpoints > 21) {
             $message = "Banken vann över $playername!";
         } elseif ($bankpoints > 21) {
@@ -191,6 +191,30 @@ class GameHelp
         }
         return $message;
     }
+
+        public function score3($userpoints, $bankpoints): string
+    {
+        $win = "no";
+
+        if ($userpoints > 21 && $bankpoints > 21) {
+            return $win;
+        } elseif ($userpoints === $bankpoints) {
+            $win = "equal";
+            return $win;
+        } elseif ($userpoints > 21) {
+            return $win;
+        } elseif ($bankpoints > 21) {
+            $win = "yes";
+            return $win;
+        } elseif ($userpoints > $bankpoints) {
+            $win = "yes";
+            return $win;
+        } else {
+            return $win;
+        }
+
+    }
+
 
     public function startDraws(SessionInterface $session, $players): void
     {
@@ -284,6 +308,22 @@ class GameHelp
         }
 
         return $points;
+    }
+
+    public function winnings($points, $win): int
+    {
+        if ($win === 'yes') {
+            if ($points === 21) {
+                return 2.5;
+            } else {
+                return 2;
+            }
+        } elseif ($win === 'equal') {
+            return 1;
+        } else {
+            return 0;
+        }
+
     }
 }
 

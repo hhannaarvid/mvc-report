@@ -24,20 +24,26 @@
             - Alla börjar med 2 kort, därefter väljer man att stanna eller dra ett kort till.<br>
             - bankens andra kort är dolt, därför ser det ut som att banken börjar med endast ett kort. <br>
             - När du väljer att stanna så drar banken ett kort. Banken vet inte vad du har fått för poäng. Banken drar så många kort den vill innan den väljer att stanna. <br>
-            - Sedan jämförs poängen. Är poängen samma, så vinner banken. Är du högst, men inte över 21 så vinner du. Är banken högst men inte över 21 så vinner den.<br>
+            - Sedan jämförs poängen. Är poängen samma, så blir det oavgjort och du får tillbaka pengarna. Är du högst, men inte över 21 så vinner du 2x pengar. Är banken högst men inte över 21 så vinner den.<br>
+            - Får vinner du och får exakt 21 så får du 2.5x pengarna.<br>
                 <br>
                 Spelet följer <a href="https://www.atg.se/casino/artiklar/hur-spelar-man-blackjack">de här reglerna.</a><br>
                 <br>
                 <form method="post" action="{{ path('name_post') }}">
-                    <p>Spara namn på spelare, max tre stycken. </p>
+                    <p>Spara namn på spelare, max tre stycken. Fyll även i hur mycket pengar varje spelare vill satsa.</p>
                     <label>Spelare 1</label>
                     <input type="text" name="user-one">
-
+                    <input type="number" name="one-money" min="5" max="100"><br>
+                    <br>
                     <label>Spelare 2</label>
                     <input type="text" name="user-two">
+                    <input type="number" name="two-money" min="5" max="100"><br>
+                    <br>
 
                     <label>Spelare 3</label>
                     <input type="text" name="user-three">
+                    <input type="number" name="three-money" min="5" max="100"><br>
+
 
                     <input type="submit" value="Spara" class="projbtn">
                 </form>
