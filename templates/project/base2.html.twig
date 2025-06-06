@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Dirt&display=swap" rel="stylesheet">
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/styles2.css') }}">
+            <link rel="stylesheet" href="{{ asset('styles/styles2.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -20,7 +20,7 @@
     
     <body>
 
-        <nav>
+        <nav class="nav">
             <ul>
                 <i class="fa-solid fa-tree"></i>
                 <li><a href="{{ path('home') }}">HOME</a></li>
@@ -55,15 +55,15 @@
             </ul>
         </nav>
 
-        <header>
+        <header class="header2">
         
-            <p class="headertext">MVC</p>
-            <p class="headertext-small">Min portfolio för kursen mvc</p>
+            <p class="headertext">Black Jack</p>
+            <p class="headertext-small">Projektsida för kursen MVC</p>
 
 
         </header>
 
-        <div class="main">
+        <div class="main2">
             <div class="content">
                 {% block body %}{% endblock %}
             </div>

@@ -178,25 +178,15 @@ class GameHelp
 
         if ($userpoints > 21 && $bankpoints > 21) {
             $message = "Båda fick över 21, alltså vann ingen.";
-        }
-
-        if ($userpoints === $bankpoints) {
+        } elseif ($userpoints === $bankpoints) {
             $message = "Banken vann över $playername!";
-        }
-
-        if ($userpoints > 21) {
+        } elseif ($userpoints > 21) {
             $message = "Banken vann över $playername!";
-        }
-
-        if ($bankpoints > 21) {
+        } elseif ($bankpoints > 21) {
             $message = "$playername vann över banken!";
-        }
-
-        if ($userpoints > $bankpoints) {
+        } elseif ($userpoints > $bankpoints) {
             $message = "$playername vann över banken!";
-        }
-
-        if ($message === "") {
+        } else {
             $message = "Banken vann över $playername!";
         }
         return $message;

@@ -13,10 +13,10 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
-header {
+.header2 {
   padding: 6px 40px 6px 40px;
   background-color: #90ae97;
-  background: url('../images/IMG_6837_.jpg');
+  background: url('../images/cards.jpg');
   background-size: cover;
   background-position: center center;
   gap: 5px;
@@ -36,35 +36,35 @@ header {
   font-family: "Roboto", "Open Sans";
   color: white;
 }
-nav {
-  background-color: #506053;
+.nav {
+  background-color: #616161;
   padding: 10px;
 }
-nav ul {
+.nav ul {
   display: flex;
   justify-content: center;
   gap: 20px;
 }
-nav ul i {
-  color: #678d6f;
+.nav ul i {
+  color: #4d4d4d;
 }
-nav ul li {
+.nav ul li {
   list-style: none;
 }
-nav ul li a {
+.nav ul li a {
   text-decoration: none;
   color: white;
   font-family: "Roboto", "Open Sans";
 }
-nav ul li a:hover {
+.nav ul li a:hover {
   border-bottom: 1px solid white;
   border-top: 1px solid white;
 }
 .project-nav {
   background-color: #e58f9d;
 }
-.main {
-  background-color: #d6e5d9;
+.main2 {
+  background-color: #e7e7e7;
 }
 .content {
   width: 800px;
@@ -75,7 +75,7 @@ nav ul li a:hover {
   border: 1px solid red;
 }
 footer {
-  background-color: #90ae97;
+  background-color: #616161 !important;
   padding: 20px 30px 20px 30px;
   display: flex;
   justify-content: space-between;
@@ -153,7 +153,8 @@ h2 {
   color: #afc7b4;
   border-bottom: 1px solid #afc7b4;
 }
-.big-a {
+.big-a,
+form .big-a {
   background-color: #d6e5d9;
   color: #2f2f2f;
   text-decoration: none;
@@ -161,7 +162,8 @@ h2 {
   margin-top: 20px;
   border: 1px solid #ccc;
 }
-.big-a:hover {
+.big-a:hover,
+form .big-a {
   color: #879d8b;
   background-color: #bdcfc1;
 }
@@ -246,7 +248,6 @@ select {
 }
 input[type=submit],
 .input {
-  width: 30%;
   background-color: #c9d2ca;
   color: white;
   padding: 14px 20px;
@@ -257,18 +258,28 @@ input[type=submit],
 }
 input[type=submit]:hover,
 .input:hover {
-  background-color: #92a394;
+  background-color: #ffd0ef;
 }
-.gamebtn {
-  background-color: #d6e5d9;
+.article-report form .projbtn,
+.article-game form .projbtn,
+.gamediv form .projbtn {
+  background-color: #dedede;
   color: #2f2f2f;
   text-decoration: none;
   padding: 10px 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #b1b1b1;
+  text-align: center;
 }
-.gamebtn:hover {
-  color: #879d8b;
-  background-color: #bdcfc1;
+.article-report form .projbtn:hover,
+.article-game form .projbtn:hover,
+.gamediv form .projbtn:hover {
+  background-color: #ffd0ef;
+}
+.player form .projbtn {
+  width: 110px;
+}
+.player form {
+  text-align: center;
 }
 .gamediv {
   display: flex;
@@ -278,6 +289,7 @@ input[type=submit]:hover,
   display: flex;
   gap: 15px;
   border: 1px solid blue;
+  justify-content: center;
 }
 .article-game {
   padding: 30px 0 50px 0;
@@ -290,6 +302,7 @@ input[type=submit]:hover,
   flex-wrap: wrap;
   gap: 10px 10px;
   border: 1px solid yellow;
+  justify-content: center;
 }
 .cards img {
   width: 130px;
