@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class ProjectController extends AbstractController
 {
     // DRA ETT KORT FÖR ALLA #################################
@@ -29,7 +28,24 @@ class ProjectController extends AbstractController
         $players = $session->get('players');
 
         //startkort
-        $helper->startDraws($session, $players);
+        // $helper->startDraws($session, $players);
+
+        //new
+        if ($players === 1) {
+            $helper->start1($session, 'user1');
+        }
+        if ($players === 2) {
+            $helper->start1($session, 'user1');
+            $helper->start1($session, 'user2');
+        }
+        if ($players === 3) {
+            $helper->start1($session, 'user1');
+            $helper->start1($session, 'user2');
+            $helper->start1($session, 'user3');
+        }
+
+        $helper->startbank($session);
+        //new
 
         //poäng för banken
         $bankhand = $session->get("bankhand");

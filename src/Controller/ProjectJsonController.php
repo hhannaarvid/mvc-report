@@ -2,19 +2,13 @@
 
 namespace App\Controller;
 
-namespace App\Controller;
-
-
 use App\Card\ProjHelp;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Component\Routing\Annotation\Route;
-
 
 class ProjectJsonController extends AbstractController
 {
@@ -22,7 +16,6 @@ class ProjectJsonController extends AbstractController
     public function apiProj(
         SessionInterface $session
     ): Response {
-        
 
         $data = [
             "antal spelare" => $session->get('players'),
@@ -32,7 +25,6 @@ class ProjectJsonController extends AbstractController
             "senaste poäng spelare 1" => $session->get('user_one_points'),
             "senaste poäng spelare 2" => $session->get('user_two_points'),
             "senaste poäng spelare 3" => $session->get('user_three_points')
-
         ];
 
         return $this->json($data);
@@ -55,11 +47,9 @@ class ProjectJsonController extends AbstractController
         }
         if ($userTwo != null) {
             $twomoney = $session->get('two_money');
-
         }
         if ($userThree != null) {
             $threemoney = $session->get('three_money');
-
         }
         $data = [
             "player1-money" => (int) $onemoney,
@@ -75,12 +65,13 @@ class ProjectJsonController extends AbstractController
         SessionInterface $session,
         int $player
     ): Response {
+        $data = [];
         if ($player === 1) {
             $data = [
                 "Spelare" => $session->get('user_one'),
                 "senaste poäng spelare 1" => $session->get('user_one_points'),
                 "spelad korthand" => $session->get('user1'),
-                "Insättning/vinst" => $session->get('one_money') 
+                "Insättning/vinst" => $session->get('one_money')
 
             ];
         }
@@ -89,7 +80,7 @@ class ProjectJsonController extends AbstractController
                 "Spelare" => $session->get('user_two'),
                 "senaste poäng spelare 2" => $session->get('user_two_points'),
                 "spelad korthand" => $session->get('user2'),
-                "Insättning/vinst" => $session->get('two_money') 
+                "Insättning/vinst" => $session->get('two_money')
 
             ];
         }
@@ -98,7 +89,7 @@ class ProjectJsonController extends AbstractController
                 "Spelare" => $session->get('user_three'),
                 "senaste poäng spelare 1" => $session->get('user_three_points'),
                 "spelad korthand" => $session->get('user3'),
-                "Insättning/vinst" => $session->get('three_money') 
+                "Insättning/vinst" => $session->get('three_money')
 
             ];
         }
@@ -126,7 +117,22 @@ class ProjectJsonController extends AbstractController
         $helper = new ProjHelp();
         $player = $session->get('playersapi');
 
-        $helper->startDraws($session, (int) $player);
+        //new
+        if ($player === 1) {
+            $helper->start1($session, 'user1');
+        }
+        if ($player === 2) {
+            $helper->start1($session, 'user1');
+            $helper->start1($session, 'user2');
+        }
+        if ($player === 3) {
+            $helper->start1($session, 'user1');
+            $helper->start1($session, 'user2');
+            $helper->start1($session, 'user3');
+        }
+
+        $helper->startbank($session);
+        //new
         $startData = [
             'Player1' => $session->get('user1'),
             'Player2' => $session->get('user2'),

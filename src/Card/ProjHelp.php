@@ -77,70 +77,25 @@ class ProjHelp
 
     }
 
-
-    public function startDraws(SessionInterface $session, int $players): void
+    public function start1(SessionInterface $session, string $user): void
     {
-        // hämta kortlek
         $deck = $session->get('gameDeck');
 
-        //tom bank
-        $bank = [];
+        $hand = [];
 
-        //spelare
-        $user1 = [];
-        $user2 = [];
-        $user3 = [];
-
-        if ($players === 1) {
-            for ($i = 1; $i <= 2; $i++) {
+        for ($i = 1; $i <= 2; $i++) {
                 //dra ett kort
                 $draw = $deck->draw();
                 //spara draget kort som sträng i array
-                $user1[] = $draw->getCardString();
+                $hand[] = $draw->getCardString();
             }
             //spara startkort för spelare1
-            $session->set("user1", $user1);
-        }
-        if ($players === 2) {
-            for ($i = 1; $i <= 2; $i++) {
-                //dra ett kort
-                $draw = $deck->draw();
-                //spara draget kort som sträng i array
-                $user1[] = $draw->getCardString();
-            }
-            for ($i = 1; $i <= 2; $i++) {
-                //dra ett kort
-                $draw = $deck->draw();
-                //spara draget kort som sträng i array
-                $user2[] = $draw->getCardString();
-            }
-            $session->set("user1", $user1);
-            $session->set("user2", $user2);
-        }
-        if ($players === 3) {
-            for ($i = 1; $i <= 2; $i++) {
-                //dra ett kort
-                $draw = $deck->draw();
-                //spara draget kort som sträng i array
-                $user1[] = $draw->getCardString();
-            }
-            for ($i = 1; $i <= 2; $i++) {
-                //dra ett kort
-                $draw = $deck->draw();
-                //spara draget kort som sträng i array
-                $user2[] = $draw->getCardString();
-            }
-            for ($i = 1; $i <= 2; $i++) {
-                //dra ett kort
-                $draw = $deck->draw();
-                //spara draget kort som sträng i array
-                $user3[] = $draw->getCardString();
-            }
-            $session->set("user1", $user1);
-            $session->set("user2", $user2);
-            $session->set("user3", $user3);
+            $session->set($user, $hand);
+    }
 
-        }
+    public function startbank(SessionInterface $session): void
+    {
+        $deck = $session->get('gameDeck');
         //bankens första kort
         $draw = $deck->draw();
         $bank[] = $draw->getCardString();
@@ -172,7 +127,7 @@ class ProjHelp
         return $points;
     }
 
-    
+
     public function winnings(int $points, string $win): float
     {
         if ($win === 'yes') {
