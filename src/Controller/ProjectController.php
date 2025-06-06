@@ -2,98 +2,15 @@
 
 namespace App\Controller;
 
+use App\Card\ProjHelp;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use App\Card\GameHelp;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Routing\Annotation\Route;
+
 
 class ProjectController extends AbstractController
 {
-    // STARTSIDA FÖR SPELET #################################
-    #[Route("/proj", name: "proj")]
-    public function home(): Response
-    {
-        return $this->render('project/proj.html.twig');
-    }
-
-
-    // INFORMATION OM PROJEKT #################################
-    #[Route("/proj/about", name: "proj_about")]
-    public function homeAbout(): Response
-    {
-        return $this->render('project/proj_about.html.twig');
-    }
-
-
-    // SPARA NAMN #################################
-    #[Route("/name_post", name: "name_post", methods: ['POST'])]
-    public function saveName(Request $request, SessionInterface $session): RedirectResponse
-    {
-        $userOne = $request->request->get('user-one');
-        $userTwo = $request->request->get('user-two');
-        $userThree = $request->request->get('user-three');
-        $oneMoney = $request->request->get('one-money');
-        $twoMoney = $request->request->get('two-money');
-        $threeMoney = $request->request->get('three-money');
-
-        $players = 0;
-
-        if ($userOne) {
-            $session->set('user_one', $userOne);
-            $session->set('user_one_points', 0);
-            $session->set('one_money', $oneMoney);
-            $session->set($userOne, 0);
-            $players += 1;
-        }
-
-        if ($userTwo) {
-            $session->set('user_two', $userTwo);
-            $session->set('user_two_points', 0);
-            $session->set('two_money', $twoMoney);
-            $session->set($userTwo, 0);
-            $players += 1;
-        }
-
-        if ($userThree) {
-            $session->set('user_three', $userThree);
-            $session->set('user_three_points', 0);
-            $session->set('three_money', $threeMoney);
-            $session->set($userThree, 0);
-            $players += 1;
-        }
-
-        $session->set('players', $players);
-
-        return $this->redirectToRoute('projInit');
-    }
-
-
-    // INITIERA SPELET #################################
-    #[Route("/proj/init", name: "projInit")]
-    public function gameInit(
-        SessionInterface $session
-    ): Response {
-
-        $helper = new GameHelp();
-        $helper->startGame($session);
-
-        $data = [
-            "userpoints" => $session->get("userpoints"),
-            "bankpoints" => $session->get("bankpoints"),
-            "cardhand" => $session->get("cardhand"),
-            "userOne" => $session->get("user_one"),
-            "bankhand" => $session->get("bankhand"),
-            "user1" => $session->get("user1")
-        ];
-
-        return $this->render('project/proj_init.html.twig', $data);
-        // return $this->redirectToRoute('proj_play');
-    }
-
-
     // DRA ETT KORT FÖR ALLA #################################
     #[Route("/proj/play", name: "proj_play", methods: ["GET"])]
     public function playGet(): Response
@@ -107,11 +24,11 @@ class ProjectController extends AbstractController
     public function playPost(
         SessionInterface $session
     ): Response {
-        $helper = new GameHelp();
+        $helper = new ProjHelp();
         $players = $session->get('players');
 
         //startkort
-        $helper->startDraws($session, $players); 
+        $helper->startDraws($session, $players);
 
         //poäng för banken
         $bankhand = $session->get("bankhand");
@@ -197,7 +114,7 @@ class ProjectController extends AbstractController
     {
         return $this->render("proj/proj_play_view.html.twig");
     }
-    
+
     #[Route("proj/play2", name: "play2", methods: ['POST'])]
     public function play2(
         SessionInterface $session
@@ -230,7 +147,7 @@ class ProjectController extends AbstractController
     {
         return $this->render("proj/proj_play_view.html.twig");
     }
-    
+
     #[Route("proj/play3", name: "play3", methods: ['POST'])]
     public function play3(
         SessionInterface $session
@@ -264,7 +181,7 @@ class ProjectController extends AbstractController
         SessionInterface $session
     ): Response {
         // nytt
-        $helper = new GameHelp();
+        $helper = new ProjHelp();
 
         //poäng för banken
         $bankhand = $session->get("bankhand");
@@ -294,7 +211,7 @@ class ProjectController extends AbstractController
 
         $data = [
             "bankpoints" => $bankpoints, //new
-            "cardhand" => $session->get("cardhand"), 
+            "cardhand" => $session->get("cardhand"),
             "user1" => $user1, //new
             "user2" => $session->get("user2"), //new
             "user3" => $session->get("user3"), //new
@@ -308,110 +225,5 @@ class ProjectController extends AbstractController
         ];
 
         return $this->render('project/proj_play_view.html.twig', $data);
-    }
-
-
-
-    #[Route("/proj/save", name: "save_bank", methods: ['POST'])]
-    public function save(
-        SessionInterface $session
-    ): Response {
-        $helper = new GameHelp();
-
-        $helper->bank2($session);
-
-        $bankpoints = $session->get("bankpoints");
-
-        while ($bankpoints <= 16) {
-            $helper->bank2($session);
-            $bankpoints = $session->get("bankpoints");
-        }
-
-        $data = [
-            "bankpoints" => $session->get("bankpoints"), //new
-            "cardhand" => $session->get("cardhand"), 
-            "user1" => $session->get("user1"), //new
-            "user2" => $session->get("user2"), //new
-            "user3" => $session->get("user3"), //new
-            "userOne" => $session->get("user_one"),
-            "userTwo" => $session->get("user_two"),
-            "userThree" => $session->get("user_three"),
-            "bankhand" => $session->get("bankhand"),
-            "userOnePoints" => $session->get("user_one_points"), //new
-            "userTwoPoints" => $session->get("user_two_points"), //new
-            "userThreePoints" => $session->get("user_three_points") //new
-        ];
-
-        return $this->render('project/proj_bank.html.twig', $data);
-    }
-
-    #[Route("/proj/score", name: "proj_score", methods: ['POST'])]
-    public function score(
-        SessionInterface $session
-    ): Response {
-
-        $helper = new GameHelp();
-        $bankpoints = $session->get('bankpoints');
-        $userOnePoints = $session->get('user_one_points');
-        $userTwoPoints = $session->get('user_two_points');
-        $userThreePoints = $session->get('user_three_points');
-        $userOne = $session->get("user_one");
-        $userTwo = $session->get("user_two");
-        $userThree = $session->get("user_three");
-
-        $message1 = $helper->score2($userOnePoints, $bankpoints, $userOne);
-        $win1 = $helper->score3($userOnePoints, $bankpoints);
-        $winnings1 = $helper->winnings($userOnePoints, $win1);
-
-        $message2 = $helper->score2($userTwoPoints, $bankpoints, $userTwo);
-        $win2 = $helper->score3($userTwoPoints, $bankpoints);
-        $winnings2 = $helper->winnings($userTwoPoints, $win2);
-
-        $message3 = $helper->score2($userThreePoints, $bankpoints, $userThree);
-        $win3 = $helper->score3($userThreePoints, $bankpoints);
-        $winnings3 = $helper->winnings($userThreePoints, $win3);
-
-        //total bank
-        $one_money = $session->get('one_money');
-        $two_money = $session->get('two_money');
-        $three_money = $session->get('three_money');
-        if ($userOne != null) {
-            $oneTotal = $session->get($userOne);
-            $session->set($userOne, $oneTotal += ($one_money * $winnings1));
-        } 
-        if ($userTwo != null) {
-            $twoTotal = $session->get($userTwo);
-            $session->set($userTwo, $twoTotal += ($two_money * $winnings2));
-        }
-        if ($userThree != null) {
-            $threeTotal = $session->get($userThree);
-            $session->set($userThree, $threeTotal += ($three_money * $winnings3));
-        }
-        //total bank
-
-        $data = [
-            "message1" => $message1,
-            "message2" => $message2,
-            "message3" => $message3,
-            "userOne" => $session->get("user_one"),
-            "userTwo" => $session->get("user_two"),
-            "userThree" => $session->get("user_three"),
-            "userOnePoints" => $session->get("user_one_points"), //new
-            "userTwoPoints" => $session->get("user_two_points"), //new
-            "userThreePoints" => $session->get("user_three_points"), //new
-            "bankpoints" => $session->get("bankpoints"),
-            "user1" => $session->get("user1"), //new
-            "user2" => $session->get("user2"), //new
-            "user3" => $session->get("user3"),
-            "winnings1" => $winnings1,
-            "winnings2" => $winnings2,
-            "winnings3" => $winnings3,
-            "one_money" => $session->get('one_money'),
-            "two_money" => $session->get('two_money'),
-            "three_money" => $session->get('three_money')
-
-        ];
-
-        return $this->render('project/proj_score.html.twig', $data);
     }
 }

@@ -101,6 +101,36 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-DeckOfCard.html#property_ranks"
         },                {
+            "fqsen": "\\App\\Card\\GameHelp",
+            "name": "GameHelp",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003AcreateDeck\u0028\u0029",
+            "name": "createDeck",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_createDeck"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003AstartGame\u0028\u0029",
+            "name": "startGame",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_startGame"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003Abank\u0028\u0029",
+            "name": "bank",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_bank"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003AuserPlay\u0028\u0029",
+            "name": "userPlay",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_userPlay"
+        },                {
+            "fqsen": "\\App\\Card\\GameHelp\u003A\u003Ascore\u0028\u0029",
+            "name": "score",
+            "summary": "",
+            "url": "classes/App-Card-GameHelp.html#method_score"
+        },                {
             "fqsen": "\\App\\Card\\PrettyDeck",
             "name": "PrettyDeck",
             "summary": "klass\u0020f\u00F6r\u0020prettydeck.\u0020Skapar\u0020en\u0020finare\u0020kortlek\u0020f\u00F6r\u0020att\u0020anv\u00E4nda\u0020i\u0020json\u002Dapi.",
@@ -125,6 +155,41 @@ Search.appendIndex(
             "name": "ranks",
             "summary": "",
             "url": "classes/App-Card-PrettyDeck.html#property_ranks"
+        },                {
+            "fqsen": "\\App\\Card\\ProjHelp",
+            "name": "ProjHelp",
+            "summary": "",
+            "url": "classes/App-Card-ProjHelp.html"
+        },                {
+            "fqsen": "\\App\\Card\\ProjHelp\u003A\u003Abank2\u0028\u0029",
+            "name": "bank2",
+            "summary": "",
+            "url": "classes/App-Card-ProjHelp.html#method_bank2"
+        },                {
+            "fqsen": "\\App\\Card\\ProjHelp\u003A\u003Ascore2\u0028\u0029",
+            "name": "score2",
+            "summary": "",
+            "url": "classes/App-Card-ProjHelp.html#method_score2"
+        },                {
+            "fqsen": "\\App\\Card\\ProjHelp\u003A\u003Ascore3\u0028\u0029",
+            "name": "score3",
+            "summary": "",
+            "url": "classes/App-Card-ProjHelp.html#method_score3"
+        },                {
+            "fqsen": "\\App\\Card\\ProjHelp\u003A\u003AstartDraws\u0028\u0029",
+            "name": "startDraws",
+            "summary": "",
+            "url": "classes/App-Card-ProjHelp.html#method_startDraws"
+        },                {
+            "fqsen": "\\App\\Card\\ProjHelp\u003A\u003AcountPoints\u0028\u0029",
+            "name": "countPoints",
+            "summary": "",
+            "url": "classes/App-Card-ProjHelp.html#method_countPoints"
+        },                {
+            "fqsen": "\\App\\Card\\ProjHelp\u003A\u003Awinnings\u0028\u0029",
+            "name": "winnings",
+            "summary": "",
+            "url": "classes/App-Card-ProjHelp.html#method_winnings"
         },                {
             "fqsen": "\\App\\Controller\\CardController",
             "name": "CardController",
@@ -336,6 +401,96 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LibraryJsonController.html#method_libraryBook"
         },                {
+            "fqsen": "\\App\\Controller\\ProjectController",
+            "name": "ProjectController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AplayGet\u0028\u0029",
+            "name": "playGet",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_playGet"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AplayPost\u0028\u0029",
+            "name": "playPost",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_playPost"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aplay1Get\u0028\u0029",
+            "name": "play1Get",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_play1Get"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aplay1\u0028\u0029",
+            "name": "play1",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_play1"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aplay2Get\u0028\u0029",
+            "name": "play2Get",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_play2Get"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aplay2\u0028\u0029",
+            "name": "play2",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_play2"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aplay3Get\u0028\u0029",
+            "name": "play3Get",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_play3Get"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aplay3\u0028\u0029",
+            "name": "play3",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_play3"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AplayView\u0028\u0029",
+            "name": "playView",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_playView"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectInitController",
+            "name": "ProjectInitController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectInitController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectInitController\u003A\u003Ahome\u0028\u0029",
+            "name": "home",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectInitController.html#method_home"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectInitController\u003A\u003AhomeAbout\u0028\u0029",
+            "name": "homeAbout",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectInitController.html#method_homeAbout"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectInitController\u003A\u003AsaveName\u0028\u0029",
+            "name": "saveName",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectInitController.html#method_saveName"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectInitController\u003A\u003AgameInit\u0028\u0029",
+            "name": "gameInit",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectInitController.html#method_gameInit"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectResultController",
+            "name": "ProjectResultController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectResultController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectResultController\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectResultController.html#method_save"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectResultController\u003A\u003Ascore\u0028\u0029",
+            "name": "score",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectResultController.html#method_score"
+        },                {
             "fqsen": "\\App\\Entity\\Library",
             "name": "Library",
             "summary": "",
@@ -425,36 +580,6 @@ Search.appendIndex(
             "name": "bildnamn",
             "summary": "",
             "url": "classes/App-Entity-Library.html#property_bildnamn"
-        },                {
-            "fqsen": "\\App\\Card\\GameHelp",
-            "name": "GameHelp",
-            "summary": "",
-            "url": "classes/App-Card-GameHelp.html"
-        },                {
-            "fqsen": "\\App\\Card\\GameHelp\u003A\u003AcreateDeck\u0028\u0029",
-            "name": "createDeck",
-            "summary": "",
-            "url": "classes/App-Card-GameHelp.html#method_createDeck"
-        },                {
-            "fqsen": "\\App\\Card\\GameHelp\u003A\u003AstartGame\u0028\u0029",
-            "name": "startGame",
-            "summary": "",
-            "url": "classes/App-Card-GameHelp.html#method_startGame"
-        },                {
-            "fqsen": "\\App\\Card\\GameHelp\u003A\u003Abank\u0028\u0029",
-            "name": "bank",
-            "summary": "",
-            "url": "classes/App-Card-GameHelp.html#method_bank"
-        },                {
-            "fqsen": "\\App\\Card\\GameHelp\u003A\u003Ascore\u0028\u0029",
-            "name": "score",
-            "summary": "",
-            "url": "classes/App-Card-GameHelp.html#method_score"
-        },                {
-            "fqsen": "\\App\\Card\\GameHelp\u003A\u003AuserPlay\u0028\u0029",
-            "name": "userPlay",
-            "summary": "",
-            "url": "classes/App-Card-GameHelp.html#method_userPlay"
         },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",

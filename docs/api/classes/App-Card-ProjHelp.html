@@ -109,7 +109,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    GameHelp
+    ProjHelp
 
     
             <div class="phpdocumentor-element__package">
@@ -128,7 +128,7 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameHelp.php"><a href="files/src-card-gamehelp.html"><abbr title="src/Card/GameHelp.php">GameHelp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/ProjHelp.php"><a href="files/src-card-projhelp.html"><abbr title="src/Card/ProjHelp.php">ProjHelp.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">8</span>
 
@@ -145,7 +145,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/App-Card-GameHelp.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Card-ProjHelp.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -160,38 +160,44 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/App-Card-GameHelp.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Card-ProjHelp.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Card-GameHelp.html#method_bank">bank()</a>
+    <a class="" href="classes/App-Card-ProjHelp.html#method_bank2">bank2()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Card-GameHelp.html#method_createDeck">createDeck()</a>
+    <a class="" href="classes/App-Card-ProjHelp.html#method_countPoints">countPoints()</a>
     <span>
-                                &nbsp;: <a href="classes/App-Card-DeckOfCard.html"><abbr title="\App\Card\DeckOfCard">DeckOfCard</abbr></a>    </span>
+                                &nbsp;: int    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Card-GameHelp.html#method_score">score()</a>
+    <a class="" href="classes/App-Card-ProjHelp.html#method_score2">score2()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Card-GameHelp.html#method_startGame">startGame()</a>
+    <a class="" href="classes/App-Card-ProjHelp.html#method_score3">score3()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/App-Card-ProjHelp.html#method_startDraws">startDraws()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Card-GameHelp.html#method_userPlay">userPlay()</a>
+    <a class="" href="classes/App-Card-ProjHelp.html#method_winnings">winnings()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: float    </span>
 </dt>
 
     </dl>
@@ -205,7 +211,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/App-Card-GameHelp.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Card-ProjHelp.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -214,22 +220,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_bank">
-        bank()
-        <a href="classes/App-Card-GameHelp.html#method_bank" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_bank2">
+        bank2()
+        <a href="classes/App-Card-ProjHelp.html#method_bank2" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameHelp.php"><a href="files/src-card-gamehelp.html"><abbr title="src/Card/GameHelp.php">GameHelp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/ProjHelp.php"><a href="files/src-card-projhelp.html"><abbr title="src/Card/ProjHelp.php">ProjHelp.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">bank</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">bank2</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -258,35 +264,45 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_createDeck">
-        createDeck()
-        <a href="classes/App-Card-GameHelp.html#method_createDeck" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_countPoints">
+        countPoints()
+        <a href="classes/App-Card-ProjHelp.html#method_countPoints" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameHelp.php"><a href="files/src-card-gamehelp.html"><abbr title="src/Card/GameHelp.php">GameHelp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/ProjHelp.php"><a href="files/src-card-projhelp.html"><abbr title="src/Card/ProjHelp.php">ProjHelp.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">createDeck</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-DeckOfCard.html"><abbr title="\App\Card\DeckOfCard">DeckOfCard</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">countPoints</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cardhand</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
     
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$cardhand</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
     
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-DeckOfCard.html"><abbr title="\App\Card\DeckOfCard">DeckOfCard</abbr></a></span>
+        <span class="phpdocumentor-signature__response_type">int</span>
             </section>
 
 </article>
@@ -296,22 +312,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_score">
-        score()
-        <a href="classes/App-Card-GameHelp.html#method_score" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_score2">
+        score2()
+        <a href="classes/App-Card-ProjHelp.html#method_score2" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameHelp.php"><a href="files/src-card-gamehelp.html"><abbr title="src/Card/GameHelp.php">GameHelp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/ProjHelp.php"><a href="files/src-card-projhelp.html"><abbr title="src/Card/ProjHelp.php">ProjHelp.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">score</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">score2</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$userpoints</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bankpoints</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$playername</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -320,8 +336,22 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$session</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
+                <span class="phpdocumentor-signature__argument__name">$userpoints</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$bankpoints</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$playername</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -344,22 +374,77 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_startGame">
-        startGame()
-        <a href="classes/App-Card-GameHelp.html#method_startGame" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_score3">
+        score3()
+        <a href="classes/App-Card-ProjHelp.html#method_score3" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameHelp.php"><a href="files/src-card-gamehelp.html"><abbr title="src/Card/GameHelp.php">GameHelp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/ProjHelp.php"><a href="files/src-card-projhelp.html"><abbr title="src/Card/ProjHelp.php">ProjHelp.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">startGame</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">score3</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$userpoints</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bankpoints</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$userpoints</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$bankpoints</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_startDraws">
+        startDraws()
+        <a href="classes/App-Card-ProjHelp.html#method_startDraws" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/ProjHelp.php"><a href="files/src-card-projhelp.html"><abbr title="src/Card/ProjHelp.php">ProjHelp.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">78</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">startDraws</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$players</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -370,6 +455,13 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$session</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$players</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -388,22 +480,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_userPlay">
-        userPlay()
-        <a href="classes/App-Card-GameHelp.html#method_userPlay" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_winnings">
+        winnings()
+        <a href="classes/App-Card-ProjHelp.html#method_winnings" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/GameHelp.php"><a href="files/src-card-gamehelp.html"><abbr title="src/Card/GameHelp.php">GameHelp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/ProjHelp.php"><a href="files/src-card-projhelp.html"><abbr title="src/Card/ProjHelp.php">ProjHelp.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">172</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">userPlay</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">winnings</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$points</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$win</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">float</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -412,8 +504,15 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$session</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
+                <span class="phpdocumentor-signature__argument__name">$points</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$win</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -424,7 +523,11 @@
 
     
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">float</span>
+            </section>
+
 </article>
             </section>
 
@@ -432,7 +535,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Card/GameHelp.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Card/ProjHelp.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -531,7 +634,7 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/App-Card-GameHelp.html#toc-methods">Methods</a></li>
+                                                                                <li><a href="classes/App-Card-ProjHelp.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
@@ -539,11 +642,12 @@
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/App-Card-GameHelp.html#method_bank">bank()</a></li>
-                                            <li class=""><a href="classes/App-Card-GameHelp.html#method_createDeck">createDeck()</a></li>
-                                            <li class=""><a href="classes/App-Card-GameHelp.html#method_score">score()</a></li>
-                                            <li class=""><a href="classes/App-Card-GameHelp.html#method_startGame">startGame()</a></li>
-                                            <li class=""><a href="classes/App-Card-GameHelp.html#method_userPlay">userPlay()</a></li>
+                                            <li class=""><a href="classes/App-Card-ProjHelp.html#method_bank2">bank2()</a></li>
+                                            <li class=""><a href="classes/App-Card-ProjHelp.html#method_countPoints">countPoints()</a></li>
+                                            <li class=""><a href="classes/App-Card-ProjHelp.html#method_score2">score2()</a></li>
+                                            <li class=""><a href="classes/App-Card-ProjHelp.html#method_score3">score3()</a></li>
+                                            <li class=""><a href="classes/App-Card-ProjHelp.html#method_startDraws">startDraws()</a></li>
+                                            <li class=""><a href="classes/App-Card-ProjHelp.html#method_winnings">winnings()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -563,7 +667,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/App-Card-GameHelp.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/App-Card-ProjHelp.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
