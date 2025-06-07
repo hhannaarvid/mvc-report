@@ -84,13 +84,13 @@ class ProjHelp
         $hand = [];
 
         for ($i = 1; $i <= 2; $i++) {
-                //dra ett kort
-                $draw = $deck->draw();
-                //spara draget kort som sträng i array
-                $hand[] = $draw->getCardString();
-            }
-            //spara startkort för spelare1
-            $session->set($user, $hand);
+            //dra ett kort
+            $draw = $deck->draw();
+            //spara draget kort som sträng i array
+            $hand[] = $draw->getCardString();
+        }
+        //spara startkort för spelare1
+        $session->set($user, $hand);
     }
 
     public function startbank(SessionInterface $session): void

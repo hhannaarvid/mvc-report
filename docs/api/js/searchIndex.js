@@ -176,10 +176,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-ProjHelp.html#method_score3"
         },                {
-            "fqsen": "\\App\\Card\\ProjHelp\u003A\u003AstartDraws\u0028\u0029",
-            "name": "startDraws",
+            "fqsen": "\\App\\Card\\ProjHelp\u003A\u003Astart1\u0028\u0029",
+            "name": "start1",
             "summary": "",
-            "url": "classes/App-Card-ProjHelp.html#method_startDraws"
+            "url": "classes/App-Card-ProjHelp.html#method_start1"
+        },                {
+            "fqsen": "\\App\\Card\\ProjHelp\u003A\u003Astartbank\u0028\u0029",
+            "name": "startbank",
+            "summary": "",
+            "url": "classes/App-Card-ProjHelp.html#method_startbank"
         },                {
             "fqsen": "\\App\\Card\\ProjHelp\u003A\u003AcountPoints\u0028\u0029",
             "name": "countPoints",
@@ -451,6 +456,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ProjectController.html#method_playView"
         },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003AapiView\u0028\u0029",
+            "name": "apiView",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_apiView"
+        },                {
             "fqsen": "\\App\\Controller\\ProjectInitController",
             "name": "ProjectInitController",
             "summary": "",
@@ -475,6 +485,41 @@ Search.appendIndex(
             "name": "gameInit",
             "summary": "",
             "url": "classes/App-Controller-ProjectInitController.html#method_gameInit"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectJsonController",
+            "name": "ProjectJsonController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectJsonController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectJsonController\u003A\u003AapiProj\u0028\u0029",
+            "name": "apiProj",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectJsonController.html#method_apiProj"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectJsonController\u003A\u003AapiMoney\u0028\u0029",
+            "name": "apiMoney",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectJsonController.html#method_apiMoney"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectJsonController\u003A\u003AapiPlayer\u0028\u0029",
+            "name": "apiPlayer",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectJsonController.html#method_apiPlayer"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectJsonController\u003A\u003AapiStart\u0028\u0029",
+            "name": "apiStart",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectJsonController.html#method_apiStart"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectJsonController\u003A\u003AapiStartDraw\u0028\u0029",
+            "name": "apiStartDraw",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectJsonController.html#method_apiStartDraw"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectJsonController\u003A\u003AgameDeck\u0028\u0029",
+            "name": "gameDeck",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectJsonController.html#method_gameDeck"
         },                {
             "fqsen": "\\App\\Controller\\ProjectResultController",
             "name": "ProjectResultController",

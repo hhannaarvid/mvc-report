@@ -112,22 +112,22 @@ class GameHelp
             $session->set("bank-wins", $bankwins);
             return "Oavgjort!";
         } elseif ($userpoints > 21) {
-            
+
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);
             return "Banken vann!";
         } elseif ($bankpoints > 21) {
-            
+
             $userwins += 1;
             $session->set("user-wins", $userwins);
             return "Du vann!";
         } elseif ($userpoints > $bankpoints) {
-            
+
             $userwins += 1;
             $session->set("user-wins", $userwins);
             return "Du vann!";
         } else {
-            
+
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);
             return "Banken vann!";

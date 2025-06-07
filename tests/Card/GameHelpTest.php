@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Card;
-use App\Card\GameHelp; 
-use App\Card\ProjHelp;
+
+use App\Card\GameHelp;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -90,7 +90,7 @@ class GameHelpTest extends TestCase
 
     }
 
-        public function testScoreReturnsRightMessage5(): void
+    public function testScoreReturnsRightMessage5(): void
     {
         $session = $this->createMock(SessionInterface::class);
 
@@ -107,6 +107,4 @@ class GameHelpTest extends TestCase
         $this->assertEquals("Båda fick över 21, alltså vann ingen.", $message);
 
     }
-
-
 }

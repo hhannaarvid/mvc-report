@@ -9,7 +9,9 @@ MVC
 
 ## About
 This is my repo for the course mvc.
-It's a project built with the framework symfony which uses multiple techonologies such as php, twig, js, html, css and more. The last part of the course is an assignment to build a project (second picture), I chose to build a black jack game, which expands the game 21 we built earlier in the course.
+It's a project built with the framework symfony which uses multiple techonologies such as php, twig, js, html, css and more. The course purpose is also to link together what we've learned over the past year of programming in different languages and technologies. 
+
+The last part of the course is an assignment to build a project (second picture), I chose to build a black jack game, which expands the game 21 we built earlier in the course.
 
 To view this project:
 * clone the repo
