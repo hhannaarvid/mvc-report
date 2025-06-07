@@ -96,6 +96,7 @@ class ProjHelp
     public function startbank(SessionInterface $session): void
     {
         $deck = $session->get('gameDeck');
+        $bank = [];
         //bankens första kort
         $draw = $deck->draw();
         $bank[] = $draw->getCardString();

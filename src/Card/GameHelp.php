@@ -102,44 +102,36 @@ class GameHelp
     {
         $userpoints = $session->get("userpoints");
         $bankpoints = $session->get("bankpoints");
-        $message = "";
         $bankwins = $session->get("bank-wins");
         $userwins = $session->get("user-wins");
 
         if ($userpoints > 21 && $bankpoints > 21) {
-            $message = "Båda fick över 21, alltså vann ingen.";
-        }
-
-        if ($userpoints === $bankpoints) {
-            $message = "Banken vann!";
+            return "Båda fick över 21, alltså vann ingen.";
+        } elseif ($userpoints === $bankpoints) {
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);
-        }
-
-        if ($userpoints > 21) {
-            $message = "Banken vann!";
+            return "Oavgjort!";
+        } elseif ($userpoints > 21) {
+            
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);
-        }
-
-        if ($bankpoints > 21) {
-            $message = "Du vann!";
+            return "Banken vann!";
+        } elseif ($bankpoints > 21) {
+            
             $userwins += 1;
             $session->set("user-wins", $userwins);
-        }
-
-        if ($userpoints > $bankpoints) {
-            $message = "Du vann!";
+            return "Du vann!";
+        } elseif ($userpoints > $bankpoints) {
+            
             $userwins += 1;
             $session->set("user-wins", $userwins);
-        }
-
-        if ($message === "") {
-            $message = "Banken vann!";
+            return "Du vann!";
+        } else {
+            
             $bankwins += 1;
             $session->set("bank-wins", $bankwins);
+            return "Banken vann!";
         }
-        return $message;
     }
 
 }

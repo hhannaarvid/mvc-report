@@ -54,20 +54,20 @@ class ProjectController extends AbstractController
 
         //poäng för spelare 1
         $user1 = $session->get("user1");
-        $userOnePoints = $session->get("user_one_points");
+        // $userOnePoints = $session->get("user_one_points");
         $userOnePoints = $helper->countPoints($user1);
         $session->set("user_one_points", $userOnePoints);
 
         if ($session->has('user_two')) {
             $user2 = $session->get("user2");
-            $userTwoPoints = $session->get("user_two_points");
+            // $userTwoPoints = $session->get("user_two_points");
             $userTwoPoints = $helper->countPoints($user2);
             $session->set("user_two_points", $userTwoPoints);
         }
 
         if ($session->has('user_three')) {
             $user3 = $session->get("user3");
-            $userThreePoints = $session->get("user_three_points");
+            // $userThreePoints = $session->get("user_three_points");
             $userThreePoints = $helper->countPoints($user3);
             $session->set("user_three_points", $userThreePoints);
         }
@@ -207,20 +207,20 @@ class ProjectController extends AbstractController
 
         //poäng för spelare 1
         $user1 = $session->get("user1");
-        $userOnePoints = $session->get("user_one_points");
+        // $userOnePoints = $session->get("user_one_points");
         $userOnePoints = $helper->countPoints($user1);
         $session->set("user_one_points", $userOnePoints);
 
         if ($session->has('user_two')) {
             $user2 = $session->get("user2");
-            $userTwoPoints = $session->get("user_two_points");
+            // $userTwoPoints = $session->get("user_two_points");
             $userTwoPoints = $helper->countPoints($user2);
             $session->set("user_two_points", $userTwoPoints);
         }
 
         if ($session->has('user_three')) {
             $user3 = $session->get("user3");
-            $userThreePoints = $session->get("user_three_points");
+            // $userThreePoints = $session->get("user_three_points");
             $userThreePoints = $helper->countPoints($user3);
             $session->set("user_three_points", $userThreePoints);
         }
